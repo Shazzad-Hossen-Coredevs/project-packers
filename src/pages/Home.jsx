@@ -1,12 +1,13 @@
-import ButtonPrimary from "../Components/Ui Elements/Buttons/ButtonPrimary";
+import Button from "../Components/Ui Elements/Buttons/Button";
 import ProductCard from "../Components/Ui Elements/ProductCart/ProductCard";
 
 
 const Home = () => {
+
     return (
         <div className="max-w-[1280px] mx-auto">
 
-          <ButtonPrimary text="Verify Account"/>
+          <Button text="Verify Account" primary/>
           <ProductCard />
 
         </div>

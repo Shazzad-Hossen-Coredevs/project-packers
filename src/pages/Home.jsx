@@ -1,9 +1,9 @@
-import ButtonPrimary from "../Components/Buttons/ButtonPrimary";
+import ButtonPrimary from "../Components/Ui Elements/Buttons/ButtonPrimary";
 
 
 const Home = () => {
     return (
-        <div className="max-w-[800px] mx-auto">
+        <div className="max-w-[1280px] mx-auto">
 
           <ButtonPrimary text="Verify Account"/>
 

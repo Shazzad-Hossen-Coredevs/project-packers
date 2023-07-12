@@ -1,9 +1,12 @@
+import ButtonPrimary from "../Components/Buttons/ButtonPrimary";
 
 
 const Home = () => {
     return (
-        <div className="bg-[#333333]">
-          Home page  
+        <div className="max-w-[800px] mx-auto">
+
+          <ButtonPrimary text="Verify Account"/>
+
         </div>
     );
 };

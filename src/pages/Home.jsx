@@ -1,17 +1,14 @@
-import Button from "../Components/Ui Elements/Buttons/Button";
-import Carousel from "../Components/Ui Elements/Carousel/Carousel";
-import ProductCard from "../Components/Ui Elements/ProductCard/ProductCard";
-import Collapse from "../Components/Ui Elements/Collapse/Collapse";
-import Icon from "../Components/Ui Elements/Icon/Icon";
+import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 
 
 const Home = () => {
 
     return (
-        <div className="max-w-[1280px] mx-auto">
+        <div className="">
             <Header />
-          
+
+           <Footer/>
 
         </div>
     );

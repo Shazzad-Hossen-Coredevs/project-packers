@@ -11,7 +11,7 @@ import paypal from '../../assets/icons/payments/paypal.png';
 const Footer = () => {
   return (
     <div className="bg-secondary pt-14 ">
-        <div className="max-w-[1127px] mx-auto">
+        <div className="container mx-auto">
         <div className=" flex items-start justify-between">
         <div className="flex flex-col gap-5">
           <div className="w-[142px] h-11 justify-start items-center gap-2 inline-flex">
@@ -137,7 +137,7 @@ const Footer = () => {
         </div>
         </div>
       </div>
-      <div className="w-[1220px] h-[0px] opacity-10 border border-white"></div>
+      <div className="mt-[48px] h-[0px] opacity-10 border border-white"></div>
       <div className="opacity-70 text-white text-base font-normal leading-normal py-4">© Copyright 2023 Project Packers</div>
         </div>
       

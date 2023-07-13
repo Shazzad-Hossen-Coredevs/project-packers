@@ -137,8 +137,8 @@ const Footer = () => {
         </div>
         </div>
       </div>
-      <div className="w-[1220px] h-[0px] opacity-10 border border-white"></div>
-      <div className="opacity-70 text-white text-base font-normal leading-normal py-4">© Copyright 2023 Project Packers</div>
+      <div className="w-[1220px] h-[0px]  border border-white"></div>
+      <div className=" text-white text-base font-normal leading-normal py-4">© Copyright 2023 Project Packers</div>
         </div>
       
     </div>

@@ -14,10 +14,22 @@ const IconSet = {
     <path d="M10.5 15.6543H13.5" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"/>
     </svg>
     ,
-
-    
-    
-
+    searchYellow: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.5 17.5L22 22" stroke="#F2C852" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#F2C852" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>,
+    close: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 5L5 19" stroke="#000316" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M5 5L19 19" stroke="#000316" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>,
+    search: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.5 17.5L22 22" stroke="#124E58" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#124E58" stroke-width="1.5" stroke-linejoin="round"/>
+    </svg>,
+    check: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17 3.33782C15.5291 2.48697 13.8214 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 11.3151 21.9311 10.6462 21.8 10" stroke="#F2C852" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M8 12.5C8 12.5 9.5 12.5 11.5 16C11.5 16 17.0588 6.83333 22 5" stroke="#F2C852" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>,    
     
 }
 const Icon = ({name}) => {

@@ -1,7 +1,6 @@
-const ShortsPlayer = ({videoId}) => {
-    
-    return (
-      <div className="max-w-screen-md mx-auto">
+const ShortsPlayer = ({ videoId }) => {
+  return (
+    <div className="max-w-screen-md ">
       <div className="relative overflow-hidden h-[400px] w-[283px]">
         <iframe
           className="absolute top-0 left-0 w-full h-full"
@@ -11,7 +10,7 @@ const ShortsPlayer = ({videoId}) => {
         ></iframe>
       </div>
     </div>
-    );
-  };
+  );
+};
 
 export default ShortsPlayer;

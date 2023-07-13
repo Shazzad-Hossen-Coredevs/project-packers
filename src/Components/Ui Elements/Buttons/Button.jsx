@@ -12,7 +12,7 @@ onBlur: function will trigger when button will blur
 const Button = ({text,primary, secondary,onClick,onBlur}) => {
    
     return (
-       <button onClick={onClick} onBlur={onBlur} className={`${primary?'bg-primary text-secondary':secondary ? 'bg-secondary text-[#ffffff]':'bg-[#ffffff] text-secondary border-2 border-primary'} py-[17px] px-[20px] rounded-[50px] text-center  text-sm font-bold `}>{text}</button>
+       <button onClick={onClick} onBlur={onBlur} className={`${primary?'bg-primary text-secondary':secondary ? 'bg-secondary text-[#ffffff]':'bg-[#ffffff] text-secondary border-2 border-primary'} py-[11px] px-[20px] rounded-[50px] font-sans  min-w-fit text-center  text-sm font-bold `}>{text}</button>
     );
 };
 

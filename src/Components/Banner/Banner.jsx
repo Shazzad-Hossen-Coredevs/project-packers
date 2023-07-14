@@ -1,6 +1,6 @@
-import Input from "../Ui Elements/Input/Input";
-import Button from "../Ui Elements/Buttons/Button";
-import Icon from "../Ui Elements/Icon/Icon";
+import Input from "../UiElements/Input/Input";
+import Button from "../UiElements/Buttons/Button";
+import Icon from "../UiElements/Icon/Icon";
 import image from "../../assets/Image/bannerImage.png";
 
 const Banner = () => {

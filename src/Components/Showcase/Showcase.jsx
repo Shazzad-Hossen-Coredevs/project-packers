@@ -55,7 +55,7 @@ const Showcase = () => {
         />
       </div>
       <div className="mt-8">
-        <Button arrow text="View More Items" primary />
+        <Button type="primary" arrow>View More Items</Button>
       </div>
     </div>
   );

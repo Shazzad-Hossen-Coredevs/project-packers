@@ -1,6 +1,7 @@
 import Input from "../UiElements/Input/Input";
 import Button from "../UiElements/Buttons/Button";
-import Icon from "../UiElements/Icon/Icon";
+// import Icon from "../UiElements/Icon/Icon";
+import check from "../../assets/icons/Project Packers/cd-checkmark-circle.svg";
 import image from "../../assets/Image/bannerImage.png";
 
 const Banner = () => {
@@ -31,20 +32,20 @@ const Banner = () => {
             <Button type="primary">Create Request</Button>
           </div>
           <div className="hidden md:block">
-          <div className="flex gap-[30px] mt-[5em]">
-            <div className="flex gap-2 ">
-              <Icon name="check" />
-              <p className="text-white text-[14px] font-sans w-[145px] font-bold">
-                Receive your product in 1–2 weeks
-              </p>
+            <div className="flex gap-[30px] mt-[5em]">
+              <div className="flex gap-2 items-start">
+                <img src={check} alt="" />
+                <p className="text-white text-[14px] font-sans w-[145px] font-bold">
+                  Receive your product in 1–2 weeks
+                </p>
+              </div>
+              <div className="flex gap-2 items-start ">
+                <img src={check} alt="" />
+                <p className="text-white text-[14px] font-sans w-[145px] font-bold">
+                  Receive your product in 1–2 weeks
+                </p>
+              </div>
             </div>
-            <div className="flex gap-2 ">
-              <Icon name="check" />
-              <p className="text-white text-[14px] font-sans w-[145px] font-bold">
-                Receive your product in 1–2 weeks
-              </p>
-            </div>
-          </div>
           </div>
         </div>
 
@@ -52,7 +53,6 @@ const Banner = () => {
           <img className="w-full h-auto" src={image} />
         </div>
       </div>
-
     </div>
   );
 };

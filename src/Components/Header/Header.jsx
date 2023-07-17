@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
-import Button from "../Ui Elements/Buttons/Button";
-import Input from "../Ui Elements/Input/Input";
+import Button from "../UiElements/Buttons/Button";
+import Input from "../UiElements/Input/Input";
 const Header = () => {
   return (
     <div className="sticky top-0  bg-white z-50">
@@ -27,8 +27,8 @@ const Header = () => {
             Support
           </Link>
           <div className="flex gap-2 items-center">
-            <Button text="Login" />
-            <Button text="Sign Up" secondary />
+            <Button type="outline">Login</Button>
+            <Button type="secondary">Sign Up</Button>
           </div>
         </div>
       </div>

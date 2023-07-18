@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
-import IconCall from "../../assets/icons/Project Packers/cd-call-green.svg";
-import IconSupport from "../../assets/icons/Project Packers/cd-customer-support-green.svg";
-import IconLoaction from "../../assets/icons/Project Packers/cd-location-green.svg";
-import visa from "../../assets/icons/payments/visa.png";
-import masterCard from "../../assets/icons/payments/mastercard.png";
-import aExpress from "../../assets/icons/payments/american-express.png";
-import bkash from "../../assets/icons/payments/bkash.png";
-import rocket from "../../assets/icons/payments/rocket.png";
-import nagad from "../../assets/icons/payments/nagad.png";
-import dbbl from "../../assets/icons/payments/dbbl.png";
-import paypal from "../../assets/icons/payments/paypal.png";
-import facebook from "../../assets/icons/Project Packers/cd-facebook.svg";
-import insta from "../../assets/icons/Project Packers/cd-instagram.svg";
-import twitter from "../../assets/icons/Project Packers/cd-twitter.svg";
+import IconCall from "../../assets/icons/cd-call-green.svg";
+import IconSupport from "../../assets/icons/cd-customer-support-green.svg";
+import IconLoaction from "../../assets/icons/cd-location-green.svg";
+import visa from "../../assets/icons/visa.png";
+import masterCard from "../../assets/icons/mastercard.png";
+import aExpress from "../../assets/icons/american-express.png";
+import bkash from "../../assets/icons/bkash.png";
+import rocket from "../../assets/icons/rocket.png";
+import nagad from "../../assets/icons/nagad.png";
+import dbbl from "../../assets/icons/dbbl.png";
+import paypal from "../../assets/icons/paypal.png";
+import facebook from "../../assets/icons/cd-facebook.svg";
+import insta from "../../assets/icons/cd-instagram.svg";
+import twitter from "../../assets/icons/cd-twitter.svg";
 const Footer = () => {
   return (
     <footer className="bg-secondary pt-14 mt-[34px] sm:mt-[74px]">

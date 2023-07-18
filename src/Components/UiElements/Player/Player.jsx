@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-import play from "../../../assets/icons/Project Packers/play.svg";
-import pasue from "../../../assets/icons/Project Packers/pause.svg";
+import play from "../../../assets/icons/play.svg";
+import pasue from "../../../assets/icons/pause.svg";
 const Player = ({url}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);

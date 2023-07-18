@@ -1,7 +1,7 @@
 import Input from "../UiElements/Input/Input";
 import Button from "../UiElements/Buttons/Button";
 // import Icon from "../UiElements/Icon/Icon";
-import check from "../../assets/icons/Project Packers/cd-checkmark-circle.svg";
+import check from "../../assets/icons/cd-checkmark-circle.svg";
 import image from "../../assets/Image/bannerImage.png";
 
 const Banner = () => {

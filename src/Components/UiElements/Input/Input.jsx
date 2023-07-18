@@ -1,5 +1,5 @@
 
-import search from '../../../assets/icons/Project Packers/cd-search.svg'
+import search from '../../../assets/icons/cd-search.svg'
 
 const Input = ({type, placeholder, icon}) => {
   return (

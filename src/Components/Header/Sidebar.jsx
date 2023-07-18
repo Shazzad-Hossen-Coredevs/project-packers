@@ -1,10 +1,10 @@
 import logo from "../../assets/logo.svg";
 import Button from "../UiElements/Buttons/Button";
 import Icon from "../UiElements/Icon/Icon";
-import user from "../../assets/icons/Project Packers/Avatar.svg";
-import notification from "../../assets/icons/Project Packers/cd-notification.svg";
-import support from "../../assets/icons/Project Packers/cd-customer-support.svg";
-import logout from "../../assets/icons/Project Packers/logout-01.svg";
+import user from "../../assets/icons/Avatar.svg";
+import notification from "../../assets/icons/cd-notification.svg";
+import support from "../../assets/icons/cd-customer-support.svg";
+import logout from "../../assets/icons/logout-01.svg";
 import { Link } from "react-router-dom";
 const Sidebar = ({ state }) => {
   if (state) {

@@ -1,4 +1,4 @@
-import search from "../../../assets/icons/Project Packers/searchYellow.svg";
+import search from "../../../assets/icons/searchYellow.svg";
 const Query = ({ title, description }) => {
   return (
     <div className="flex gap-5 flex-wrap items-start mb-12">

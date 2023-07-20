@@ -20,9 +20,9 @@ const Login = () => {
     },
   });
   return (
-    <div className="bg-secondary pt-[10vh] pb-[15vh]">
+    <div className="bg-secondary pt-[10vh] pb-[15vh] min-h-[calc(100vh-241px)]">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap">
-        <div className="max-w-[30vw]">
+        <div className="w-full sm:max-w-[30vw]">
           <p className="text-white text-[52px] font-sora font-extrabold">
             Welcome Back
           </p>
@@ -36,33 +36,11 @@ const Login = () => {
                 change={loginForm.handleChange}
                 blur={loginForm.handleBlur}
                 value={loginForm.values.email}
-                error={loginForm.errors.email && loginForm.touched.email}
+                error={(loginForm.touched.email && loginForm.errors.email) ? loginForm.errors.email : null }
                 type="email"
                 placeholder="Enter your Email Address"
                 label="Email Address/ Phone number"
               />
-              {loginForm.errors.email && loginForm.touched.email ? (
-                <div className="flex absolute right-0 -bottom-8 gap-2 bg-red-600 items-center py-1 px-2 rounded-full w-fit">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18ZM9 8.9996C9 9.55188 9.44772 9.9996 10 9.9996C10.5523 9.9996 11 9.55188 11 8.9996V6.9996C11 6.44732 10.5523 5.9996 10 5.9996C9.44772 5.9996 9 6.44732 9 6.9996V8.9996ZM9 12.9996C9 13.5519 9.44772 13.9996 10 13.9996C10.5523 13.9996 11 13.5519 11 12.9996C11 12.4473 10.5523 11.9996 10 11.9996C9.44772 11.9996 9 12.4473 9 12.9996Z"
-                      fill="white"
-                    />
-                  </svg>
-
-                  <span className=" text-white font-sans text-xs font-semibold">
-                    {loginForm.errors.email}
-                  </span>
-                </div>
-              ) : null}
             </div>
             <div className="relative">
               <Input
@@ -70,35 +48,14 @@ const Login = () => {
                 change={loginForm.handleChange}
                 blur={loginForm.handleBlur}
                 value={loginForm.values.password}
-                error={loginForm.errors.password && loginForm.touched.password}
+                error={(loginForm.errors.password && loginForm.touched.password) ? loginForm.errors.password : null}
                 type="password"
                 placeholder="Enter your Password"
                 label="Password"
               />
-              {loginForm.errors.password && loginForm.touched.password ? (
-                <div className="flex absolute right-0 -bottom-8 gap-2 bg-red-600 items-center py-1 px-2 rounded-full w-fit">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18ZM9 8.9996C9 9.55188 9.44772 9.9996 10 9.9996C10.5523 9.9996 11 9.55188 11 8.9996V6.9996C11 6.44732 10.5523 5.9996 10 5.9996C9.44772 5.9996 9 6.44732 9 6.9996V8.9996ZM9 12.9996C9 13.5519 9.44772 13.9996 10 13.9996C10.5523 13.9996 11 13.5519 11 12.9996C11 12.4473 10.5523 11.9996 10 11.9996C9.44772 11.9996 9 12.4473 9 12.9996Z"
-                      fill="white"
-                    />
-                  </svg>
-
-                  <span className=" text-white font-sans text-xs font-semibold">
-                    {loginForm.errors.password}
-                  </span>
-                </div>
-              ) : null}
+        
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between mt-[10px]">
               <div className="font-sans text-base ">
                 <input
                   type="checkbox"
@@ -109,7 +66,7 @@ const Login = () => {
                 />
                 <label className="text-white pl-2">Remember me</label>
               </div>
-              <Link className="text-primary" to="/">
+              <Link className="text-primary" to="/reset">
                 Forgot Password?
               </Link>
             </div>
@@ -124,14 +81,14 @@ const Login = () => {
                 <img src={apple} alt="" />
               </span>
               <Button full className="w-full" type="primary">
-                hello
+                Login
               </Button>
             </div>
           </form>
         </div>
-        <div className="flex flex-col gap-5 w-full h-full justify-center items-end">
+        <div className="flex flex-col  w-full h-full justify-center items-end">
           <div className="max-w-[490px]">
-            <p className="text-[24px] font-sans font-medium text-white">
+            <p className="text-[24px] font-sans font-medium text-white mb-5">
               Log in to access your Project Packers Platform for order your
               products from any USA website.
             </p>

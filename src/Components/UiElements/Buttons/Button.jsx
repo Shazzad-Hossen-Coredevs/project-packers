@@ -28,7 +28,7 @@ const Button = ({ arrow, children,full, type, onClick, onBlur }) => {
           : "bg-[#ffffff] text-secondary border-2 border-primary"
       }
              rounded-[50px] font-sans w-full ${full != undefined ? "w-full" :"sm:max-w-fit"} text-center  text-sm font-bold 
-             hover:drop-shadow-lg active:scale-95
+             hover:drop-shadow-lg active:scale-[0.99]
         `}
     >
       <span className="justify-center flex gap-3 ">

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 import IconCall from "../../assets/icons/cd-call-green.svg";
 import IconSupport from "../../assets/icons/cd-customer-support-green.svg";
@@ -15,6 +15,25 @@ import facebook from "../../assets/icons/cd-facebook.svg";
 import insta from "../../assets/icons/cd-instagram.svg";
 import twitter from "../../assets/icons/cd-twitter.svg";
 const Footer = () => {
+  const location = useLocation().pathname;
+  if (
+    location === "/login" ||
+    location === "/reset" ||
+    location === "/signup"
+  ) {
+    return (
+      <footer className="bg-secondary pt-14">
+        <div className="container mx-auto flex flex-col items-center ">
+          <div className="flex w-full justify-center py-7 sm:px-0 flex-col sm:flex-row border-t border-[#FFFFFF33]">
+            <p className="font-sans text-center font-normal text-base text-[#ffffffb0] ">
+              Use of Project Packers signifies agreement with our Privacy Notice
+              and Terms of Service <br /> © 2023 Project Packers. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    );
+  }
   return (
     <footer className="bg-secondary pt-14">
       <div className="container mx-auto flex flex-col items-center ">
@@ -86,7 +105,7 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-8">
             <p className="text-[#6BCCCB] font-sans text-lg font-semibold">
-            Payment Methods
+              Payment Methods
             </p>
             <div className="grid grid-cols-4  gap-2">
               <img className="w-full" src={visa} alt="" />

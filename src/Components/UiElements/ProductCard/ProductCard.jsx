@@ -4,7 +4,7 @@
 
 function ProductCard({url, title, price}) {
     return (
-            <div className="max-w-[283px] w-full px-[10px] py-[20px] flex-col justify-start items-start gap-[30px] inline-flex">
+            <div className="max-w-[283px] bg-white w-full px-[10px] py-[20px] flex-col justify-start items-start gap-[30px] inline-flex">
                 <img className="w-full h-full rounded-xl" src={url} />
                 <div className="flex-col justify-start items-start gap-4 flex">
                     <p className=" text-secondary text-[16px] sm:text-[18px] text-lg font-medium sm:font-bold leading-normal">{title}</p>

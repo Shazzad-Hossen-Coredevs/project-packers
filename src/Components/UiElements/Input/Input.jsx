@@ -13,7 +13,9 @@ const Input = ({
   blur,
   error,
   children,
-  border
+  border,
+  min,
+  max,
 }) => {
   return (
     <div className="relative ">
@@ -30,10 +32,13 @@ const Input = ({
           }`}
           value={value}
           name={name}
+          placeholder={placeholder}
+          type={type}
+          minLength={min}
+          maxLength={max}
           onChange={change}
           onBlur={blur}
-          type={type}
-          placeholder={placeholder}
+          
         />
       </div>
       {error && (

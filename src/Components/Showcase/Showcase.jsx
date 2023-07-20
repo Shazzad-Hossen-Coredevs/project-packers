@@ -12,7 +12,7 @@ const Showcase = () => {
         title="Trending products on  Project Packers "
         description="Get inspired by what people in your city are buying from abroad with the biggest savings"
       />
-      <div className="grid divide-x divide-y grid-rows-2 p-2 grid-cols-2 sm:grid-cols-4">
+      <div className="grid bg-[#124E581A] py-[1px] gap-[1px] grid-rows-2  grid-cols-2 sm:grid-cols-4">
         <ProductCard
           url={product1}
           title="iConnect by Timex Active Smartwatch"

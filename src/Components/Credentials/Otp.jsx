@@ -19,6 +19,7 @@ const Otp = () => {
             placeholder="*"
             change={""}
             blur={""}
+            max={1}
             // value={""}
             type="text"
           />
@@ -27,7 +28,8 @@ const Otp = () => {
             placeholder="*"
             change={""}
             blur={""}
-            value={""}
+            max={1}
+            // value={""}
             type="text"
           />
             <Input
@@ -35,7 +37,8 @@ const Otp = () => {
             placeholder="*"
             change={""}
             blur={""}
-            value={""}
+            max={1}
+            // value={""}
             type="text"
           />
             <Input
@@ -43,7 +46,8 @@ const Otp = () => {
             placeholder="*"
             change={""}
             blur={""}
-            value={""}
+            max={1}
+            // value={""}
             type="text"
           />
           

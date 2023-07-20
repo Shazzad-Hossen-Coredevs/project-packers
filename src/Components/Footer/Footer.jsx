@@ -16,7 +16,7 @@ import insta from "../../assets/icons/cd-instagram.svg";
 import twitter from "../../assets/icons/cd-twitter.svg";
 const Footer = () => {
   return (
-    <footer className="bg-secondary pt-14 mt-[34px] sm:mt-[74px]">
+    <footer className="bg-secondary pt-14">
       <div className="container mx-auto flex flex-col items-center ">
         <div className="grid grid-cols-1 px-5 sm:px-0 sm:grid-cols-4 gap-8 pb-12 border-b border-[#FFFFFF33]">
           <div className="flex flex-col gap-8">

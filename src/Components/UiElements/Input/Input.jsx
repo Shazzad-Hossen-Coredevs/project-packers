@@ -1,15 +1,24 @@
+// import search from "../../../assets/icons/cd-search.svg";
 
-import search from '../../../assets/icons/cd-search.svg'
-
-const Input = ({type, placeholder, icon}) => {
+const Input = ({ label,name, type, placeholder, value, change, blur, error }) => {
   return (
-
-
-    <div className="flex bg-white items-center w-full max-w-[700px] gap-[10px] border border-secondary rounded-[50px] py-[10px] px-[20px]">
-        {icon &&<img src={search} alt="" />}
-        <input className="rounded-[50px] w-full font-sans font-medium focus:outline-none placeholder:text-secondary text-xs sm:placeholder:text-base px-2 " type={type} placeholder={placeholder} />
+    <div>
+      {label && (
+        <label className="text-white block font-sans font-semibold text-lg pb-2">
+          {label}
+        </label>
+      )}
+      <input
+        className={`px-5 py-4 rounded-full w-full outline-none placeholder-secondary text-secondary ${error && "border border-red-600"}`}
+        value={value}
+        name={name}
+        onChange={change}
+        onBlur={blur}
+        type={type}
+        placeholder={placeholder}
+      />
+    
     </div>
-  
   );
 };
 

@@ -46,7 +46,7 @@ const DUMMY_CART = [
   {
     id: 1,
     image: 'https://source.unsplash.com/random/300×300/?Iphone',
-    title: 'OTTERBOX COMMUTER SERIES Case for iPhone 12 & iPhone 12 Pro',
+    title: 'OTTERBOX COMMUTER SERIES Case for iPhone 12 & iPhone 12 Pro OTTERBOX COMMUTER SERIES Case for iPhone 12 & iPhone 12 Pro',
     price: "720",
     qty: '1'
 
@@ -80,14 +80,14 @@ const Header = ({ sideBar, state }) => {
   return (
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50">
       <div className="container hidden  sm:flex mx-auto navbar gap-4 py-[25px] items-center justify-between">
-        <div className="w-[142px] h-11 justify-start items-center gap-2 inline-flex flex-shrink-0">
+        <Link to="/" className="w-[142px] h-11 justify-start items-center gap-2 inline-flex flex-shrink-0">
           <img src={Logo} alt="Project Packers" />
           <div className="text-secondary text-base font-bold leading-none">
             Project
             <br />
             Packers
           </div>
-        </div>
+        </Link>
         <Input
           icon="searchYellow"
           type="text"

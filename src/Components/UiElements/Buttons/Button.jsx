@@ -9,7 +9,7 @@ arrow: arrow left will appear
 [if primary or secondary is not passed there will be apply a default style ]
                
 */
-const Button = ({ arrow, children, type, onClick, onBlur }) => {
+const Button = ({ arrow, children,full, type, onClick, onBlur }) => {
   const styles = {
     text: "",
     primary: "bg-primary text-secondary py-[17px] px-[20px]",
@@ -27,7 +27,7 @@ const Button = ({ arrow, children, type, onClick, onBlur }) => {
           ? styles[type]
           : "bg-[#ffffff] text-secondary border-2 border-primary"
       }
-             rounded-[50px] font-sans w-full sm:max-w-fit text-center  text-sm font-bold 
+             rounded-[50px] font-sans w-full ${full != undefined ? "w-full" :"sm:max-w-fit"} text-center  text-sm font-bold 
              hover:drop-shadow-lg active:scale-95
         `}
     >

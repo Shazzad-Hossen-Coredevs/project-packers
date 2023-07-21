@@ -93,7 +93,7 @@ const Login = () => {
             </div>
           </form>
         </div>
-        <div className="flex flex-col  w-full h-full justify-center items-end">
+        <div className="flex flex-col  w-full h-full justify-center items-center">
           <div className="max-w-[490px]">
             <p className="text-[24px] font-sans font-medium text-white mb-5">
               Log in to access your Project Packers Platform for order your

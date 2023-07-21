@@ -146,7 +146,7 @@ const Header = ({ sideBar, state }) => {
               <Link to="/login">
                 <Button onClick={()=> navigate('/login')} type="outline">Login</Button>
               </Link>
-              <Button type="secondary">Sign Up</Button>
+              <Button onClick={()=> navigate('/signup')} type="secondary">Sign Up</Button>
             </div>
           )}
         </div>

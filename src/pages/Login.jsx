@@ -36,7 +36,11 @@ const Login = () => {
                 change={loginForm.handleChange}
                 blur={loginForm.handleBlur}
                 value={loginForm.values.email}
-                error={(loginForm.touched.email && loginForm.errors.email) ? loginForm.errors.email : null }
+                error={
+                  loginForm.touched.email && loginForm.errors.email
+                    ? loginForm.errors.email
+                    : null
+                }
                 type="email"
                 placeholder="Enter your Email Address"
                 label="Email Address/ Phone number"
@@ -48,12 +52,15 @@ const Login = () => {
                 change={loginForm.handleChange}
                 blur={loginForm.handleBlur}
                 value={loginForm.values.password}
-                error={(loginForm.errors.password && loginForm.touched.password) ? loginForm.errors.password : null}
+                error={
+                  loginForm.errors.password && loginForm.touched.password
+                    ? loginForm.errors.password
+                    : null
+                }
                 type="password"
                 placeholder="Enter your Password"
                 label="Password"
               />
-        
             </div>
             <div className="flex justify-between mt-[10px]">
               <div className="font-sans text-base ">

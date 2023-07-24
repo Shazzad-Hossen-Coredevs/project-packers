@@ -8,9 +8,9 @@ function ProductCard({ url, title, price }) {
       onClick={() => console.log("pressed")}
       className="max-w-[283px] bg-white w-full px-[10px] py-[20px] flex-col justify-start items-start gap-[30px] inline-flex cursor-pointer"
     >
-      <img className="w-full h-full rounded-xl" src={url} />
-      <div className="flex-col justify-start items-start gap-4 flex">
-        <p className=" text-secondary text-[16px] sm:text-[18px] text-lg font-medium sm:font-bold leading-normal">
+      <img className="w-full h-[250px] rounded-xl" src={url} />
+      <div className="flex-col w-full justify-start items-start gap-4 flex">
+        <p className=" text-secondary text-[16px] overflow-hidden w-full truncate sm:text-[18px] text-lg font-medium sm:font-bold leading-normal">
           {title}
         </p>
         <div className="flex justify-between w-full">

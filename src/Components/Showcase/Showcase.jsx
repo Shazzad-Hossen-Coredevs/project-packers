@@ -5,7 +5,9 @@ import product2 from "../../assets/Image/product2.png";
 import product3 from "../../assets/Image/product3.png";
 import product4 from "../../assets/Image/product4.png";
 import Button from "../UiElements/Buttons/Button";
+import { useNavigate } from "react-router-dom";
 const Showcase = () => {
+  const navigate = useNavigate()
   return (
     <div className="container mx-auto flex flex-col items-center my-[34px] sm:my-[74px]">
       <Heading
@@ -55,7 +57,7 @@ const Showcase = () => {
         />
       </div>
       <div className="mt-8">
-        <Button type="primary" arrow>View More Items</Button>
+        <Button onClick={()=> navigate('/shop') } type="primary" arrow>View More Items</Button>
       </div>
     </div>
   );

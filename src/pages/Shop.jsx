@@ -10,8 +10,8 @@ const Shop = () => {
   useLayoutEffect(() => {
     dataFetch();
   }, []);
-  const dataFetch = async () => {
-    const response = await fetch("https://dummyjson.com/products").then((res) =>
+  const dataFetch = async (page = 1) => {
+    const response = await fetch(`https://dummyjson.com/products/`).then((res) =>
       res.json()
     );
 

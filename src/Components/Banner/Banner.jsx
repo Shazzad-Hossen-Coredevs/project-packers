@@ -27,7 +27,7 @@ const Banner = () => {
               <Input
                 icon="search"
                 type="text"
-                placeholder="https://www.amazon.com/Apple-iPhone-12-Pro-Graphite/dp/B09JFP3R1D/?_encoding=UTF8&pd_rd_w=5PHrN&content-id=amzn1.sym.595f69d1-9647-4ce9-9fca-a43eb1c1f3b6&pf_rd_p=595f69d1-9647-4ce9-9fca-a43eb1c1f3b6&pf_rd_r=V2QT8RP4G11B7GS3FQA0&pd_rd_wg=y7lBK&pd_rd_r=f009dcb8-79a2-4612-96e7-c5abf8475646&ref_=pd_gw_exports-popular-this-season-with-similar-asins"
+                placeholder="Paste Product url here"
               >
                 <img src={search} alt="" />
               </Input>

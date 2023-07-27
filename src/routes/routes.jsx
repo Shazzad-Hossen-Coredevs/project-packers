@@ -8,6 +8,8 @@ import Recovery from "../pages/Recovery";
 import Signup from "../pages/Signup";
 import Test from "../pages/Test";
 import Shop from "../pages/Shop";
+import Product from "../pages/Product";
+import { getApi } from "../Util/apiCall";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -32,6 +34,13 @@ export const router = createBrowserRouter([
         {
           path: '/shop',
           element: <Shop />
+        },
+        {
+          path: '/shop/:productId',
+          element: <Product />,
+          loader: async ({params}) =>{
+            return await getApi(`/product/${params.productId}`)
+          }
         },
         {
           path: '/test',

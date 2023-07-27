@@ -1,12 +1,19 @@
 import Input from "../Components/UiElements/Input/Input";
 import { useFormik } from "formik";
 import { loginSchema } from "../Util/ValidationSchema";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 import Button from "../Components/UiElements/Buttons/Button";
 import google from "../assets/icons/google-icon.svg";
 import facebook from "../assets/icons/facebook.svg";
 import apple from "../assets/icons/apple.svg";
+import { postApi } from "../Util/apiCall";
+import { useDispatch } from "react-redux";
+import { userSignin } from "../Store/userSlice";
+
 const Login = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const loginForm = useFormik({
     initialValues: {
       email: "",
@@ -15,8 +22,18 @@ const Login = () => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      console.log(values);
-      loginForm.resetForm();
+      postApi("/user/login", values).then(res => {
+        if(res.status === 200){
+          console.log(res.data)
+          dispatch(userSignin(res.data))
+          loginForm.resetForm();
+          navigate('/')
+        } else{
+        
+          toast('Here is your toast.');
+        }
+      })
+
     },
   });
   return (
@@ -62,6 +79,7 @@ const Login = () => {
                 label="Password"
               />
             </div>
+            <Toaster />
             <div className="flex justify-between mt-[10px]">
               <div className="font-sans text-base ">
                 <input
@@ -87,7 +105,7 @@ const Login = () => {
               <span className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
                 <img src={apple} alt="" />
               </span>
-              <Button full className="w-full" type="primary">
+              <Button full className="w-full" type="primary" buttonType="submit">
                 Login
               </Button>
             </div>

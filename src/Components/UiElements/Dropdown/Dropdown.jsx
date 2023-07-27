@@ -20,7 +20,7 @@ const Dropdown = ({ isOpen, type, title, data }) => {
             <div className="overflow-y-auto scrollbar max-h-[352px]">
               {data ? (
                 data.map((item) => {
-                  console.log(item);
+                
                   return (
                     <div
                       onClick={() => clickHandler(item.id)}
@@ -102,6 +102,18 @@ const Dropdown = ({ isOpen, type, title, data }) => {
         )}
       </>
     );
+  }
+  if(type === 'logout'){
+    <>
+        {isOpen && (
+          <div className="bg-white p-5 rounded-xl w-[350px] absolute top-[70px] right-0">
+            
+            <div className="overflow-y-auto scrollbar max-h-[352px]">
+              here  
+            </div>
+          </div>
+        )}
+      </>
   }
 };
 

@@ -10,6 +10,8 @@ import Test from "../pages/Test";
 import Shop from "../pages/Shop";
 import Product from "../pages/Product";
 import { getApi } from "../Util/apiCall";
+import Cart from "../pages/Cart";
+import Checkout from "../pages/Checkout";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -46,10 +48,18 @@ export const router = createBrowserRouter([
             return await getApi(`/product/${params.productId}`)
           }
         },
-        
+        {
+          path:'/cart',
+          element: <Cart />
+
+        },
         {
           path: '/test',
           element: <Test />
+        },
+        {
+          path: '/checkout',
+          element: <Checkout />
         }
       ]
     },

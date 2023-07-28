@@ -27,7 +27,7 @@ const Input = ({
       <div className={`flex w-full  rounded-full ${border ? "border border-[#00000036]": ""}`}>
         {children && <div className="pl-[10px] sm:pl-5 py-4 rounded-s-full bg-white">{children}</div>}
         <input
-          className={`px-5 py-4 ${children ? 'rounded-e-full' : 'rounded-full'} w-full outline-none placeholder-secondary text-secondary border border-white ${
+          className={`px-5 py-2 ${children ? 'rounded-e-full' : 'rounded-full'} w-full outline-none placeholder-secondary text-secondary border border-white ${
             error && " border-red-600"
           }`}
           value={value}

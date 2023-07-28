@@ -22,6 +22,9 @@ const PriceCard = ({
   origin,
   arrival,
   sellerTakes,
+  tax,
+  fee,
+  estimated,
   products,
 }) => {
   return (
@@ -59,7 +62,19 @@ const PriceCard = ({
           <div className="py-4 flex justify-between">
             <p className="text-base text-[#475569]">Seller takes</p>
             <p className="text-base font-medium text-[#000316]">
-              ৳ {sellerTakes.toFixed(2)}tk
+              ৳ {sellerTakes?.toFixed(2)} tk
+            </p>
+          </div>
+          <div className="py-4 flex justify-between">
+            <p className="text-base text-[#475569]">US Sales Tax</p>
+            <p className="text-base font-medium text-[#000316]">
+              ৳ {tax?.toFixed(2)} tk
+            </p>
+          </div>
+          <div className="py-4 flex justify-between">
+            <p className="text-base text-[#475569]">Packers Fee</p>
+            <p className="text-base font-medium text-[#000316]">
+              ৳ {fee?.toFixed(2)} tk
             </p>
           </div>
         </>
@@ -76,7 +91,7 @@ const PriceCard = ({
                 key={item.id}
                 className="flex text-base text-[#475569] justify-between py-4 border-b border-[#0000000D]"
               >
-                <p className="font-normal">{item.title}</p>
+                <p className="font-normal line-clamp-1 max-w-[200px] sm:max-w-[350px] ">{item.title}</p>
                 <p className="font-medium">৳ {item.price?.toFixed(2)}tk</p>
               </div>
             );
@@ -88,18 +103,32 @@ const PriceCard = ({
           <p className="font-normal text-base text-[#475569] py-4 ">Shipping</p>
           <div className="pb-4">
             <div className="flex gap-2 py-1">
-              <input className="accent-yellow-700" type="radio" name="shipping" id="" checked />
+              <input
+                className="accent-yellow-700"
+                type="radio"
+                name="shipping"
+                id=""
+                checked
+              />
               <div className="flex w-full justify-between">
-              <label className="text-[#475569]" htmlFor="shipping">Inside Dhaka</label>
-              <p className="text-[#000316]">৳ 99.00tk </p>
+                <label className="text-[#475569]" htmlFor="shipping">
+                  Inside Dhaka
+                </label>
+                <p className="text-[#000316]">৳ 99.00tk </p>
               </div>
-
             </div>
             <div className="flex gap-2 py-1">
-              <input className="accent-yellow-700" type="radio" name="shipping" id=""  />
+              <input
+                className="accent-yellow-700"
+                type="radio"
+                name="shipping"
+                id=""
+              />
               <div className="flex w-full justify-between">
-              <label className="text-[#475569]" htmlFor="shipping">Outside Dhaka</label>
-              <p className="text-[#000316] font-medium">৳ 150.00tk </p>
+                <label className="text-[#475569]" htmlFor="shipping">
+                  Outside Dhaka
+                </label>
+                <p className="text-[#000316] font-medium">৳ 150.00tk </p>
               </div>
             </div>
           </div>
@@ -110,7 +139,7 @@ const PriceCard = ({
           <div className="py-4 border-t border-[#0000000D] flex justify-between">
             <p className="text-base text-[#000316]">Estimated total</p>
             <p className="text-xl font-bold text-secondary">
-              ৳ {sellerTakes?.toFixed(2)}tk
+              ৳ {estimated?.toFixed(2)} tk
             </p>
           </div>
         </>

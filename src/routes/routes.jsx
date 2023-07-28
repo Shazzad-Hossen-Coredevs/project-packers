@@ -33,15 +33,20 @@ export const router = createBrowserRouter([
         },
         {
           path: '/shop',
-          element: <Shop />
+          element: <Shop />,
+          // loader: async () =>{
+          //   return await 
+          // }
+          
         },
         {
-          path: '/shop/:productId',
+          path: 'shop/:productId',
           element: <Product />,
           loader: async ({params}) =>{
             return await getApi(`/product/${params.productId}`)
           }
         },
+        
         {
           path: '/test',
           element: <Test />

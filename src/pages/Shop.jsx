@@ -37,7 +37,8 @@ const Shop = () => {
                 {data?.slice(0, 20).map((item) => {
                   return (
                     <ProductCard
-                      key={item.id}
+                    key={item.id}
+                      id={item.id}
                       title={item.title}
                       url={item.thumbnail}
                       price={item.price}

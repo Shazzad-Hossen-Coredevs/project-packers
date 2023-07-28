@@ -1,11 +1,13 @@
 // * product card component
 // ? props => image url, product title, product price
-// todo colors need to fix
 
-function ProductCard({ url, title, price }) {
+import { useNavigate } from "react-router-dom";
+
+function ProductCard({  id = 0, url, title, price }) {
+  const navigate = useNavigate();
   return (
     <div
-      onClick={() => console.log("pressed")}
+      onClick={() => navigate(`/shop/${id}`)}
       className="max-w-[283px] bg-white w-full px-[10px] py-[20px] flex-col justify-start items-start gap-[30px] inline-flex cursor-pointer"
     >
       <img className="w-full h-[250px] rounded-xl" src={url} />

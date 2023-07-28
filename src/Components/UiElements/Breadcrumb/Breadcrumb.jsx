@@ -5,14 +5,14 @@ const Breadcrumb = () => {
   const breadcrumb = useBreadcrumb();
   return (
     <div className="bg-secondary w-full py-[14px] font-sans text-sm">
-      <div className="container mx-auto">
+      <div className="container px-2 sm:px-0 mx-auto">
         <Link className="text-[#ffffff66] " to="/">
           Home
         </Link>
         {breadcrumb.map((item, index) => {
           return (
             <div className="inline" key={index}>
-              {index === breadcrumb.length - 1 && (
+              {index !== breadcrumb.length  && (
                 <span className="px-2 text-[#ffffff66]">/</span>
               )}
               <Link

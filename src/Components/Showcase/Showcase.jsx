@@ -1,64 +1,30 @@
 import Heading from "../UiElements/Heading/Heading";
 import ProductCard from "../UiElements/ProductCard/ProductCard";
-import product1 from "../../assets/Image/product1.png";
-import product2 from "../../assets/Image/product2.png";
-import product3 from "../../assets/Image/product3.png";
-import product4 from "../../assets/Image/product4.png";
 import Button from "../UiElements/Buttons/Button";
+// import Slider from "../UiElements/Slider/Slider";
 import { useNavigate } from "react-router-dom";
-const Showcase = () => {
+const Showcase = ({type, title, description, data}) => {
   const navigate = useNavigate()
+  const item = type === "slide" ? 4 : 8
   return (
     <div className="container mx-auto flex flex-col items-center my-[34px] sm:my-[74px]">
       <Heading
-        title="Trending products on  Project Packers "
-        description="Get inspired by what people in your city are buying from abroad with the biggest savings"
+        title={title}
+        description={description}
       />
-      <div className="grid bg-[#124E581A] py-[1px] gap-[1px] grid-rows-2  grid-cols-2 sm:grid-cols-4">
-        <ProductCard
-          url={product1}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
-        <ProductCard
-          url={product2}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
-        <ProductCard
-          url={product3}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
-        <ProductCard
-          url={product4}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
-        <ProductCard
-          url={product1}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
-        <ProductCard
-          url={product2}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
-        <ProductCard
-          url={product3}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
-        <ProductCard
-          url={product4}
-          title="iConnect by Timex Active Smartwatch"
-          price="28.95"
-        />
+      <div className="grid bg-[#124E581A] py-[1px] gap-[1px]   grid-cols-2 sm:grid-cols-4">
+        {
+          data?.slice(0, item).map(item=> {
+            return (
+              <ProductCard key={item.id} id={item.id} url={item.thumbnail} title={item.title} price={item.price} />
+            )
+          })
+        }
+       
       </div>
-      <div className="mt-8">
+     {type !== "slide" && <div className="mt-8">
         <Button onClick={()=> navigate('/shop') } type="primary" arrow>View More Items</Button>
-      </div>
+      </div>}
     </div>
   );
 };

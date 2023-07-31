@@ -15,6 +15,8 @@ import Checkout from "../pages/Checkout";
 import Blog from "../pages/Blog";
 import BlogPost from "../pages/BlogPost";
 import About from "../pages/About";
+import FaqPage from "../pages/FaqPage";
+import Orders from "../pages/Orders";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -75,6 +77,14 @@ export const router = createBrowserRouter([
         {
           path: '/about',
           element: <About />
+        },
+        {
+          path: '/faq',
+          element: <FaqPage />
+        },
+        {
+          path:'account/orders',
+          element: <Orders />
         }
       ]
     },

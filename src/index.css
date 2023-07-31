@@ -31,3 +31,8 @@
     border-radius: 5px;
 	/* border: 2px solid #555555; */
 }
+
+main {
+	min-height: calc(100vh - 541.328px);
+	
+}

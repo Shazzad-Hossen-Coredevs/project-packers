@@ -12,6 +12,9 @@ import Product from "../pages/Product";
 import { getApi } from "../Util/apiCall";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
+import Blog from "../pages/Blog";
+import BlogPost from "../pages/BlogPost";
+import About from "../pages/About";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -60,6 +63,18 @@ export const router = createBrowserRouter([
         {
           path: '/checkout',
           element: <Checkout />
+        },
+        {
+          path: '/blog',
+          element: <Blog />
+        },
+        {
+          path:'/blog/:postId',
+          element: <BlogPost />
+        },
+        {
+          path: '/about',
+          element: <About />
         }
       ]
     },

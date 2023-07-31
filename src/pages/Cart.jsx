@@ -1,4 +1,5 @@
 import PriceCard from "../Components/PriceCard/PriceCard";
+import Breadcrumb from "../Components/UiElements/Breadcrumb/Breadcrumb";
 import Button from "../Components/UiElements/Buttons/Button";
 import CartItem from "../Components/UiElements/CartItem/CartItem";
 import Input from "../Components/UiElements/Input/Input";
@@ -29,6 +30,8 @@ const cartItems = [
 ];
 const Cart = () => {
   return (
+    <>
+    <Breadcrumb />
     <div className="container mx-auto py-12 ">
       <div className="grid grid-cols-5 gap-8">
         <div className="col-span-5 sm:col-span-3 px-5 sm:px-0">
@@ -70,6 +73,7 @@ const Cart = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

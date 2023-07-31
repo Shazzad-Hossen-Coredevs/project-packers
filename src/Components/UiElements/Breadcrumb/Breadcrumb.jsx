@@ -17,11 +17,11 @@ const Breadcrumb = () => {
               )}
               <Link
                 key={index}
-                className={
+                className={`${
                   index === breadcrumb.length - 1
                     ? "text-white"
                     : "text-[#ffffff66]"
-                }
+                } capitalize`}
                 to={item.url}
               >
                 {item.label}

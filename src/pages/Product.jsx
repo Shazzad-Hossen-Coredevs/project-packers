@@ -6,13 +6,14 @@ import PriceCard from "../Components/PriceCard/PriceCard";
 import Showcase from "../Components/Showcase/Showcase";
 import Breadcrumb from "../Components/UiElements/Breadcrumb/Breadcrumb";
 import GalleryCard from "../Components/UiElements/GalleryCard/GalleryCard";
-import Slider from "../Components/UiElements/Slider/Slider";
+// import Slider from "../Components/UiElements/Slider/Slider";
 import { products } from "../Store/Data";
 
 const Product = () => {
   // const productId = useLoaderData()
   return (
     <>
+      <main>
       <Breadcrumb />
       <div className="container mx-auto my-12">
         <div className="grid grid-cols-5 px-2 sm:px-0 gap-8">
@@ -50,6 +51,8 @@ const Product = () => {
             {/* <Slider items={products} /> */}
         </div>
       </div>
+      
+      </main>
     </>
   );
 };

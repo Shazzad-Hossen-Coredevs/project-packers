@@ -9,12 +9,11 @@ import notification from "../../assets/icons/cd-notification.svg";
 import profile from "../../assets/icons/user-1.svg";
 import Icon from "../UiElements/Icon/Icon";
 import search from "../../assets/icons/cd-search.svg";
-import logoutIcon from "../../assets/icons/logout-01.svg";
 import { useState } from "react";
 import Dropdown from "../UiElements/Dropdown/Dropdown";
 import ScrollTop from "../../Util/ScrollTop";
-import { useDispatch, useSelector } from "react-redux";
-import { userSignout } from "../../Store/userSlice";
+import {  useSelector } from "react-redux";
+
 
 const DUMMY_NOTIFICATION = [
   {
@@ -68,7 +67,7 @@ const DUMMY_CART = [
 ];
 const Header = ({ sideBar, state }) => {
   const { user } = useSelector((state) => state.userInfo);
-  const dispatch = useDispatch()
+  
   const [cartState, setCartState] = useState(false);
   const [notifyState, setNotifyState] = useState(false);
   const [accountState, setAccountState] = useState(false);
@@ -144,20 +143,17 @@ const Header = ({ sideBar, state }) => {
                 />
               </div>
               <div className="relative">
-                <div onClick={()=> setAccountState(!accountState)} className="flex gap-2 items-center cursor-pointer">
+                <Link
+                  to='/account/orders'
+                  className="flex gap-2 items-center cursor-pointer"
+                >
                   <Icon type="active" unread={false} icon={profile} />
                   <p className="font-sans text-secondary text-sm font-semibold">
                     {user.name || "User"}
                   </p>
-                </div>
-                {/* <div  className="absolute -bottom-[4.6rem] rounded-full bg-white py-3 border border-[#ffffff0d] shadow-md px-4 w-max">
-                  <div onClick={()=> dispatch(userSignout())} className="flex gap-4 cursor-pointer">
-                    <span className=" text-secondary">Logout</span>
-                    <img src={logoutIcon} alt="" />
-                  </div>
-                </div> */}
+                </Link>
               </div>
-                <Dropdown type="logout" isOpen={true}  />
+              <Dropdown type="logout" isOpen={true} />
             </div>
           ) : (
             <div className="flex gap-2 items-center">

@@ -24,7 +24,7 @@ const Signup = () => {
     },
     validationSchema: signupSchema,
     onSubmit: (values) => {
-        const data = {...values, phone: conutryCode + +values.phone}
+        const data = {...values, phone: conutryCode + values.phone}
       console.log(data);
       signupForm.resetForm();
     },

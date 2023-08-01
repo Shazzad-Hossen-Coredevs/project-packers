@@ -18,6 +18,7 @@ const Input = ({
   max,
   styles,
   required,
+  disabled
 }) => {
   return (
     <div className="relative ">
@@ -61,6 +62,7 @@ const Input = ({
           onChange={change}
           onBlur={blur}
           required={required}
+          disabled={disabled}
         />
       </div>
       {error && (

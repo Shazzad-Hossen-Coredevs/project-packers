@@ -17,6 +17,8 @@ import BlogPost from "../pages/BlogPost";
 import About from "../pages/About";
 import FaqPage from "../pages/FaqPage";
 import Orders from "../pages/Orders";
+import Notification from "../pages/Notification";
+import Support from "../pages/Support";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -85,6 +87,14 @@ export const router = createBrowserRouter([
         {
           path:'account/orders',
           element: <Orders />
+        },
+        {
+          path:"/notification",
+          element: <Notification />
+        },
+        {
+          path:"/support",
+          element: <Support />
         }
       ]
     },

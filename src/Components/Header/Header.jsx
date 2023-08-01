@@ -70,7 +70,6 @@ const Header = ({ sideBar, state }) => {
   
   const [cartState, setCartState] = useState(false);
   const [notifyState, setNotifyState] = useState(false);
-  const [accountState, setAccountState] = useState(false);
   const navigate = useNavigate();
   ScrollTop();
   const clickHandler = () => {

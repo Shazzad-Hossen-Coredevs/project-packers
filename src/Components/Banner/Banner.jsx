@@ -1,9 +1,23 @@
+import { useState } from "react";
 import Input from "../UiElements/Input/Input";
 import Button from "../UiElements/Buttons/Button";
 import check from "../../assets/icons/cd-checkmark-circle.svg";
 import image from "../../assets/Image/bannerImage.png";
 import search from "../../assets/icons/cd-search2.svg";
+import Modal from "../UiElements/Modal/Modal";
+import RequestModal from "./RequestModal";
+import SuccessModal from "./SuccessModal";
 const Banner = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const url = e.target[0].value;
+    console.log(url);
+    setIsOpen(true);
+  };
+  const handleOnClose = () => {
+    setIsOpen(false)
+  }
   return (
     <div className="bg-secondary pb-[13rem] overflow-hidden ">
       <div className="relative z-10 right-[-48rem] bottom-[-75rem] flex justify-center items-center">
@@ -22,18 +36,23 @@ const Banner = () => {
               everything from the US.
             </p>
           </div>
-          <div className="flex mt-5 flex-wrap sm:flex-nowrap justify-center gap-2 sm:gap-0">
-            <div className="w-full">
-              <Input
-                icon="search"
-                type="text"
-                placeholder="Paste Product url here"
-              >
-                <img src={search} alt="" />
-              </Input>
+          <form onSubmit={submitHandler} action="">
+            <div className="flex mt-5 flex-wrap sm:flex-nowrap justify-center gap-2 sm:gap-0">
+              <div className="w-full">
+                <Input
+                  icon="search"
+                  type="text"
+                  name="search"
+                  placeholder="Paste Product url here"
+                >
+                  <img src={search} alt="" />
+                </Input>
+              </div>
+              <Button buttonType="submit" type="primary">
+                Create Request
+              </Button>
             </div>
-            <Button type="primary">Create Request</Button>
-          </div>
+          </form>
           <div className="hidden md:block">
             <div className="flex gap-[30px] mt-[5em]">
               <div className="flex gap-2 items-start">
@@ -56,6 +75,10 @@ const Banner = () => {
           <img className="w-full h-auto" src={image} />
         </div>
       </div>
+      <Modal show={isOpen} onClose={handleOnClose}>
+        <RequestModal />
+        {/* <SuccessModal /> */}
+      </Modal>
     </div>
   );
 };

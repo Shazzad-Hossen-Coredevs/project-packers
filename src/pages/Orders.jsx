@@ -1,5 +1,5 @@
 import Breadcrumb from "../Components/UiElements/Breadcrumb/Breadcrumb";
-import Input from '../Components/UiElements/Input/Input'
+import Input from "../Components/UiElements/Input/Input";
 import order from "../assets/icons/cd-order.svg";
 import user from "../assets/icons/user-1.svg";
 import logout from "../assets/icons/logout-01.svg";
@@ -39,7 +39,7 @@ const Orders = () => {
                   <span className="hidden sm:block">User Account</span>
                 </button>
                 <button
-                onClick={()=> dispatch(userSignout())}
+                  onClick={() => dispatch(userSignout())}
                   className={`py-3 px-8 flex  gap-[10px] w-full rounded-full hover:bg-primary bg-white border`}
                 >
                   <img src={logout} />
@@ -86,7 +86,12 @@ const Orders = () => {
                             <Badge text="Completed" styles="success" />
                           </td>
                           <td className="px-6 py-4">
-                            <img className="cursor-pointer" onClick={()=> console.log("first")} src={eye} alt="" />
+                            <img
+                              className="cursor-pointer"
+                              onClick={() => console.log("first")}
+                              src={eye}
+                              alt=""
+                            />
                           </td>
                         </tr>
                         <tr className="border-b text-sm text-black">
@@ -100,7 +105,12 @@ const Orders = () => {
                             <Badge text="paid" styles="light" />
                           </td>
                           <td className="px-6 py-4">
-                            <img className="cursor-pointer" onClick={()=> console.log("first")} src={eye} alt="" />
+                            <img
+                              className="cursor-pointer"
+                              onClick={() => console.log("first")}
+                              src={eye}
+                              alt=""
+                            />
                           </td>
                         </tr>
                         <tr className="border-b text-sm text-black">
@@ -114,7 +124,12 @@ const Orders = () => {
                             <Badge text="Processing" styles="warning" />
                           </td>
                           <td className="px-6 py-4">
-                            <img className="cursor-pointer" onClick={()=> console.log("first")} src={eye} alt="" />
+                            <img
+                              className="cursor-pointer"
+                              onClick={() => console.log("first")}
+                              src={eye}
+                              alt=""
+                            />
                           </td>
                         </tr>
                         <tr className="border-b text-sm text-black">
@@ -128,7 +143,12 @@ const Orders = () => {
                             <Badge text="Shipping" styles="warning" />
                           </td>
                           <td className="px-6 py-4">
-                            <img className="cursor-pointer" onClick={()=> console.log("first")} src={eye} alt="" />
+                            <img
+                              className="cursor-pointer"
+                              onClick={() => console.log("first")}
+                              src={eye}
+                              alt=""
+                            />
                           </td>
                         </tr>
                         <tr className="border-b text-sm text-black">
@@ -142,46 +162,86 @@ const Orders = () => {
                             <Badge text="Cancel" styles="danger" />
                           </td>
                           <td className="px-6 py-4">
-                            <img className="cursor-pointer" onClick={()=> console.log("first")} src={eye} alt="" />
+                            <img
+                              className="cursor-pointer"
+                              onClick={() => console.log("first")}
+                              src={eye}
+                              alt=""
+                            />
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-
-                  {/* <table className="w-full  table-fixed text-left">
-                            <thead className="text-xs text-[#475569]  bg-[#F8FAFC] border-b w-full"> 
-                                <tr className="grid grid-cols-12">
-                                    <th className="font-medium col-span-1 px-4 py-[10px] w-[100px]">Order ID</th>
-                                    <th className="font-medium col-span-3 px-4 py-[10px] ">Date</th>
-                                    <th className="font-medium px-4 py-[10px] ">Items</th>
-                                    <th className="font-medium px-4 py-[10px] ">Total</th>
-                                    <th className="font-medium px-4 py-[10px]">Status</th>
-                                    <th className="font-medium px-4 py-[10px]">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#2050</td>
-                                    <td className="w-fit">Today at 6:55am</td>
-                                </tr>
-                            </tbody>
-                        </table> */}
                 </div>
               ) : (
                 <div className="max-w-[700px]">
                   <form className="grid gap-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <Input styles="primary" type="text" name="firstName" label="First Name" placeholder="Enter your First Name" border   />
-                      <Input styles="primary" type="text" name="lastName" label="Last Name" placeholder="Enter your Last Name" border   />
+                      <Input
+                        styles="primary"
+                        type="text"
+                        name="firstName"
+                        label="First Name"
+                        placeholder="Enter your First Name"
+                        border
+                      />
+                      <Input
+                        styles="primary"
+                        type="text"
+                        name="lastName"
+                        label="Last Name"
+                        placeholder="Enter your Last Name"
+                        border
+                      />
                     </div>
-                    <Input styles="primary" type="email" name="email" label="Email Address" placeholder="Enter your Email id" border   />
-                    <Input styles="primary" type="phone" name="phone" label="Phone Number" placeholder="Enter your Phone Number" border required />
-                    <p className="text-secondary text-lg font-medium">Password Change</p>
-                    <Input styles="primary" type="password" name="currentPassword" label="Current Password" placeholder="Enter your current password" border   />
-                    <Input styles="primary" type="password" name="newPassword" label="New Password" placeholder="Enter New password" border   />
-                    <Input styles="primary" type="password" name="confirmPassword" label="Confirm Password" placeholder="Confirm new password" border   />
-                    <Button type='primary' buttonType="submit">Save Change</Button>
+                    <Input
+                      styles="primary"
+                      type="email"
+                      name="email"
+                      label="Email Address"
+                      placeholder="Enter your Email id"
+                      border
+                    />
+                    <Input
+                      styles="primary"
+                      type="phone"
+                      name="phone"
+                      label="Phone Number"
+                      placeholder="Enter your Phone Number"
+                      border
+                      required
+                    />
+                    <p className="text-secondary text-lg font-medium">
+                      Password Change
+                    </p>
+                    <Input
+                      styles="primary"
+                      type="password"
+                      name="currentPassword"
+                      label="Current Password"
+                      placeholder="Enter your current password"
+                      border
+                    />
+                    <Input
+                      styles="primary"
+                      type="password"
+                      name="newPassword"
+                      label="New Password"
+                      placeholder="Enter New password"
+                      border
+                    />
+                    <Input
+                      styles="primary"
+                      type="password"
+                      name="confirmPassword"
+                      label="Confirm Password"
+                      placeholder="Confirm new password"
+                      border
+                    />
+                    <Button type="primary" buttonType="submit">
+                      Save Change
+                    </Button>
                   </form>
                 </div>
               )}

@@ -19,7 +19,7 @@ const CartItem = ({data}) => {
         </div>
       </td>
       <td>
-        <div className=""></div>
+      
         <div className="border-[#0000004d] border rounded-md flex items-center justify-center">
             <button className="px-2 pb-2 text-[#0000004d] text-3xl">-</button>
           <input className="text-center max-w-[30px] text-secondary font-semibold outline-none" value={quantity} type="number" />

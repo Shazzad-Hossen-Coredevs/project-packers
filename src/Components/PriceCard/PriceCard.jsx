@@ -26,6 +26,7 @@ const PriceCard = ({
   fee,
   estimated,
   products,
+  onSubmit
 }) => {
   return (
     <div className="border text-lg font-medium  font-sans border-[#0003160D] mx-5 sm:mx-0 max-w-[490px] rounded-lg px-5 pt-1 pb-8">
@@ -144,7 +145,7 @@ const PriceCard = ({
           </div>
         </>
       )}
-      <Button full type="primary">
+      <Button onClick={onSubmit} full type="primary">
         {type === "cart"
           ? "Checkout"
           : type === "product"

@@ -6,7 +6,7 @@ import camera from "../../assets/icons/cd-camera.svg";
 import cancel from "../../assets/icons/cd-cancel.svg";
 import { useState } from "react";
 
-const RequestModal = () => {
+const RequestModal = ({confirmSubmit}) => {
   const [active, setActive] = useState("link");
   const [quantity, setQuantity] = useState(1);
   const [previewImage, setPreviewImage] = useState([]);
@@ -24,7 +24,7 @@ const RequestModal = () => {
   };
 
   const onSubmit = () =>{
-    console.log("submitted")
+    confirmSubmit("success")
   }
   return (
     <div className="flex flex-col gap-5">

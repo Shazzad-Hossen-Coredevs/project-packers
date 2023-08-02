@@ -1,6 +1,11 @@
+import { useState } from "react";
 import PriceCard from "../Components/PriceCard/PriceCard";
 import Breadcrumb from "../Components/UiElements/Breadcrumb/Breadcrumb";
 import Input from "../Components/UiElements/Input/Input";
+import Modal from "../Components/UiElements/Modal/Modal";
+import icon from "../assets/icons/product-ok.svg";
+import { Link } from "react-router-dom";
+import Button from "../Components/UiElements/Buttons/Button";
 const cartItems = [
   {
     id: 1,
@@ -22,6 +27,13 @@ const cartItems = [
   },
 ];
 const Checkout = () => {
+  const [modal, setModal] = useState(false);
+  const modalHandler = () => {
+    setModal(false);
+  };
+  const submitHandler = () => {
+    setModal(true);
+  };
   return (
     <>
       <Breadcrumb />
@@ -122,10 +134,56 @@ const Checkout = () => {
             </div>
           </div>
           <div className="col-span-5 sm:col-span-2">
-            <PriceCard type="checkout" products={cartItems} estimated={30010} />
+            <PriceCard
+              onSubmit={submitHandler}
+              type="checkout"
+              products={cartItems}
+              estimated={30010}
+            />
           </div>
         </div>
       </div>
+      <Modal show={modal} onClose={modalHandler}>
+        <div className="flex flex-col gap-5">
+          <div className="p-8 flex w-full items-start flex-col gap-10">
+            <img className="w-fit h-auto" src={icon} alt="" />
+            <div className="text-start grid gap-3">
+              <h5 className="text-xl font-semibold text-secondary mb-2">
+                Thanks your for your order.
+              </h5>
+              <p className="text-sm font-normal max-w-[360px] text-[#00000386]">
+                we sent an order confirmation to:
+                <span className="text-secondary font-semibold block">
+                  johnsmith@gmail.com
+                </span>
+              </p>
+              <p className="text-sm font-normal max-w-[360px] text-[#00000386]">
+                Your order number is:
+                <span className="text-secondary font-semibold block">
+                  #343895
+                </span>
+              </p>
+              <p className="text-sm font-normal max-w-[360px] text-[#00000386]">
+                Your order will deliver on:
+                <span className="text-secondary font-semibold block">
+                  Thursday, Nov 23 - Saturday, Nov 29
+                </span>
+              </p>
+
+              <p className="text-sm font-normal max-w-[360px] text-[#00000386]">
+                to the address:
+                <span className="text-secondary font-semibold block">
+                  3829 Main St.<br /> Los Angeles. CA 90210
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <Button onClick={submitHandler} type="primary" full>
+            Keep Shopping
+          </Button>
+        </div>
+      </Modal>
     </>
   );
 };

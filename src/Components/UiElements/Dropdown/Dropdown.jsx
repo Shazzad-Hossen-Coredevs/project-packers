@@ -2,6 +2,7 @@ import icon from "../../../assets/icons/cd-arrow-right.svg";
 import Icon from "../Icon/Icon";
 import cart from "../../../assets/icons/user-1.svg";
 import minor from '../../../assets/icons/cd-select_minor.svg'
+import { Link } from "react-router-dom";
 const Dropdown = ({ isOpen, type, title, data }) => {
   const clickHandler = (v) => {
     console.log(v);
@@ -15,12 +16,14 @@ const Dropdown = ({ isOpen, type, title, data }) => {
               <p className="font-sans text-sm font-semibold text-secondary">
                 {title || "Loading..."}
               </p>
+         
               <img src={icon} alt="" />
+              
             </div>
             <div className="overflow-y-auto scrollbar max-h-[352px]">
               {data ? (
                 data.map((item) => {
-                  console.log(item);
+                
                   return (
                     <div
                       onClick={() => clickHandler(item.id)}
@@ -63,7 +66,9 @@ const Dropdown = ({ isOpen, type, title, data }) => {
               <p className="font-sans text-sm font-semibold text-secondary">
                 {title || "Loading..."}
               </p>
+              <Link to="/cart">
               <img src={icon} alt="" />
+              </Link>
             </div>
             <div className="overflow-y-auto scrollbar max-h-[352px]">
               {data ? (
@@ -102,6 +107,18 @@ const Dropdown = ({ isOpen, type, title, data }) => {
         )}
       </>
     );
+  }
+  if(type === 'logout'){
+    <>
+        {isOpen && (
+          <div className="bg-white p-5 rounded-xl w-[350px] absolute top-[70px] right-0">
+            
+            <div className="overflow-y-auto scrollbar max-h-[352px]">
+              here  
+            </div>
+          </div>
+        )}
+      </>
   }
 };
 

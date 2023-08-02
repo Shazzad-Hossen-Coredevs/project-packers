@@ -1,12 +1,19 @@
 import Input from "../Components/UiElements/Input/Input";
 import { useFormik } from "formik";
 import { loginSchema } from "../Util/ValidationSchema";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 import Button from "../Components/UiElements/Buttons/Button";
 import google from "../assets/icons/google-icon.svg";
 import facebook from "../assets/icons/facebook.svg";
 import apple from "../assets/icons/apple.svg";
+import { postApi } from "../Util/apiCall";
+import { useDispatch } from "react-redux";
+import { userSignin } from "../Store/userSlice";
+
 const Login = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const loginForm = useFormik({
     initialValues: {
       email: "",
@@ -15,8 +22,18 @@ const Login = () => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      console.log(values);
-      loginForm.resetForm();
+      postApi("/user/login", values).then(res => {
+        if(res.status === 200){
+          console.log(res.data)
+          dispatch(userSignin(res.data))
+          loginForm.resetForm();
+          navigate('/')
+        } else{
+        
+          toast('Here is your toast.');
+        }
+      })
+
     },
   });
   return (
@@ -36,7 +53,11 @@ const Login = () => {
                 change={loginForm.handleChange}
                 blur={loginForm.handleBlur}
                 value={loginForm.values.email}
-                error={(loginForm.touched.email && loginForm.errors.email) ? loginForm.errors.email : null }
+                error={
+                  loginForm.touched.email && loginForm.errors.email
+                    ? loginForm.errors.email
+                    : null
+                }
                 type="email"
                 placeholder="Enter your Email Address"
                 label="Email Address/ Phone number"
@@ -48,13 +69,17 @@ const Login = () => {
                 change={loginForm.handleChange}
                 blur={loginForm.handleBlur}
                 value={loginForm.values.password}
-                error={(loginForm.errors.password && loginForm.touched.password) ? loginForm.errors.password : null}
+                error={
+                  loginForm.errors.password && loginForm.touched.password
+                    ? loginForm.errors.password
+                    : null
+                }
                 type="password"
                 placeholder="Enter your Password"
                 label="Password"
               />
-        
             </div>
+            <Toaster />
             <div className="flex justify-between mt-[10px]">
               <div className="font-sans text-base ">
                 <input
@@ -80,13 +105,13 @@ const Login = () => {
               <span className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
                 <img src={apple} alt="" />
               </span>
-              <Button full className="w-full" type="primary">
+              <Button full className="w-full" type="primary" buttonType="submit">
                 Login
               </Button>
             </div>
           </form>
         </div>
-        <div className="flex flex-col  w-full h-full justify-center items-end">
+        <div className="flex flex-col  w-full h-full justify-center items-center">
           <div className="max-w-[490px]">
             <p className="text-[24px] font-sans font-medium text-white mb-5">
               Log in to access your Project Packers Platform for order your

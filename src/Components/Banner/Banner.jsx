@@ -1,9 +1,29 @@
+import { useState } from "react";
 import Input from "../UiElements/Input/Input";
 import Button from "../UiElements/Buttons/Button";
 import check from "../../assets/icons/cd-checkmark-circle.svg";
 import image from "../../assets/Image/bannerImage.png";
 import search from "../../assets/icons/cd-search2.svg";
+import Modal from "../UiElements/Modal/Modal";
+import RequestModal from "./RequestModal";
+import SuccessModal from "./SuccessModal";
 const Banner = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [modalState, setModalState] = useState('request')
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const url = e.target[0].value;
+    console.log(url);
+    setIsOpen(true);
+  };
+  const handleOnClose = () => {
+    setIsOpen(false);
+    setModalState('request')
+  };
+  const modalSbmitHandler = (value) =>{
+    
+    setModalState(value)
+  }
   return (
     <div className="bg-secondary pb-[13rem] overflow-hidden ">
       <div className="relative z-10 right-[-48rem] bottom-[-75rem] flex justify-center items-center">
@@ -22,18 +42,23 @@ const Banner = () => {
               everything from the US.
             </p>
           </div>
-          <div className="flex mt-5 flex-wrap sm:flex-nowrap justify-center gap-2 sm:gap-0">
-            <div className="w-full">
-              <Input
-                icon="search"
-                type="text"
-                placeholder="https://www.amazon.com/Apple-iPhone-12-Pro-Graphite/dp/B09JFP3R1D/?_encoding=UTF8&pd_rd_w=5PHrN&content-id=amzn1.sym.595f69d1-9647-4ce9-9fca-a43eb1c1f3b6&pf_rd_p=595f69d1-9647-4ce9-9fca-a43eb1c1f3b6&pf_rd_r=V2QT8RP4G11B7GS3FQA0&pd_rd_wg=y7lBK&pd_rd_r=f009dcb8-79a2-4612-96e7-c5abf8475646&ref_=pd_gw_exports-popular-this-season-with-similar-asins"
-              >
-                <img src={search} alt="" />
-              </Input>
+          <form onSubmit={submitHandler} action="">
+            <div className="flex mt-5 flex-wrap sm:flex-nowrap justify-center gap-2 sm:gap-0">
+              <div className="w-full">
+                <Input
+                  icon="search"
+                  type="text"
+                  name="search"
+                  placeholder="Paste Product url here"
+                >
+                  <img src={search} alt="" />
+                </Input>
+              </div>
+              <Button buttonType="submit" type="primary">
+                Create Request
+              </Button>
             </div>
-            <Button type="primary">Create Request</Button>
-          </div>
+          </form>
           <div className="hidden md:block">
             <div className="flex gap-[30px] mt-[5em]">
               <div className="flex gap-2 items-start">
@@ -56,6 +81,10 @@ const Banner = () => {
           <img className="w-full h-auto" src={image} />
         </div>
       </div>
+      <Modal show={isOpen} onClose={handleOnClose}>
+        {modalState === "request" && <RequestModal confirmSubmit={modalSbmitHandler} />}
+      { modalState === "success" &&  <SuccessModal confirmSubmit={modalSbmitHandler}  />}
+      </Modal>
     </div>
   );
 };

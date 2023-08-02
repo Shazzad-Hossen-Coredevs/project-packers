@@ -1,7 +1,7 @@
 // import search from "../../../assets/icons/cd-search.svg";
 /**
  * Input Component
- * 
+ *
  */
 const Input = ({
   label,
@@ -16,18 +16,41 @@ const Input = ({
   border,
   min,
   max,
+  styles,
+  required,
+  disabled
 }) => {
   return (
     <div className="relative ">
       {label && (
-        <label className="text-white block font-sans font-semibold text-lg pb-2">
+        <label
+          className={`${
+            styles === "primary"
+              ? "text-black text-base font-normal"
+              : "text-white font-semibold text-lg"
+          } block font-sans  pb-2 ${
+            required
+              ? `after:content-['*'] after:ml-0.5 after:text-red-500`
+              : ""
+          } `}
+        >
           {label}
         </label>
       )}
-      <div className={`flex w-full  rounded-full ${border ? "border border-[#00000036]": ""}`}>
-        {children && <div className="pl-[10px] sm:pl-5 py-4 rounded-s-full bg-white">{children}</div>}
+      <div
+        className={`flex w-full  rounded-full ${
+          border ? "border border-[#00000036]" : ""
+        }`}
+      >
+        {children && (
+          <div className="pl-[10px] sm:pl-5 py-4 rounded-s-full bg-white">
+            {children}
+          </div>
+        )}
         <input
-          className={`px-5 py-4 ${children ? 'rounded-e-full' : 'rounded-full'} w-full outline-none placeholder-secondary text-secondary border border-white ${
+          className={`px-5 py-2 ${
+            children ? "rounded-e-full" : "rounded-full"
+          } w-full outline-none placeholder-secondary text-secondary border border-white ${
             error && " border-red-600"
           }`}
           value={value}
@@ -38,7 +61,8 @@ const Input = ({
           maxLength={max}
           onChange={change}
           onBlur={blur}
-          
+          required={required}
+          disabled={disabled}
         />
       </div>
       {error && (

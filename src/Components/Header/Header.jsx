@@ -6,11 +6,14 @@ import Button from "../UiElements/Buttons/Button";
 import Input from "../UiElements/Input/Input";
 import cart from "../../assets/icons/cd-products.svg";
 import notification from "../../assets/icons/cd-notification.svg";
-import user from "../../assets/icons/user-1.svg";
+import profile from "../../assets/icons/user-1.svg";
 import Icon from "../UiElements/Icon/Icon";
 import search from "../../assets/icons/cd-search.svg";
 import { useState } from "react";
 import Dropdown from "../UiElements/Dropdown/Dropdown";
+import ScrollTop from "../../Util/ScrollTop";
+import {  useSelector } from "react-redux";
+
 
 const DUMMY_NOTIFICATION = [
   {
@@ -63,13 +66,16 @@ const DUMMY_CART = [
   },
 ];
 const Header = ({ sideBar, state }) => {
-  const [login, setLogin] = useState(false);
+  const { user } = useSelector((state) => state.userInfo);
+  
   const [cartState, setCartState] = useState(false);
   const [notifyState, setNotifyState] = useState(false);
   const navigate = useNavigate();
+  ScrollTop();
   const clickHandler = () => {
     sideBar();
   };
+
   return (
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50">
       <div className="container hidden  sm:flex mx-auto navbar gap-4 py-[10px] items-center justify-between">
@@ -101,7 +107,7 @@ const Header = ({ sideBar, state }) => {
           >
             Support
           </Link>
-          {login ? (
+          {user ? (
             <div className="flex gap-2 items-center">
               <div className="relative">
                 <span
@@ -135,25 +141,36 @@ const Header = ({ sideBar, state }) => {
                   data={DUMMY_CART}
                 />
               </div>
-
-              <Icon type="active" unread={false} icon={user} />
-              <p className="font-sans text-secondary text-sm font-semibold">
-                Cody Fisher
-              </p>
+              <div className="relative">
+                <Link
+                  to='/account/orders'
+                  className="flex gap-2 items-center cursor-pointer"
+                >
+                  <Icon type="active" unread={false} icon={profile} />
+                  <p className="font-sans text-secondary text-sm font-semibold">
+                    {user.name || "User"}
+                  </p>
+                </Link>
+              </div>
+              <Dropdown type="logout" isOpen={true} />
             </div>
           ) : (
             <div className="flex gap-2 items-center">
               <Link to="/login">
-                <Button onClick={()=> navigate('/login')} type="outline">Login</Button>
+                <Button onClick={() => navigate("/login")} type="outline">
+                  Login
+                </Button>
               </Link>
-              <Button type="secondary">Sign Up</Button>
+              <Button onClick={() => navigate("/signup")} type="secondary">
+                Sign Up
+              </Button>
             </div>
           )}
         </div>
       </div>
       <div className="flex bg-[#CFF6EF] gap-2 flex-shrink-0 justify-between sm:hidden px-5 py-[10px]">
         <div className="flex flex-shrink-0 items-center gap-2 ">
-          {login && (
+          {user && (
             <img onClick={clickHandler} src={state ? cross : menu} alt="" />
           )}
           <img className="max-h-[33px]" src={Logo} alt="" />
@@ -162,7 +179,7 @@ const Header = ({ sideBar, state }) => {
           <Input border placeholder="Paste URL here...">
             <img src={search} alt="" />
           </Input>
-          {login ? (
+          {user ? (
             <Icon icon={cart} />
           ) : (
             <Button type="secondary">Login</Button>

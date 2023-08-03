@@ -4,7 +4,6 @@ import Breadcrumb from "../Components/UiElements/Breadcrumb/Breadcrumb";
 import Input from "../Components/UiElements/Input/Input";
 import Modal from "../Components/UiElements/Modal/Modal";
 import icon from "../assets/icons/product-ok.svg";
-import { Link } from "react-router-dom";
 import Button from "../Components/UiElements/Buttons/Button";
 const cartItems = [
   {

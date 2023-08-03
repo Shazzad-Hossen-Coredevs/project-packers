@@ -819,8 +819,262 @@ export const posts = [
   },
 ];
 export const carousel = [
-    "https://www.youtube.com/shorts/FZsOm-qARPM",
-    "https://www.youtube.com/shorts/3k01apyZFlI",
-    "https://www.youtube.com/shorts/aWVzZgbOVhw",
-    "https://www.youtube.com/shorts/46NfO75pf3w",
-  ];
+  "https://www.youtube.com/shorts/FZsOm-qARPM",
+  "https://www.youtube.com/shorts/3k01apyZFlI",
+  "https://www.youtube.com/shorts/aWVzZgbOVhw",
+  "https://www.youtube.com/shorts/46NfO75pf3w",
+];
+
+export const adminCard = [
+  {
+    title: "cost",
+    value: 1044002,
+  },
+  {
+    title: "request",
+    value: 128,
+  },
+  {
+    title: "order",
+    value: 228,
+  },
+  {
+    title: "complete",
+    value: 208,
+  },
+  {
+    title: "cancel",
+    value: 58,
+  },
+];
+
+export const areaChart = [
+  {
+    month: 1,
+    order: 7,
+    request: 2,
+  },
+  {
+    month: 2,
+    order: 12,
+    request: 32,
+  },
+  {
+    month: 3,
+    order: 7,
+    request: 10,
+  },
+  {
+    month: 4,
+    order: 4,
+    request: 2,
+  },
+  {
+    month: 5,
+    order: 7,
+    request: 2,
+  },
+];
+export const heatMap = [
+  {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 43
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+    {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 43
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+    {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 43
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+    {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 43
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+    {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 88
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+    {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 21
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+    {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 43
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+    {
+      name: "6 am",
+      data: [{
+        x: 'Mon',
+        y: 43
+      }, {
+        x: 'Tue',
+        y: 10
+      }, {
+        x: 'Wed',
+        y: 43
+      }, {
+        x: 'Thu',
+        y: 43
+      }, {
+        x: 'Fri',
+        y: 43
+      }, {
+        x: 'Sat',
+        y: 43
+      }, {
+        x: 'Sun',
+        y: 43
+      },]
+    },
+];
+

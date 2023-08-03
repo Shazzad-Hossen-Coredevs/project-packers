@@ -35,9 +35,8 @@ const Card = ({ type, data }) => {
     },
   };
   return (
-    <div className="my-5">
+    <div className="py-5 bg-white">
       <p className="text-sm text-[#475569] font-medium">{values[type].title}</p>
-
       {type === "cost" ? (
         <h2 className="text-secondary text-xl font-semibold">
           ৳ {+data / 1000}k

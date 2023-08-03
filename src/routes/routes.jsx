@@ -2,7 +2,7 @@ import {
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../Layout/Main";
-import Home from "../pages/Home";
+import Home from '../pages/Home'
 import Login from "../pages/Login";
 import Recovery from "../pages/Recovery";
 import Signup from "../pages/Signup";
@@ -19,6 +19,10 @@ import FaqPage from "../pages/FaqPage";
 import Orders from "../pages/Orders";
 import Notification from "../pages/Notification";
 import Support from "../pages/Support";
+// Dashboard
+import DashboardLayout from "../Dashboard/Layouts/DashboardLayout";
+import DashboardHome from "../Dashboard/Pages/DashboardHome";
+import Secure from "../Dashboard/Components/Secure/Secure";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -98,4 +102,15 @@ export const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: '/admin',
+      element: <DashboardLayout />,
+      children:[
+        {
+          path:'',
+          element: <Secure> <DashboardHome /> </Secure>
+        }
+      ]
+      
+    }
   ]);

@@ -1,4 +1,3 @@
-// import search from "../../../assets/icons/cd-search.svg";
 /**
  * Input Component
  *
@@ -38,12 +37,12 @@ const Input = ({
         </label>
       )}
       <div
-        className={`flex w-full  rounded-full ${
+        className={`flex w-full bg-white rounded-full ${
           border ? "border border-[#00000036]" : ""
         }`}
       >
         {children && (
-          <div className="pl-[10px] sm:pl-5 py-4 rounded-s-full bg-white">
+          <div className="pl-[10px] sm:pl-5 my-auto h-full rounded-s-full">
             {children}
           </div>
         )}

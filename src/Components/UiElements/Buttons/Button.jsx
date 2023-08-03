@@ -12,7 +12,7 @@ arrow: arrow left will appear
 const Button = ({ arrow, children,full, type, onClick, onBlur, buttonType }) => {
   const styles = {
     text: "",
-    primary: "bg-primary text-secondary py-[17px] px-[20px]",
+    primary: "bg-primary text-secondary py-[12px] px-[20px]",
     secondary: "bg-secondary text-white py-[11px] px-[20px]",
     outline: "bg-transparent text-secondary py-[11px] px-[20px] border border-primary",
     light: 'bg-[#F8FAFC] font-normal text-secondary py-[11px] px-[20px]',

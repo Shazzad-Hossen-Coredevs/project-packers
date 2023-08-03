@@ -15,7 +15,7 @@ export default {
     fontFamily: {
       'sans': ['Plus Jakarta Sans', "sans-serif"],
       'sora': ['Sora', "sans-serif"],
-  
+      'inter': ['Inter', 'sans-serif']
     }
   },
   plugins: [],

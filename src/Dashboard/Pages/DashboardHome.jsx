@@ -4,7 +4,14 @@ import { adminCard } from "../../Store/Data";
 import AreaChart from "../Components/UiElements/AreaChart/AreaChart";
 import { areaChart } from "../../Store/Data";
 import HeatMap from "../Components/UiElements/HeatMap/HeatMap";
+import Table from "../Components/UiElements/Table/Table";
+import { useState } from "react";
 const DashboardHome = () => {
+  const [active, setActive] = useState("order");
+  const tableButtonHandler = (value) => {
+    setActive(value)
+    console.log(value)
+  }
   return (
     <div className="h-full px-5 ">
       <Heading title="Overview" />
@@ -26,7 +33,30 @@ const DashboardHome = () => {
             <HeatMap />
           </div>
         </div>
-        <div className="col-span-3 sm:col-span-3">table</div>
+        <div className="col-span-3 sm:col-span-3">
+          <div className="w-full bg-white p-5 border border-[#0000001f] rounded-md">
+            <div className="">
+              <div className="py-2">
+                <button onClick={()=> tableButtonHandler('request')}
+                  className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
+                    active === "request" ? "bg-[#CFF6EF]" : "bg-transparent"
+                  }`}
+                >
+                  Request
+                </button>
+                <button
+                onClick={()=> tableButtonHandler('order')}
+                  className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
+                    active === "order" ? "bg-[#CFF6EF]" : "bg-transparent"
+                  }`}
+                >
+                  Orders
+                </button>
+              </div>
+            </div>
+            <Table />
+          </div>
+        </div>
       </div>
     </div>
   );

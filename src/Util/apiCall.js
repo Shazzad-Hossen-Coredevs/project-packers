@@ -4,7 +4,9 @@ const BASE_URL = "http://localhost:4000";
 const config = {
   headers: {
     "Content-Type": "application/json",
+
   },
+  withCredentials: true
 };
 export const postApi = async (endpoint, body) => {
   try {

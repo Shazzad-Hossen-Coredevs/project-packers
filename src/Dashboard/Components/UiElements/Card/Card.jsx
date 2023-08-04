@@ -39,7 +39,7 @@ const Card = ({ type, data }) => {
       <p className="text-sm text-[#475569] font-medium">{values[type].title}</p>
       {type === "cost" ? (
         <h2 className="text-secondary text-xl font-semibold">
-          ৳ {+data / 1000}k
+          ৳ {(+data / 1000).toFixed(2)}k
         </h2>
       ) : (
         <div className="flex gap-2 items-center">

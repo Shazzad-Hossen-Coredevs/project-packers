@@ -1,22 +1,32 @@
 import Card from "../Components/UiElements/Card/Card";
+import arrowRight from '../../assets/icons/cd-arrow-right-2.svg'
 import Heading from "../Components/UiElements/Heading/Heading";
-import { adminCard } from "../../Store/Data";
+import { adminCard, orderTable } from "../../Store/Data";
 import AreaChart from "../Components/UiElements/AreaChart/AreaChart";
 import { areaChart } from "../../Store/Data";
 import HeatMap from "../Components/UiElements/HeatMap/HeatMap";
 import Table from "../Components/UiElements/Table/Table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getApi } from "../../Util/apiCall";
 const DashboardHome = () => {
   const [active, setActive] = useState("order");
+  const [tableData, setTableData] = useState(orderTable);
+
+  useEffect(() => {
+    // getApi("/order").then((res) => setTableData(res.docs));
+    getApi("/order").then((res) => console.log(res.docs));
+  }, []);
+
   const tableButtonHandler = (value) => {
-    setActive(value)
-    console.log(value)
-  }
+    setActive(value);
+    console.log(value);
+  };
   return (
     <div className="h-full px-5 ">
       <Heading title="Overview" />
       <div className="grid grid-cols-3 gap-5">
-        <div className="col-span-3 border-b border-[#0000001c] py-5">
+        <div className="col-span-3  border-b border-[#0000001c] py-5">
           <div className="grid lg:grid-cols-5 ">
             {adminCard?.map((item, key) => (
               <Card key={key} type={item.title} data={item.value} />
@@ -35,9 +45,10 @@ const DashboardHome = () => {
         </div>
         <div className="col-span-3 sm:col-span-3">
           <div className="w-full bg-white p-5 border border-[#0000001f] rounded-md">
-            <div className="">
+            <div className="flex justify-between">
               <div className="py-2">
-                <button onClick={()=> tableButtonHandler('request')}
+                <button
+                  onClick={() => tableButtonHandler("request")}
                   className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
                     active === "request" ? "bg-[#CFF6EF]" : "bg-transparent"
                   }`}
@@ -45,7 +56,7 @@ const DashboardHome = () => {
                   Request
                 </button>
                 <button
-                onClick={()=> tableButtonHandler('order')}
+                  onClick={() => tableButtonHandler("order")}
                   className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
                     active === "order" ? "bg-[#CFF6EF]" : "bg-transparent"
                   }`}
@@ -53,8 +64,18 @@ const DashboardHome = () => {
                   Orders
                 </button>
               </div>
+              <Link
+                className="py-2 px-3 text-[#475569] text-xs font-semibold"
+                to="/admin"
+              >
+                <div className="flex gap-2 items-center">
+                  <span>View All</span>
+                  <img src={arrowRight} alt="" />
+                </div>
+              </Link>
             </div>
-            <Table />
+            
+            <Table type="order" data={tableData} />
           </div>
         </div>
       </div>

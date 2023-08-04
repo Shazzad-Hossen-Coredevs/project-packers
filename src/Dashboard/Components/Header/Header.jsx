@@ -40,7 +40,7 @@ const Header = () => {
   const { user } = useSelector((state) => state.userInfo);
   return (
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50 shadow-sm ">
-      <div className="mx-4 hidden  sm:flex navbar gap-4 py-[10px] items-center justify-between">
+      <div className="mx-6 hidden  sm:flex navbar gap-4 py-[10px] items-center justify-between">
         <Link
           to="/admin"
           className="w-[142px] h-11 justify-start items-center gap-2 inline-flex flex-shrink-0"
@@ -56,7 +56,7 @@ const Header = () => {
           <Input
             type="text"
             placeholder="Search"
-            border
+            
           >
             <img src={search} alt="" />
           </Input>

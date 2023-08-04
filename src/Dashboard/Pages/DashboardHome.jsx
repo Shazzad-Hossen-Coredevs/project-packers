@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { getApi } from "../../Util/apiCall";
 const DashboardHome = () => {
   const [active, setActive] = useState("order");
-  const [tableData, setTableData] = useState(orderTable);
+  const [tableData] = useState(orderTable);
 
   useEffect(() => {
     // getApi("/order").then((res) => setTableData(res.docs));
@@ -66,7 +66,7 @@ const DashboardHome = () => {
               </div>
               <Link
                 className="py-2 px-3 text-[#475569] text-xs font-semibold"
-                to="/admin"
+                to="orders"
               >
                 <div className="flex gap-2 items-center">
                   <span>View All</span>

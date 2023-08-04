@@ -23,6 +23,7 @@ import Support from "../pages/Support";
 import DashboardLayout from "../Dashboard/Layouts/DashboardLayout";
 import DashboardHome from "../Dashboard/Pages/DashboardHome";
 import Secure from "../Dashboard/Components/Secure/Secure";
+import AllOrders from "../Dashboard/Pages/AllOrders";
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -109,7 +110,11 @@ export const router = createBrowserRouter([
         {
           path:'',
           element: <Secure> <DashboardHome /> </Secure>
-        }
+        },
+        {
+          path:'orders',
+          element: <Secure> <AllOrders /> </Secure>
+        },
       ]
       
     }

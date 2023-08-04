@@ -56,7 +56,6 @@ const Header = () => {
           <Input
             type="text"
             placeholder="Search"
-            
           >
             <img src={search} alt="" />
           </Input>

@@ -877,295 +877,409 @@ export const areaChart = [
 ];
 export const heatMap = [
   {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 43
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
-    {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 43
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
-    {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 43
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
-    {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 43
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
-    {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 88
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
-    {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 21
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
-    {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 43
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
-    {
-      name: "6 am",
-      data: [{
-        x: 'Mon',
-        y: 43
-      }, {
-        x: 'Tue',
-        y: 10
-      }, {
-        x: 'Wed',
-        y: 43
-      }, {
-        x: 'Thu',
-        y: 43
-      }, {
-        x: 'Fri',
-        y: 43
-      }, {
-        x: 'Sat',
-        y: 43
-      }, {
-        x: 'Sun',
-        y: 43
-      },]
-    },
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 88,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 21,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 10,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
 ];
 export const orderTable = [
   {
     id: 1,
     name: "iphone 14 Max Pro",
-    date: '20-10-2023',
+    date: "20-10-2023",
     user: "John Doe",
-    status: 'paid',
+    status: "paid",
     items: 1,
-    total: 4299
+    total: 4299,
   },
   {
     id: 2,
     name: "Samsung S23 Ultra",
-    date: '12-10-2023',
+    date: "12-10-2023",
     user: "John Doe",
-    status: 'processing',
+    status: "processing",
     items: 3,
-    total: 4299
+    total: 4299,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'shipping',
+    status: "shipping",
     items: 1,
-    total: 6789
+    total: 6789,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'cancelled',
+    status: "cancelled",
     items: 1,
-    total: 6789
+    total: 6789,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'pending',
+    status: "pending",
     items: 1,
-    total: 6789
+    total: 6789,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'cancelled',
+    status: "cancelled",
     items: 1,
-    total: 6789
+    total: 6789,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'completed',
+    status: "completed",
     items: 1,
-    total: 6789
+    total: 6789,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'refunded',
+    status: "refunded",
     items: 1,
-    total: 6789
+    total: 6789,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'refundProcessing',
+    status: "refundProcessing",
     items: 1,
-    total: 6789
+    total: 6789,
   },
   {
     id: 3,
     name: "Mackbook Pro",
-    date: '20-9-2023',
+    date: "20-9-2023",
     user: "Brad",
-    status: 'refundCancelled',
+    status: "refundCancelled",
     items: 1,
-    total: 6789
+    total: 6789,
   },
-]
+];
+export const requestTable = [
+  {
+    id: 1,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "paid",
+  },
+  {
+    id: 2,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "abandoned",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "estimate",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "closed",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "pending",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "closed",
+  },
+];

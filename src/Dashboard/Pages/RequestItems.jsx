@@ -1,42 +1,32 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
 import Heading from "../Components/UiElements/Heading/Heading";
+import trash from "../../assets/icons/cd-delete.svg";
 import filter from "../../assets/icons/cd-filter.svg";
 import sort from "../../assets/icons/cd-arrow-data-transfer-vertical-round.svg";
-import Card from "../Components/UiElements/Card/Card";
 import Table from "../Components/UiElements/Table/Table";
 import Input from "../Components/UiElements/Input/Input";
 import search from "../../assets/icons/cd-search2.svg";
-import { orderTable } from "../../Store/Data";
-import { adminCard } from "../../Store/Data";
-const AllOrders = () => {
+import { requestTable } from "../../Store/Data";
+const RequestItems = () => {
   const [active, setActive] = useState("all");
-  const [tableData] = useState(orderTable);
+  const [tableData] = useState(requestTable);
 
   const tableButtonHandler = (value) => {
     setActive(value);
     console.log(value);
   };
-
+  const deleteHandler = () => {
+    console.log("deleted");
+  };
   return (
     <div className="h-full px-5 ">
-      <Heading title="All Orders">
-        <div className="flex gap-1 items-center">
-          <Input type="text" placeholder="Search" styles="secondary">
-            <img src={search} alt="" />
-          </Input>
-          <Input type="date" styles="secondary" />
-        </div>
+      <Heading title="Item Request">
+        <button onClick={deleteHandler} className="flex gap-1 items-center">
+          <img className="h-5 w-5 opacity-70" src={trash} />
+          <p className="text-[#475569] text-sm">Delete</p>
+        </button>
       </Heading>
       <div className="grid grid-cols-3 gap-5">
-        <div className="col-span-3  border-y border-[#0000001c] py-5">
-          <div className="grid lg:grid-cols-5 ">
-            {adminCard?.map((item, key) => (
-              <Card key={key} type={item.title} data={item.value} />
-            ))}
-          </div>
-        </div>
-
         <div className="col-span-3 sm:col-span-3">
           <div className="w-full bg-white p-5 border border-[#0000001f] rounded-md">
             <div className="flex justify-between">
@@ -60,44 +50,34 @@ const AllOrders = () => {
                   Pending
                 </button>
                 <button
-                  onClick={() => tableButtonHandler("processing")}
+                  onClick={() => tableButtonHandler("estimate")}
                   className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                    active === "processing"
+                    active === "estimate"
                       ? "bg-[#CFF6EF] rounded"
                       : "bg-transparent"
                   }`}
                 >
-                  Processing
+                  Estimate sent
                 </button>
                 <button
-                  onClick={() => tableButtonHandler("shipping")}
+                  onClick={() => tableButtonHandler("closed")}
                   className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                    active === "shipping"
+                    active === "closed"
                       ? "bg-[#CFF6EF] rounded"
                       : "bg-transparent"
                   }`}
                 >
-                  Shipping
+                  Closed
                 </button>
                 <button
-                  onClick={() => tableButtonHandler("cancelled")}
+                  onClick={() => tableButtonHandler("abandoned")}
                   className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                    active === "cancelled"
+                    active === "abandoned"
                       ? "bg-[#CFF6EF] rounded"
                       : "bg-transparent"
                   }`}
                 >
-                  Cancelled
-                </button>
-                <button
-                  onClick={() => tableButtonHandler("completed")}
-                  className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                    active === "completed"
-                      ? "bg-[#CFF6EF] rounded"
-                      : "bg-transparent"
-                  }`}
-                >
-                  Completed
+                  Abandoned
                 </button>
               </div>
               <div className="py-2 flex gap-1">
@@ -113,7 +93,7 @@ const AllOrders = () => {
               </div>
             </div>
 
-            <Table type="order" data={tableData} />
+            <Table type="request" data={tableData} />
           </div>
         </div>
       </div>
@@ -121,4 +101,4 @@ const AllOrders = () => {
   );
 };
 
-export default AllOrders;
+export default RequestItems;

@@ -29,7 +29,7 @@ const AllOrders = () => {
         </div>
       </Heading>
       <div className="grid grid-cols-3 gap-5">
-        <div className="col-span-3  border-y border-[#0000001c] py-5">
+        <div className="col-span-3  border-b border-[#0000001c] py-5">
           <div className="grid lg:grid-cols-5 ">
             {adminCard?.map((item, key) => (
               <Card key={key} type={item.title} data={item.value} />

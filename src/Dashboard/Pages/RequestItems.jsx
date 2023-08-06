@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Heading from "../Components/UiElements/Heading/Heading";
-import trash from "../../assets/icons/cd-delete.svg";
 import filter from "../../assets/icons/cd-filter.svg";
 import sort from "../../assets/icons/cd-arrow-data-transfer-vertical-round.svg";
 import Table from "../Components/UiElements/Table/Table";
 import Input from "../Components/UiElements/Input/Input";
 import search from "../../assets/icons/cd-search2.svg";
 import { requestTable } from "../../Store/Data";
+import Button from "../Components/UiElements/Button/Button";
 const RequestItems = () => {
   const [active, setActive] = useState("all");
   const [tableData] = useState(requestTable);
@@ -21,12 +21,11 @@ const RequestItems = () => {
   return (
     <div className="h-full px-5 ">
       <Heading title="Item Request">
-        <button onClick={deleteHandler} className="flex gap-1 items-center">
-          <img className="h-5 w-5 opacity-70" src={trash} />
-          <p className="text-[#475569] text-sm">Delete</p>
-        </button>
+        <Button style="delete" onClick={deleteHandler}>
+          delete
+        </Button>
       </Heading>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 gap-5 py-5">
         <div className="col-span-3 sm:col-span-3">
           <div className="w-full bg-white p-5 border border-[#0000001f] rounded-md">
             <div className="flex justify-between">

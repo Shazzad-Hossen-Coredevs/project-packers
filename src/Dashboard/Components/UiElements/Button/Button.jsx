@@ -1,0 +1,33 @@
+import trash from "../../../../assets/icons/cd-delete.svg";
+const Button = ({ style, children, onClick }) => {
+  const styles = {
+    primary: "bg-primary text-secondary",
+    secondary: "",
+    outline: "text-[#475569] border border-[#0000001c] hover:bg-primary",
+    delete: "text-[#475569] hover:bg-primary",
+  };
+
+  if (style === "delete") {
+    return (
+      <button
+        onClick={onClick}
+        className={`${styles[style]} h-full w-fit px-4 py-2 rounded text-sm font-medium`}
+      >
+        <div className="flex gap-1 items-center justify-center">
+          <img className="h-5 w-5" src={trash} alt="" />
+          {children}
+        </div>
+      </button>
+    );
+  }
+  return (
+    <button
+      onClick={onClick}
+      className={`${styles[style]} h-full w-fit px-4 py-2 rounded text-sm font-medium`}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;

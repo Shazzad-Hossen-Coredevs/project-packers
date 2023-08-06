@@ -2,30 +2,16 @@ import Button from "../UiElements/Buttons/Button";
 import Input from "../UiElements/Input/Input";
 import globe from "../../assets/icons/cd-internet.svg";
 import reload from "../../assets/icons/cd-reload.svg";
-import camera from "../../assets/icons/cd-camera.svg";
-import cancel from "../../assets/icons/cd-cancel.svg";
 import { useState } from "react";
+import ImageUploader from "../UiElements/ImageUploader./ImageUploader";
 
-const RequestModal = ({confirmSubmit}) => {
+const RequestModal = ({ confirmSubmit }) => {
   const [active, setActive] = useState("link");
   const [quantity, setQuantity] = useState(1);
-  const [previewImage, setPreviewImage] = useState([]);
 
-  const imageInputHandler = (element) => {
-    const url = URL.createObjectURL(element.target.files[0]);
-    setPreviewImage((prev) => [...prev, url]);
+  const onSubmit = () => {
+    confirmSubmit("success");
   };
-
-  const imageRemoveHandler = (removeIndex) => {
-    const updateArray = previewImage.filter(
-      (item, index) => index !== removeIndex
-    );
-    setPreviewImage(updateArray);
-  };
-
-  const onSubmit = () =>{
-    confirmSubmit("success")
-  }
   return (
     <div className="flex flex-col gap-5">
       <div className="flex gap-8 pb-4 justify-between items-start border-b border-[#0000001e]">
@@ -78,42 +64,7 @@ const RequestModal = ({confirmSubmit}) => {
           </div>
         </>
       )}
-      {active === "image" && (
-        <>
-          <p className="text-secondary font-semibold">Product Image</p>
-          <div className="flex gap-2">
-            <label htmlFor="file">
-              <div className="flex h-full  flex-col gap-4 items-center p-4 border  border-[#00000023] rounded-md cursor-pointer">
-                <img src={camera} alt="" />
-                <p className="text-secondary text-xs">upload Image</p>
-              </div>
-            </label>
-            <input
-              className="hidden"
-              type="file"
-              name="file"
-              id="file"
-              onChange={imageInputHandler}
-            />
-            {previewImage.reverse().map((image, index) => {
-              return (
-                <div
-                  key={index}
-                  className="relative p-2 border border-[#00000023] rounded-md "
-                >
-                  <img
-                    onClick={() => imageRemoveHandler(index)}
-                    className="absolute top-1 right-1 rounded-full p-1 bg-[#CFF6EF] h-5 w-5 cursor-pointer"
-                    src={cancel}
-                    alt=""
-                  />
-                  <img className="w-[80px] h-[80px]" src={image} alt="" />
-                </div>
-              );
-            })}
-          </div>
-        </>
-      )}
+      {active === "image" && <ImageUploader />}
       <div className="flex gap-3 items-center">
         <div className="border-[#0000004d] border rounded-full w-fit flex items-center justify-center">
           <button

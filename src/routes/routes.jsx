@@ -23,6 +23,8 @@ import DashboardHome from "../Dashboard/Pages/DashboardHome";
 import Secure from "../Dashboard/Components/Secure/Secure";
 import AllOrders from "../Dashboard/Pages/AllOrders";
 import RequestItems from "../Dashboard/Pages/RequestItems";
+import RequestDetails from "../Dashboard/Pages/RequestDetails";
+import OrderDetails from "../Dashboard/Pages/OrderDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -123,11 +125,28 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "orders/:orderId",
+        element: (
+          <Secure>
+            <OrderDetails />{" "}
+          </Secure>
+        ),
+      },
+      {
         path: "request",
         element: (
           <Secure>
             {" "}
             <RequestItems />{" "}
+          </Secure>
+        ),
+      },
+      {
+        path: "request/:requestId",
+        element: (
+          <Secure>
+            {" "}
+            <RequestDetails />{" "}
           </Secure>
         ),
       },

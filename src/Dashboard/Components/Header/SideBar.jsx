@@ -9,12 +9,14 @@ const SideBar = () => {
   return (
     <div className="bg-[#F8FAFC] h-full pt-8 pe-2 flex flex-col gap-2">
       <NavItem type="navlink" title="Dashboard" icon={dashboard} url="/admin" />
-      <NavItem type="collapse" title="Orders" icon={orders} />
-      <NavItem type="navlink" title="Item Request" url="request" />
-      <NavItem type="navlink" title="All Orders" url="orders" />
-      <NavItem type="collapse" title="Products" icon={products} />
-      <NavItem type="navlink" title="All Products" url="products" />
-      <NavItem type="navlink" title="Discount" url="discount" />
+      <NavItem type="collapse" title="Orders" icon={orders}>
+        <NavItem type="navlink" title="Item Request" url="request" />
+        <NavItem type="navlink" title="All Orders" url="orders" />
+      </NavItem>
+      <NavItem type="collapse" title="Products" icon={products}>
+        <NavItem type="navlink" title="All Products" url="products" />
+        <NavItem type="navlink" title="Discount" url="discount" />
+      </NavItem>
       <NavItem
         type="navlink"
         title="Customers"

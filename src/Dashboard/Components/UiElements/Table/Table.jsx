@@ -3,23 +3,35 @@ import arrowRight from "../../../../assets/icons/cd-arrow-right-2.svg";
 import edit from "../../../../assets/icons/cd-edit.svg";
 import dlt from "../../../../assets/icons/cd-delete.svg";
 import arrowLeft from "../../../../assets/icons/cd-arrow-left-1.svg";
-const Table = ({ type, data = [] }) => {
-  const head = {
-    order: [
-      "Order ID",
-      "Product Name",
-      "Date",
-      "Customer",
-      "Status",
-      "Items",
-      "Total",
-      "Action",
-    ],
-    request: ["ID", "Product Name", "Link", "Date", "Customer", "Status"],
-  };
+import { useNavigate } from "react-router-dom";
 
-  const clickHandler = (value) => {
+const head = {
+  order: [
+    "Order ID",
+    "Product Name",
+    "Date",
+    "Customer",
+    "Status",
+    "Items",
+    "Total",
+    "Action",
+  ],
+  request: ["ID", "Product Name", "Link", "Date", "Customer", "Status"],
+};
+const Table = ({ type, data = [] }) => {
+  const navigate = useNavigate();
+
+  const paginateHandler = (value) => {
     console.log(value);
+  };
+  const selectHandler = (id) => {
+    if (type === "order") {
+      console.log(id, " order");
+      navigate(`${id}`);
+    } else if (type === "request") {
+      navigate(`${id}`);
+      console.log(id, " request");
+    }
   };
   if (type === "order") {
     return (
@@ -53,9 +65,12 @@ const Table = ({ type, data = [] }) => {
                         <input type="checkbox" className="accent-yellow-300" />
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.id}
+                        #{item.id}
                       </td>
-                      <td className="px-4 py-[18px] text-black text-sm ">
+                      <td
+                        onClick={() => selectHandler(item.id)}
+                        className="px-4 py-[18px] text-black text-sm cursor-pointer"
+                      >
                         {item.name}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
@@ -100,13 +115,13 @@ const Table = ({ type, data = [] }) => {
           </p>
           <div className="flex">
             <button
-              onClick={() => clickHandler("decrement")}
+              onClick={() => paginateHandler("decrement")}
               className="border p-2"
             >
               <img src={arrowLeft} alt="" />
             </button>
             <button
-              onClick={() => clickHandler("increment")}
+              onClick={() => paginateHandler("increment")}
               className="border p-2"
             >
               <img src={arrowRight} alt="" />
@@ -148,9 +163,12 @@ const Table = ({ type, data = [] }) => {
                         <input type="checkbox" className="accent-yellow-300" />
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.id}
+                        #{item.id}
                       </td>
-                      <td className="px-4 py-[18px] text-black text-sm ">
+                      <td
+                        onClick={() => selectHandler(item.id)}
+                        className="px-4 py-[18px] text-black text-sm cursor-pointer"
+                      >
                         {item.product}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
@@ -176,13 +194,13 @@ const Table = ({ type, data = [] }) => {
           </p>
           <div className="flex">
             <button
-              onClick={() => clickHandler("decrement")}
+              onClick={() => paginateHandler("decrement")}
               className="border p-2"
             >
               <img src={arrowLeft} alt="" />
             </button>
             <button
-              onClick={() => clickHandler("increment")}
+              onClick={() => paginateHandler("increment")}
               className="border p-2"
             >
               <img src={arrowRight} alt="" />

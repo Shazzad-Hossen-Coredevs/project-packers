@@ -6,7 +6,7 @@
  */
 import canceled from "../../../../assets/icons/cd-cancel.svg";
 import copy from "../../../../assets/icons/cd-copy.svg";
-const SideCard = ({ types, onClick, title, name, email, phone,address, orders  }) => {
+const SideCard = ({ types, onClick, title, name, email, phone,address, orders, message  }) => {
   if (types === "customer") {
     return (
       <div className="grid gap-5 p-5 ">
@@ -60,6 +60,24 @@ const SideCard = ({ types, onClick, title, name, email, phone,address, orders  }
         </div>
         <div className="grid gap-2">
           <p className="text-[#475569]">{address}</p>
+        </div>
+      </div>
+    )
+  }
+  if(types === "note"){
+    return (
+        <div className="grid gap-5 p-5">
+        <div className="flex justify-between">
+          <p className="text-base text-secondary font-semibold">
+            Note
+          </p>
+          <button onClick={onClick}>
+
+          <img src={canceled} alt="" />
+          </button>
+        </div>
+        <div className="grid gap-2">
+          <p className="text-[#475569]">{message  || "No Message"}</p>
         </div>
       </div>
     )

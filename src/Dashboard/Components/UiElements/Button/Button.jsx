@@ -7,6 +7,16 @@ const Button = ({ style, children, onClick }) => {
     delete: "text-[#475569] hover:bg-primary",
   };
 
+  if (style === undefined) {
+    return (
+      <button
+        onClick={onClick}
+        className={`${styles['delete']} h-full w-fit px-4 py-2 rounded text-sm font-medium`}
+      >
+        <div className="flex gap-1 items-center justify-center">{children}</div>
+      </button>
+    );
+  }
   if (style === "delete") {
     return (
       <button

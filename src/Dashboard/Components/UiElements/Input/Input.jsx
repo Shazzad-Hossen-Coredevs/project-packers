@@ -26,7 +26,7 @@ const Input = ({
 
   if (styles === "quantity") {
     return (
-      <div className={`rounded h-full`}>
+      <div className={`rounded h-full w-fit`}>
         <div
           className={`flex items-center rounded gap-2 ${style[styles]} px-2 py-1 h-full`}
         >

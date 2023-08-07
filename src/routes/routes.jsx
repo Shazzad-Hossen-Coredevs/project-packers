@@ -25,6 +25,7 @@ import AllOrders from "../Dashboard/Pages/AllOrders";
 import RequestItems from "../Dashboard/Pages/RequestItems";
 import RequestDetails from "../Dashboard/Pages/RequestDetails";
 import OrderDetails from "../Dashboard/Pages/OrderDetails";
+import Products from "../Dashboard/Pages/Products";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -147,6 +148,15 @@ export const router = createBrowserRouter([
           <Secure>
             {" "}
             <RequestDetails />{" "}
+          </Secure>
+        ),
+      },
+      {
+        path: "products",
+        element: (
+          <Secure>
+            {" "}
+            <Products />{" "}
           </Secure>
         ),
       },

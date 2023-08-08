@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { requestTable } from "../../Store/Data";
+import { products } from "../../Store/Data";
 import Heading from "../Components/UiElements/Heading/Heading";
 import Button from "../Components/UiElements/Button/Button";
 import Input from "../Components/UiElements/Input/Input";
@@ -10,7 +10,7 @@ import search from "../../assets/icons/cd-search2.svg";
 
 const Products = () => {
     const [active, setActive] = useState("all");
-    const [tableData] = useState(requestTable);
+    const [tableData] = useState(products);
   
     const tableButtonHandler = (value) => {
       setActive(value);

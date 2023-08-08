@@ -17,7 +17,7 @@ const head = {
     "Action",
   ],
   request: ["ID", "Product Name", "Link", "Date", "Customer", "Status"],
-  products: ['Product', 'Inventory', 'Price', 'Category', 'Publish Date']
+  products: ['','Product', 'Inventory', 'Price', 'Category', 'Publish Date']
 };
 const Table = ({ type, data = [] }) => {
   const navigate = useNavigate();
@@ -233,7 +233,7 @@ const Table = ({ type, data = [] }) => {
           <tbody>
             {data.length < 1
               ? "Loading"
-              : data.map((item, index) => {
+              : data.slice(0,9).map((item, index) => {
                   return (
                     <tr
                       key={index}
@@ -243,44 +243,25 @@ const Table = ({ type, data = [] }) => {
                         <input type="checkbox" className="accent-yellow-300" />
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        #{item.id}
+                        <img className="w-10 h-10 rounded border border-[#0000001c]" src={item.thumbnail} alt="" />
                       </td>
                       <td
                         onClick={() => selectHandler(item.id)}
-                        className="px-4 py-[18px] text-black text-sm cursor-pointer"
+                        className="px-4 py-[18px] text-black text-sm cursor-pointer line-clamp-2"
                       >
-                        {item.name}
+                        {item.title}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.date}
+                        {item.stock} in Stock
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.user}
+                        ${item.price}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        <Badge text={item.status} styles="" />{" "}
+                        {item.category}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.items}
-                      </td>
-                      <td className="px-4 py-[18px] text-black text-sm ">
-                        ${item.total}
-                      </td>
-                      <td className="">
-                        <div className="flex gap-2">
-                          <img
-                            className="cursor-pointer opacity-70"
-                            onClick={() => console.log("Edit row")}
-                            src={edit}
-                            alt=""
-                          />
-                          <img
-                            className="cursor-pointer opacity-70"
-                            onClick={() => console.log("Delete row")}
-                            src={dlt}
-                            alt=""
-                          />
-                        </div>
+                        {item.publishDate}
                       </td>
                     </tr>
                   );

@@ -23,7 +23,7 @@ const SideBar = () => {
         icon={customer}
         url="customers"
       />
-      <NavItem type="navlink" title="Support" icon={chat} url="support" />
+      <NavItem type="navlink" title="Support" icon={chat} url="chat" />
       <NavItem type="navlink" title="Staff" icon={user} url="staff" />
     </div>
   );

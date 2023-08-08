@@ -26,6 +26,7 @@ import RequestItems from "../Dashboard/Pages/RequestItems";
 import RequestDetails from "../Dashboard/Pages/RequestDetails";
 import OrderDetails from "../Dashboard/Pages/OrderDetails";
 import Products from "../Dashboard/Pages/Products";
+import Chat from "../Dashboard/Pages/Chat";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -111,8 +112,7 @@ export const router = createBrowserRouter([
         path: "",
         element: (
           <Secure>
-            {" "}
-            <DashboardHome />{" "}
+            <DashboardHome />
           </Secure>
         ),
       },
@@ -120,8 +120,7 @@ export const router = createBrowserRouter([
         path: "orders",
         element: (
           <Secure>
-            {" "}
-            <AllOrders />{" "}
+            <AllOrders />
           </Secure>
         ),
       },
@@ -129,7 +128,7 @@ export const router = createBrowserRouter([
         path: "orders/:orderId",
         element: (
           <Secure>
-            <OrderDetails />{" "}
+            <OrderDetails />
           </Secure>
         ),
       },
@@ -137,8 +136,7 @@ export const router = createBrowserRouter([
         path: "request",
         element: (
           <Secure>
-            {" "}
-            <RequestItems />{" "}
+            <RequestItems />
           </Secure>
         ),
       },
@@ -146,8 +144,7 @@ export const router = createBrowserRouter([
         path: "request/:requestId",
         element: (
           <Secure>
-            {" "}
-            <RequestDetails />{" "}
+            <RequestDetails />
           </Secure>
         ),
       },
@@ -155,8 +152,15 @@ export const router = createBrowserRouter([
         path: "products",
         element: (
           <Secure>
-            {" "}
-            <Products />{" "}
+            <Products />
+          </Secure>
+        ),
+      },
+      {
+        path: "chat",
+        element: (
+          <Secure>
+            <Chat />
           </Secure>
         ),
       },

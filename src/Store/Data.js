@@ -17,7 +17,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/1/4.jpg",
       "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
     ],
-    publishDate: '24 Dec 2023'
+    publishDate: "24 Dec 2023",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/2/3.jpg",
       "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
     ],
-    publishDate: '24 Dec 2023'
+    publishDate: "24 Dec 2023",
   },
   {
     id: 3,
@@ -52,8 +52,8 @@ export const products = [
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
     images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
-    
-    publishDate: '24 Dec 2023'
+
+    publishDate: "24 Dec 2023",
   },
   {
     id: 4,
@@ -73,7 +73,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/4/4.jpg",
       "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
     ],
-    publishDate: '24 Dec 2023'
+    publishDate: "24 Dec 2023",
   },
   {
     id: 5,
@@ -92,7 +92,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/5/2.jpg",
       "https://i.dummyjson.com/data/products/5/3.jpg",
     ],
-    publishDate: '24 Dec 2023'
+    publishDate: "24 Dec 2023",
   },
   {
     id: 6,
@@ -111,7 +111,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/6/2.jpg",
       "https://i.dummyjson.com/data/products/6/3.png",
       "https://i.dummyjson.com/data/products/6/4.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 7,
@@ -130,7 +131,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/7/2.jpg",
       "https://i.dummyjson.com/data/products/7/3.jpg",
       "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 8,
@@ -150,7 +152,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/8/3.jpg",
       "https://i.dummyjson.com/data/products/8/4.jpg",
       "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 9,
@@ -170,7 +173,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/9/3.png",
       "https://i.dummyjson.com/data/products/9/4.jpg",
       "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 10,
@@ -189,7 +193,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/10/2.jpg",
       "https://i.dummyjson.com/data/products/10/3.jpg",
       "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 11,
@@ -208,7 +213,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/11/2.jpg",
       "https://i.dummyjson.com/data/products/11/3.jpg",
       "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 12,
@@ -227,7 +233,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/12/3.png",
       "https://i.dummyjson.com/data/products/12/4.jpg",
       "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 13,
@@ -247,7 +254,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/13/3.jpg",
       "https://i.dummyjson.com/data/products/13/4.jpg",
       "https://i.dummyjson.com/data/products/13/thumbnail.webp",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 14,
@@ -266,7 +274,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/14/2.jpg",
       "https://i.dummyjson.com/data/products/14/3.jpg",
       "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 15,
@@ -286,7 +295,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/15/3.jpg",
       "https://i.dummyjson.com/data/products/15/4.jpg",
       "https://i.dummyjson.com/data/products/15/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 16,
@@ -306,7 +316,8 @@ export const products = [
       "https://i.dummyjson.com/data/products/16/3.jpg",
       "https://i.dummyjson.com/data/products/16/4.jpg",
       "https://i.dummyjson.com/data/products/16/thumbnail.jpg",
-    ],publishDate: '24 Dec 2023'
+    ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 17,
@@ -1287,5 +1298,63 @@ export const requestTable = [
     date: "20-10-2023",
     customer: "John Doe",
     status: "closed",
+  },
+];
+export const chatCardData = [
+  {
+    id: 1,
+    status: "open",
+    type: "payment",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 2,
+    status: "close",
+    type: "payment",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 3,
+    status: "pending",
+    type: "payment",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 4,
+    status: "open",
+    type: "refund",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 5,
+    status: "close",
+    type: "account",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 6,
+    status: "open",
+    type: "account",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 7,
+    status: "close",
+    type: "order",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 8,
+    status: "open",
+    type: "account",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
   },
 ];

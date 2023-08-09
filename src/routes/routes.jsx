@@ -1,8 +1,6 @@
-import {
-    createBrowserRouter,
-  } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import Home from '../pages/Home'
+import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Recovery from "../pages/Recovery";
 import Signup from "../pages/Signup";
@@ -23,94 +21,149 @@ import Support from "../pages/Support";
 import DashboardLayout from "../Dashboard/Layouts/DashboardLayout";
 import DashboardHome from "../Dashboard/Pages/DashboardHome";
 import Secure from "../Dashboard/Components/Secure/Secure";
+import AllOrders from "../Dashboard/Pages/AllOrders";
+import RequestItems from "../Dashboard/Pages/RequestItems";
+import RequestDetails from "../Dashboard/Pages/RequestDetails";
+import OrderDetails from "../Dashboard/Pages/OrderDetails";
+import Products from "../Dashboard/Pages/Products";
+import Chat from "../Dashboard/Pages/Chat";
 export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main/>,
-      children: [
-        {
-            path: '/',
-            element: <Home/>
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/reset",
+        element: <Recovery />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/shop",
+        element: <Shop />,
+        // loader: async () =>{
+        //   return await
+        // }
+      },
+      {
+        path: "shop/:productId",
+        element: <Product />,
+        loader: async ({ params }) => {
+          return await getApi(`/product/${params.productId}`);
         },
-        {
-          path: '/login',
-          element: <Login />
-        },
-        {
-          path: '/reset',
-          element: <Recovery />
-        },
-        {
-          path: '/signup',
-          element: <Signup />
-        },
-        {
-          path: '/shop',
-          element: <Shop />,
-          // loader: async () =>{
-          //   return await 
-          // }
-          
-        },
-        {
-          path: 'shop/:productId',
-          element: <Product />,
-          loader: async ({params}) =>{
-            return await getApi(`/product/${params.productId}`)
-          }
-        },
-        {
-          path:'/cart',
-          element: <Cart />
-
-        },
-        {
-          path: '/test',
-          element: <Test />
-        },
-        {
-          path: '/checkout',
-          element: <Checkout />
-        },
-        {
-          path: '/blog',
-          element: <Blog />
-        },
-        {
-          path:'/blog/:postId',
-          element: <BlogPost />
-        },
-        {
-          path: '/about',
-          element: <About />
-        },
-        {
-          path: '/faq',
-          element: <FaqPage />
-        },
-        {
-          path:'account/orders',
-          element: <Orders />
-        },
-        {
-          path:"/notification",
-          element: <Notification />
-        },
-        {
-          path:"/support",
-          element: <Support />
-        }
-      ]
-    },
-    {
-      path: '/admin',
-      element: <DashboardLayout />,
-      children:[
-        {
-          path:'',
-          element: <Secure> <DashboardHome /> </Secure>
-        }
-      ]
-      
-    }
-  ]);
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/test",
+        element: <Test />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/blog/:postId",
+        element: <BlogPost />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/faq",
+        element: <FaqPage />,
+      },
+      {
+        path: "account/orders",
+        element: <Orders />,
+      },
+      {
+        path: "/notification",
+        element: <Notification />,
+      },
+      {
+        path: "/support",
+        element: <Support />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "",
+        element: (
+          <Secure>
+            <DashboardHome />
+          </Secure>
+        ),
+      },
+      {
+        path: "orders",
+        element: (
+          <Secure>
+            <AllOrders />
+          </Secure>
+        ),
+      },
+      {
+        path: "orders/:orderId",
+        element: (
+          <Secure>
+            <OrderDetails />
+          </Secure>
+        ),
+      },
+      {
+        path: "request",
+        element: (
+          <Secure>
+            <RequestItems />
+          </Secure>
+        ),
+      },
+      {
+        path: "request/:requestId",
+        element: (
+          <Secure>
+            <RequestDetails />
+          </Secure>
+        ),
+      },
+      {
+        path: "products",
+        element: (
+          <Secure>
+            <Products />
+          </Secure>
+        ),
+      },
+      {
+        path: "chat",
+        element: (
+          <Secure>
+            <Chat />
+          </Secure>
+        ),
+      },
+    ],
+  },
+]);

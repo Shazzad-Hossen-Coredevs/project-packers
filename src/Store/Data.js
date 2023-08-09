@@ -17,6 +17,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/1/4.jpg",
       "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 2,
@@ -36,6 +37,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/2/3.jpg",
       "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 3,
@@ -50,6 +52,8 @@ export const products = [
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
     images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
+
+    publishDate: "24 Dec 2023",
   },
   {
     id: 4,
@@ -69,6 +73,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/4/4.jpg",
       "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 5,
@@ -87,6 +92,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/5/2.jpg",
       "https://i.dummyjson.com/data/products/5/3.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 6,
@@ -106,6 +112,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/6/3.png",
       "https://i.dummyjson.com/data/products/6/4.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 7,
@@ -125,6 +132,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/7/3.jpg",
       "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 8,
@@ -145,6 +153,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/8/4.jpg",
       "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 9,
@@ -165,6 +174,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/9/4.jpg",
       "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 10,
@@ -184,6 +194,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/10/3.jpg",
       "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 11,
@@ -203,6 +214,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/11/3.jpg",
       "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 12,
@@ -222,6 +234,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/12/4.jpg",
       "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 13,
@@ -242,6 +255,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/13/4.jpg",
       "https://i.dummyjson.com/data/products/13/thumbnail.webp",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 14,
@@ -261,6 +275,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/14/3.jpg",
       "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 15,
@@ -281,6 +296,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/15/4.jpg",
       "https://i.dummyjson.com/data/products/15/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 16,
@@ -301,6 +317,7 @@ export const products = [
       "https://i.dummyjson.com/data/products/16/4.jpg",
       "https://i.dummyjson.com/data/products/16/thumbnail.jpg",
     ],
+    publishDate: "24 Dec 2023",
   },
   {
     id: 17,
@@ -819,8 +836,526 @@ export const posts = [
   },
 ];
 export const carousel = [
-    "https://www.youtube.com/shorts/FZsOm-qARPM",
-    "https://www.youtube.com/shorts/3k01apyZFlI",
-    "https://www.youtube.com/shorts/aWVzZgbOVhw",
-    "https://www.youtube.com/shorts/46NfO75pf3w",
-  ];
+  "https://www.youtube.com/shorts/FZsOm-qARPM",
+  "https://www.youtube.com/shorts/3k01apyZFlI",
+  "https://www.youtube.com/shorts/aWVzZgbOVhw",
+  "https://www.youtube.com/shorts/46NfO75pf3w",
+];
+
+export const adminCard = [
+  {
+    title: "cost",
+    value: 1044002,
+  },
+  {
+    title: "request",
+    value: 128,
+  },
+  {
+    title: "order",
+    value: 228,
+  },
+  {
+    title: "complete",
+    value: 208,
+  },
+  {
+    title: "cancel",
+    value: 58,
+  },
+];
+
+export const areaChart = [
+  {
+    month: 1,
+    order: 7,
+    request: 2,
+  },
+  {
+    month: 2,
+    order: 12,
+    request: 32,
+  },
+  {
+    month: 3,
+    order: 7,
+    request: 10,
+  },
+  {
+    month: 4,
+    order: 4,
+    request: 2,
+  },
+  {
+    month: 5,
+    order: 7,
+    request: 2,
+  },
+];
+export const heatMap = [
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 88,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 21,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 43,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+  {
+    name: "6 am",
+    data: [
+      {
+        x: "Mon",
+        y: 43,
+      },
+      {
+        x: "Tue",
+        y: 10,
+      },
+      {
+        x: "Wed",
+        y: 43,
+      },
+      {
+        x: "Thu",
+        y: 43,
+      },
+      {
+        x: "Fri",
+        y: 43,
+      },
+      {
+        x: "Sat",
+        y: 43,
+      },
+      {
+        x: "Sun",
+        y: 43,
+      },
+    ],
+  },
+];
+export const orderTable = [
+  {
+    id: 1,
+    name: "iphone 14 Max Pro",
+    date: "20-10-2023",
+    user: "John Doe",
+    status: "paid",
+    items: 1,
+    total: 4299,
+  },
+  {
+    id: 2,
+    name: "Samsung S23 Ultra",
+    date: "12-10-2023",
+    user: "John Doe",
+    status: "processing",
+    items: 3,
+    total: 4299,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "shipping",
+    items: 1,
+    total: 6789,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "cancelled",
+    items: 1,
+    total: 6789,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "pending",
+    items: 1,
+    total: 6789,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "cancelled",
+    items: 1,
+    total: 6789,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "completed",
+    items: 1,
+    total: 6789,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "refunded",
+    items: 1,
+    total: 6789,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "refundProcessing",
+    items: 1,
+    total: 6789,
+  },
+  {
+    id: 3,
+    name: "Mackbook Pro",
+    date: "20-9-2023",
+    user: "Brad",
+    status: "refundCancelled",
+    items: 1,
+    total: 6789,
+  },
+];
+export const requestTable = [
+  {
+    id: 2050,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "paid",
+  },
+  {
+    id: 2,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "abandoned",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "estimate",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "closed",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "pending",
+  },
+  {
+    id: 3,
+    product: "iphone 14 Max Pro",
+    link: "www.amazon.com/iphone-14-max-pro",
+    date: "20-10-2023",
+    customer: "John Doe",
+    status: "closed",
+  },
+];
+export const chatCardData = [
+  {
+    id: 1,
+    status: "open",
+    type: "payment",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 2,
+    status: "close",
+    type: "payment",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 3,
+    status: "pending",
+    type: "payment",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 4,
+    status: "open",
+    type: "refund",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 5,
+    status: "close",
+    type: "account",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 6,
+    status: "open",
+    type: "account",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 7,
+    status: "close",
+    type: "order",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+  {
+    id: 8,
+    status: "open",
+    type: "account",
+    message:
+      "t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,",
+  },
+];
+

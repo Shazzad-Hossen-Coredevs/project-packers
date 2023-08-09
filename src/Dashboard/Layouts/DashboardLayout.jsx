@@ -11,7 +11,7 @@ const DashboardLayout = () => {
       <div className="col-span-2 h-[calc(100vh-68px)] hidden sm:block">
         <SideBar />
       </div>
-      <div className="col-span-12 sm:col-span-10 shadow-md h-full sm:h-[calc(100vh-68px)]">
+      <div className="col-span-12 sm:col-span-10  shadow-md overflow-y-auto h-full sm:h-[calc(100vh-68px)]">
         <Outlet />
       </div>
     </div>

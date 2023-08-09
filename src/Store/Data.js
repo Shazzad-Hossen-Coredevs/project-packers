@@ -1359,3 +1359,45 @@ export const chatCardData = [
   },
 ];
 
+export const customer = [
+  {
+    id: 1,
+    name: 'David Miller',
+    phone: '+1643634234',
+    location: 'West St, California, USA',
+    orders: 22,
+    spent: 2009
+  },
+  {
+    id: 2,
+    name: 'Sofia Willam',
+    phone: '+1643634234',
+    location: 'West St, California, USA',
+    orders: 2,
+    spent: 209
+  },
+  {
+    id: 3,
+    name: 'David Miller',
+    phone: '+1643634234',
+    location: 'West St, California, USA',
+    orders: 22,
+    spent: 2009
+  },
+  {
+    id: 4,
+    name: 'David Miller',
+    phone: '+1643634234',
+    location: 'West St, California, USA',
+    orders: 22,
+    spent: 2009
+  },
+  {
+    id: 5,
+    name: 'David Miller',
+    phone: '+1643634234',
+    location: 'West St, California, USA',
+    orders: 22,
+    spent: 2009
+  }
+]

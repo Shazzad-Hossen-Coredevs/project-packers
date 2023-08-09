@@ -28,6 +28,7 @@ import OrderDetails from "../Dashboard/Pages/OrderDetails";
 import Products from "../Dashboard/Pages/Products";
 import Chat from "../Dashboard/Pages/Chat";
 import NewProduct from "../Dashboard/Pages/NewProduct";
+import Customer from "../Dashboard/Pages/Customer";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -183,10 +184,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "chat",
+        path: "customers",
         element: (
           <Secure>
-            <Chat />
+            <Customer />
           </Secure>
         ),
       },

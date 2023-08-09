@@ -27,6 +27,7 @@ import RequestDetails from "../Dashboard/Pages/RequestDetails";
 import OrderDetails from "../Dashboard/Pages/OrderDetails";
 import Products from "../Dashboard/Pages/Products";
 import Chat from "../Dashboard/Pages/Chat";
+import NewProduct from "../Dashboard/Pages/NewProduct";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -153,6 +154,31 @@ export const router = createBrowserRouter([
         element: (
           <Secure>
             <Products />
+          </Secure>
+        ),
+        
+      },
+      {
+        path: "products/new-product",
+        element: (
+          <Secure>
+            <NewProduct />
+          </Secure>
+        ),
+      },
+      {
+        path: "products/:productId",
+        element: (
+          <Secure>
+            <NewProduct />
+          </Secure>
+        ),
+      },
+      {
+        path: "chat",
+        element: (
+          <Secure>
+            <Chat />
           </Secure>
         ),
       },

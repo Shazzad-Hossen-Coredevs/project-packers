@@ -72,6 +72,7 @@ const HeatMap = () => {
         series={heatMap}
         type="heatmap"
         height={400}
+        width={325}
       />
     </div>
   );

@@ -3,7 +3,7 @@ import Input from "../UiElements/Input/Input";
 import globe from "../../assets/icons/cd-internet.svg";
 import reload from "../../assets/icons/cd-reload.svg";
 import { useState } from "react";
-import ImageUploader from "../UiElements/ImageUploader./ImageUploader";
+import ImageUploader from "../UiElements/ImageUploader/ImageUploader";
 
 const RequestModal = ({ confirmSubmit }) => {
   const [active, setActive] = useState("link");
@@ -64,7 +64,7 @@ const RequestModal = ({ confirmSubmit }) => {
           </div>
         </>
       )}
-      {active === "image" && <ImageUploader />}
+      {active === "image" && <ImageUploader title="Image Upload" />}
       <div className="flex gap-3 items-center">
         <div className="border-[#0000004d] border rounded-full w-fit flex items-center justify-center">
           <button

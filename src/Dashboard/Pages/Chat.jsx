@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ChatCard from "../Components/UiElements/ChatCard/ChatCard";
 import { chatCardData } from "../../Store/Data";
 import ChatBubble from "../Components/UiElements/ChatBubble/ChatBubble";
-
+import Button from '../Components/UiElements/Button/Button'
 const buttonStyle = {
   active: "bg-secondary text-white",
   deactive: "bg-white text-black",
@@ -13,7 +13,8 @@ const Chat = () => {
   const [filteredData, setFilteredData] = useState(chatCard);
   const [supportType, setSupportType] = useState("all");
   const [supportData, setSupportData] = useState([]);
-  const [activeChat, setActiveChat] = useState([]);
+  const [activeChat, setActiveChat] = useState(filteredData[0]);
+  const [modal, setModal] = useState(false)
 
   useEffect(() => {
     if (supportType === "all") {
@@ -35,18 +36,22 @@ const Chat = () => {
     }
   }, [activeStatusButton, supportData]);
 
-  const chatCardHandler = (element, active) => {
-    console.log(element, active)
+  const chatCardHandler = (element) => {
+    const active = filteredData.filter(item => item.id === element)
+    active[0].status === 'pending' && setModal(true) 
+    setActiveChat(active[0])
+    console.log(active)
   }
-  const clickHandler = (value) => {
+  const actionButtonHandler = (value) => {
     setActiveStatusButton(value);
   };
   return (
+  
     <div className="grid grid-cols-12">
       <div className="col-span-3 hidden sm:grid gap-2 pt-5 px-5">
         <div className="border border-[#0000001c] text-sm rounded-md overflow-hidden flex">
           <button
-            onClick={() => clickHandler("all")}
+            onClick={() => actionButtonHandler("all")}
             className={`py-2 px-4 font-medium ${
               activeStatusButton === "all"
                 ? buttonStyle["active"]
@@ -59,7 +64,7 @@ const Chat = () => {
             </div>
           </button>
           <button
-            onClick={() => clickHandler("open")}
+            onClick={() => actionButtonHandler("open")}
             className={`py-2 px-4 font-medium ${
               activeStatusButton === "open"
                 ? buttonStyle["active"]
@@ -72,7 +77,7 @@ const Chat = () => {
             </div>
           </button>
           <button
-            onClick={() => clickHandler("close")}
+            onClick={() => actionButtonHandler("close")}
             className={`py-2 px-4 font-medium ${
               activeStatusButton === "close"
                 ? buttonStyle["active"]
@@ -89,9 +94,10 @@ const Chat = () => {
               onChange={(e) => setSupportType(e.target.value)}
               className=" bg-white outline-none" defaultValue="all"
             >
-              <option value="all">
+              <option selected>
                 Support Type
               </option>
+              <option value="all">All</option>
               <option value="account">Account</option>
               <option value="order">Order</option>
               <option value="payment">Payment</option>
@@ -101,6 +107,7 @@ const Chat = () => {
         </div>
         <div className="">
           <div className="overflow-hidden overflow-y-auto  h-[calc(100vh-140px)]">
+            
             {filteredData.map((chat) => (
               <ChatCard
                 onClick={chatCardHandler}
@@ -115,7 +122,16 @@ const Chat = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-12 sm:col-span-9 bg-[#E2E8F0]">
+      <div className="col-span-12 sm:col-span-9 relative bg-[#E2E8F0]">
+      {modal && <div className="absolute top-0 bottom-0 left-0 right-0 bg-[#0000004b] z-10">
+                <div className="h-full w-full flex items-center justify-center">
+                  <div className="flex gap-2">
+
+                  <Button onClick={()=> console.log("Decline")} style="secondary">Decline</Button>
+                  <Button  onClick={()=> console.log("Accept")} style="primary">Accept</Button>
+                  </div>
+                </div>
+              </div>}
         <div className="flex justify-between items-center px-8 py-3 shadow-sm">
           <div className="">
             <div className="flex gap-2 items-center">
@@ -142,7 +158,7 @@ const Chat = () => {
           </div>
         </div>
         <div className="px-8 py-2 relative h-[calc(100vh-215px)]  w-full">
-          <div className="h-full overflow-y-auto flex flex-col gap-12 pb-2">
+          <div className="h-full overflow-y-auto flex  flex-col-reverse gap-12 pb-2">
             <ChatBubble
               type="customer"
               name="Floyd Miles"
@@ -207,6 +223,7 @@ const Chat = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

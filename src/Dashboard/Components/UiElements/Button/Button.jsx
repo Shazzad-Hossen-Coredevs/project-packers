@@ -2,7 +2,7 @@ import trash from "../../../../assets/icons/cd-delete.svg";
 const Button = ({ style, children, onClick }) => {
   const styles = {
     primary: "bg-primary text-secondary",
-    secondary: "",
+    secondary: "bg-white hover:bg-primary",
     outline: "text-[#475569] border border-[#0000001c] hover:bg-primary",
     delete: "text-[#475569] hover:bg-primary",
   };

@@ -11,7 +11,8 @@ const styles = {
   close: "bg-red-400",
   pending: "bg-yellow-400",
 };
-const ChatCard = ({ onClick, active, status, type, id, message }) => {
+const ChatCard = ({ onClick, active, status, type, id, message , order }) => {
+  
   return (
     <div className="relative">
     <div className={`border-l-2     ${active === id  ? 'border-primary' : 'border-white'}   absolute h-full left-0`}></div>
@@ -25,7 +26,7 @@ const ChatCard = ({ onClick, active, status, type, id, message }) => {
             {type || "No Data"}
           </p>
         </div>
-        <p className="font-medium   ">Order Id #{id}</p>
+        <p className="font-medium   ">Order Id {order}</p>
         <p className="text-[#475569] line-clamp-2">{message}</p>
       </div>
     </div>

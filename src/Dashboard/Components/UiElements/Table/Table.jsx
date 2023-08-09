@@ -1,3 +1,10 @@
+/**
+ * @prams type || data
+ * type => order || request || products
+ * 
+ * @returns table JSX Element.
+ */
+
 import Badge from "../../../../Components/UiElements/Badge/Badge";
 import arrowRight from "../../../../assets/icons/cd-arrow-right-2.svg";
 import edit from "../../../../assets/icons/cd-edit.svg";
@@ -17,7 +24,7 @@ const head = {
     "Action",
   ],
   request: ["ID", "Product Name", "Link", "Date", "Customer", "Status"],
-  products: ['','Product', 'Inventory', 'Price', 'Category', 'Publish Date']
+  products: ["", "Product", "Inventory", "Price", "Category", "Publish Date"],
 };
 const Table = ({ type, data = [] }) => {
   const navigate = useNavigate();
@@ -32,6 +39,9 @@ const Table = ({ type, data = [] }) => {
     } else if (type === "request") {
       navigate(`${id}`);
       console.log(id, " request");
+    } else if(type === "products") {
+      navigate(`${id}`)
+
     }
   };
   if (type === "order") {
@@ -233,7 +243,7 @@ const Table = ({ type, data = [] }) => {
           <tbody>
             {data.length < 1
               ? "Loading"
-              : data.slice(0,9).map((item, index) => {
+              : data.slice(0, 9).map((item, index) => {
                   return (
                     <tr
                       key={index}
@@ -243,7 +253,11 @@ const Table = ({ type, data = [] }) => {
                         <input type="checkbox" className="accent-yellow-300" />
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        <img className="w-10 h-10 rounded border border-[#0000001c]" src={item.thumbnail} alt="" />
+                        <img
+                          className="w-10 h-10 rounded border border-[#0000001c]"
+                          src={item.thumbnail}
+                          alt=""
+                        />
                       </td>
                       <td
                         onClick={() => selectHandler(item.id)}

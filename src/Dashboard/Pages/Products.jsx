@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { products } from "../../Store/Data";
+import { useNavigate } from "react-router-dom";
 import Heading from "../Components/UiElements/Heading/Heading";
 import Button from "../Components/UiElements/Button/Button";
 import Input from "../Components/UiElements/Input/Input";
@@ -9,20 +10,20 @@ import sort from "../../assets/icons/cd-arrow-data-transfer-vertical-round.svg";
 import search from "../../assets/icons/cd-search2.svg";
 
 const Products = () => {
+
     const [active, setActive] = useState("all");
     const [tableData] = useState(products);
   
+    const navigate = useNavigate()
     const tableButtonHandler = (value) => {
       setActive(value);
       console.log(value);
     };
-    const deleteHandler = () => {
-      console.log("deleted");
-    };
+    
     return (
       <div className="h-full px-5 ">
         <Heading title="Products">
-          <Button style="primary" onClick={deleteHandler}>
+          <Button style="primary" onClick={()=> navigate('new-product')}>
            Add New Product
           </Button>
         </Heading>

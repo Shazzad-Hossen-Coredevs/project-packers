@@ -1,20 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ChatCard from "../Components/UiElements/ChatCard/ChatCard";
-import { chatCardData } from "../../Store/Data";
+
 import ChatBubble from "../Components/UiElements/ChatBubble/ChatBubble";
 import Button from '../Components/UiElements/Button/Button'
+import { getApi, postApi } from "../../Util/apiCall";
+import { SocketContext } from "../../Providers/SocketProviders";
+import { useDispatch, useSelector } from "react-redux";
+import { storeSupportRoom } from "../../Store/userSlice";
 const buttonStyle = {
   active: "bg-secondary text-white",
   deactive: "bg-white text-black",
 };
 const Chat = () => {
   const [activeStatusButton, setActiveStatusButton] = useState("all");
-  const [chatCard, setChatCard] = useState(chatCardData);
+  const [chatCard, setChatCard] = useState([]);
   const [filteredData, setFilteredData] = useState(chatCard);
   const [supportType, setSupportType] = useState("all");
   const [supportData, setSupportData] = useState([]);
   const [activeChat, setActiveChat] = useState(filteredData[0]);
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
+  const { socket }= useContext(SocketContext);
+  const { supportRoom } = useSelector((state) => state.userInfo);
+  const dispatch =  useDispatch();
+
+ 
+
+  
+
+  useEffect(()=>{
+    getApi('/support').then(res=>{
+      setChatCard(res.docs);
+    })
+    
+  },[])
 
   useEffect(() => {
     if (supportType === "all") {
@@ -37,14 +55,60 @@ const Chat = () => {
   }, [activeStatusButton, supportData]);
 
   const chatCardHandler = (element) => {
-    const active = filteredData.filter(item => item.id === element)
+    setModal(false)
+    const active = filteredData.filter(item => item.id === element);
     active[0].status === 'pending' && setModal(true) 
     setActiveChat(active[0])
-    console.log(active)
+    
   }
   const actionButtonHandler = (value) => {
     setActiveStatusButton(value);
   };
+
+  useEffect(()=>{
+    socket?.emit('joinRoom','supportRoom');
+    Object.keys(supportRoom).forEach(k=> {
+      socket?.emit('joinRoom',k)
+    })
+    socket?.on('newChat',(data)=>{
+      setChatCard((prev)=>  [data, ...prev] );
+    })
+    socket?.on('supportChat',(data)=>{
+      setActiveChat(data);
+      const index = chatCard.findIndex(item=> item.id===data.id);
+      chatCard[index].push({...data});
+      
+      
+
+    });
+    
+    
+
+  },[socket])
+
+  const acceptChat = () =>{
+    postApi(`/support/${activeChat.id}`,{})
+    .then(res=>{
+      if(res.status===200){
+        const index =  chatCard.findIndex(item=> item.id===activeChat.id);
+        chatCard[index].status='open';
+        setModal(false)
+        setChatCard((prev)=>  [...prev] );
+        
+        socket?.emit('joinRoom',res.data.id);
+        dispatch(storeSupportRoom(res.data.id))
+
+      }
+      
+    })
+   
+    
+  }
+
+
+
+
+
   return (
   
     <div className="grid grid-cols-12">
@@ -111,12 +175,13 @@ const Chat = () => {
             {filteredData.map((chat) => (
               <ChatCard
                 onClick={chatCardHandler}
-                active={activeChat.id}
-                key={chat.id}
-                status={chat.status}
-                type={chat.type}
-                id={chat.id}
-                message={chat.message}
+                active={activeChat?.id}
+                key={chat?.id}
+                status={chat?.status}
+                type={chat?.type}
+                order={chat?.order}
+                id={chat?.id}
+                message={chat?.message}
               />
             ))}
           </div>
@@ -128,7 +193,7 @@ const Chat = () => {
                   <div className="flex gap-2">
 
                   <Button onClick={()=> console.log("Decline")} style="secondary">Decline</Button>
-                  <Button  onClick={()=> console.log("Accept")} style="primary">Accept</Button>
+                  <Button  onClick={acceptChat} style="primary">Accept</Button>
                   </div>
                 </div>
               </div>}
@@ -159,54 +224,14 @@ const Chat = () => {
         </div>
         <div className="px-8 py-2 relative h-[calc(100vh-215px)]  w-full">
           <div className="h-full overflow-y-auto flex  flex-col-reverse gap-12 pb-2">
-            <ChatBubble
-              type="customer"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World"
-            />
-            <ChatBubble
-              type="staff"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World 2"
-            />
-            <ChatBubble
-              type="customer"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World"
-            />
-            <ChatBubble
-              type="customer"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World 2"
-            />
-            <ChatBubble
-              type="customer"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World"
-            />
-            <ChatBubble
-              type="staff"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World 2"
-            />
-            <ChatBubble
-              type="customer"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World"
-            />
-            <ChatBubble
-              type="staff"
-              name="Floyd Miles"
-              date="20 - 4 -2023"
-              message="Hello World 2"
-            />
+           {
+            activeChat?.chats?.map((chat,i)=><ChatBubble
+            key={i}
+            type="customer"
+            name={chat.user.name}
+            date={chat.date}
+            message={chat.message}/>)
+           }
           </div>
           <div className="p-3 border border-[#0000002a] rounded bg-white">
             <div className="w-full flex ">

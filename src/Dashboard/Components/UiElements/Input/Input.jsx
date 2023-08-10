@@ -17,6 +17,7 @@ const Input = ({
   children,
   min,
   max,
+  rows,
   styles = "primary",
   required,
   disabled,
@@ -63,14 +64,14 @@ const Input = ({
   }
   if (styles === "basic") {
     return (
-      <div className={`flex flex-col gap-1 rounded h-full`}>
+      <div className={`flex flex-col gap-1 rounded w-full h-full`}>
         {label && (
           <label htmlFor={name} className="text-[#475569] text-sm">
             {label}
           </label>
         )}
         <input
-          className="border border-[#0000001c] outline-none px-3 py-2 rounded-lg"
+          className="border border-[#0000001c] w-full outline-none px-3 py-2 rounded-lg"
           type={type}
           id={name}
           name={name}
@@ -97,7 +98,7 @@ const Input = ({
           className="border border-[#0000001c] outline-none px-3 py-2 rounded-lg"
           type={type}
           id={name}
-          rows={10}
+          rows={rows}
           name={name}
           value={value}
           placeholder={placeholder}

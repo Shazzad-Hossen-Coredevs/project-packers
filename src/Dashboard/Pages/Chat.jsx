@@ -7,117 +7,97 @@ import { getApi, postApi } from "../../Util/apiCall";
 import { SocketContext } from "../../Providers/SocketProviders";
 import { useDispatch, useSelector } from "react-redux";
 import { storeSupportRoom } from "../../Store/userSlice";
+import { storeActiveChat } from "../../Store/supportSlice";
 const buttonStyle = {
   active: "bg-secondary text-white",
   deactive: "bg-white text-black",
 };
 const Chat = () => {
-  const [activeStatusButton, setActiveStatusButton] = useState("all");
-  const [chatCard, setChatCard] = useState([]);
-  const [filteredData, setFilteredData] = useState(chatCard);
-  const [supportType, setSupportType] = useState("all");
-  const [supportData, setSupportData] = useState([]);
-  const [activeChat, setActiveChat] = useState(filteredData[0]);
-  const [modal, setModal] = useState(false);
-  const { socket }= useContext(SocketContext);
+  const [chatData,setChatData]= useState([]);
+  const [filteredData,setFilteredData]= useState([]);
+  const [toggle,setToggle]= useState('all');
+  const { activeChat } = useSelector((state) => state.support);
   const { supportRoom } = useSelector((state) => state.userInfo);
-  const dispatch =  useDispatch();
+  const { socket } = useContext(SocketContext);
 
+  const dispatch = useDispatch();
  
 
+ 
+ 
   
+
 
   useEffect(()=>{
     getApi('/support').then(res=>{
-      setChatCard(res.docs);
-    })
-    
-  },[])
+      setChatData(res.docs);
+    },)
 
-  useEffect(() => {
-    if (supportType === "all") {
-      setSupportData(chatCard);
-    } else {
-      const filterItem = chatCard.filter((item) => item.type === supportType);
-      setSupportData(filterItem);
-    }
-  }, [supportType, chatCard]);
-
-  useEffect(() => {
-    if (activeStatusButton === "all") {
-      setFilteredData(supportData);
-    } else {
-      const filterItem = supportData.filter(
-        (item) => item.status === activeStatusButton
-      );
-      setFilteredData(filterItem);
-    }
-  }, [activeStatusButton, supportData]);
-
-  const chatCardHandler = (element) => {
-    setModal(false)
-    const active = filteredData.filter(item => item.id === element);
-    active[0].status === 'pending' && setModal(true) 
-    setActiveChat(active[0])
-    
-  }
-  const actionButtonHandler = (value) => {
-    setActiveStatusButton(value);
-  };
+  },[]);
+  useEffect(()=>{
+    setFilteredData(chatData);
+  },[chatData])
 
   useEffect(()=>{
     socket?.emit('joinRoom','supportRoom');
-    Object.keys(supportRoom).forEach(k=> {
-      socket?.emit('joinRoom',k)
-    })
+    Object.keys(supportRoom).forEach(item=>socket?.emit('joinRoom',item));
     socket?.on('newChat',(data)=>{
-      setChatCard((prev)=>  [data, ...prev] );
-    })
-    socket?.on('supportChat',(data)=>{
-      setActiveChat(data);
-      const index = chatCard.findIndex(item=> item.id===data.id);
-      chatCard[index].push({...data});
-      
-      
-
+      setChatData(prev=>[data,...prev])
     });
-    
+    socket?.on('supportChat',(data)=>{
+      if(data.id===activeChat.id){
+        dispatch(storeActiveChat(data))
+      }
+      const index = chatData.findIndex(item=> item.id===data.id);
+      chatData[index]=data;
+      setChatData(prev=>[...prev]);
+
+    })
+
     
 
   },[socket])
 
+  
+  
+
+  const toggleData = (status)=>{
+    setToggle(status);
+    setFilteredData(status==='all'?chatData:chatData.filter(item=> item.status===status))
+  }
+  const typedData = (type) =>{
+    setFilteredData(type==='all'?chatData:chatData.filter(item=> item.type===type))
+  }
   const acceptChat = () =>{
     postApi(`/support/${activeChat.id}`,{})
     .then(res=>{
       if(res.status===200){
-        const index =  chatCard.findIndex(item=> item.id===activeChat.id);
-        chatCard[index].status='open';
-        setModal(false)
-        setChatCard((prev)=>  [...prev] );
-        
+        const index = chatData.findIndex(item=> item.id===res.data.id);
+        chatData[index]=res.data;
+        setChatData(prev=>[...prev]);
+        dispatch(storeActiveChat(res.data));
+        dispatch(storeSupportRoom(res.data.id));
         socket?.emit('joinRoom',res.data.id);
-        dispatch(storeSupportRoom(res.data.id))
-
       }
-      
+      else{
+        console.log('Something wents wronh');
+      }
     })
-   
-    
   }
-
-
-
-
+ 
+  
+  
 
   return (
   
     <div className="grid grid-cols-12">
+      
       <div className="col-span-3 hidden sm:grid gap-2 pt-5 px-5">
         <div className="border border-[#0000001c] text-sm rounded-md overflow-hidden flex">
           <button
-            onClick={() => actionButtonHandler("all")}
+            onClick={() => toggleData("all")}
             className={`py-2 px-4 font-medium ${
-              activeStatusButton === "all"
+              toggle === "all"
                 ? buttonStyle["active"]
                 : buttonStyle["deactive"]
             }`}
@@ -128,9 +108,9 @@ const Chat = () => {
             </div>
           </button>
           <button
-            onClick={() => actionButtonHandler("open")}
+            onClick={() => toggleData("open")}
             className={`py-2 px-4 font-medium ${
-              activeStatusButton === "open"
+              toggle === "open"
                 ? buttonStyle["active"]
                 : buttonStyle["deactive"]
             }`}
@@ -141,9 +121,9 @@ const Chat = () => {
             </div>
           </button>
           <button
-            onClick={() => actionButtonHandler("close")}
+            onClick={() => toggleData("close")}
             className={`py-2 px-4 font-medium ${
-              activeStatusButton === "close"
+              toggle === "close"
                 ? buttonStyle["active"]
                 : buttonStyle["deactive"]
             }`}
@@ -155,7 +135,7 @@ const Chat = () => {
           </button>
           <div className="py-2 px-1   font-medium">
             <select
-              onChange={(e) => setSupportType(e.target.value)}
+              onChange={(e) => typedData(e.target.value)}
               className=" bg-white outline-none" defaultValue="all"
             >
               <option selected>
@@ -165,7 +145,7 @@ const Chat = () => {
               <option value="account">Account</option>
               <option value="order">Order</option>
               <option value="payment">Payment</option>
-              <option value="Refund">Refund</option>
+              <option value="refund">Refund</option>
             </select>
           </div>
         </div>
@@ -174,8 +154,7 @@ const Chat = () => {
             
             {filteredData.map((chat) => (
               <ChatCard
-                onClick={chatCardHandler}
-                active={activeChat?.id}
+                onClick={()=>dispatch(storeActiveChat(chat))}
                 key={chat?.id}
                 status={chat?.status}
                 type={chat?.type}
@@ -188,7 +167,7 @@ const Chat = () => {
         </div>
       </div>
       <div className="col-span-12 sm:col-span-9 relative bg-[#E2E8F0]">
-      {modal && <div className="absolute top-0 bottom-0 left-0 right-0 bg-[#0000004b] z-10">
+      {activeChat.status==='pending' && <div className="absolute top-0 bottom-0 left-0 right-0 bg-[#0000004b] z-10">
                 <div className="h-full w-full flex items-center justify-center">
                   <div className="flex gap-2">
 

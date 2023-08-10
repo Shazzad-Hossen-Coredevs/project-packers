@@ -23,10 +23,10 @@ const Customer = () => {
         <Heading title="Customers">
             <div className="space-x-2">
 
-          <Button style="secondary" onClick={()=> navigate('new-product')}>
+          <Button style="secondary" onClick={()=> navigate('')}>
            Export
           </Button>
-          <Button style="primary" onClick={()=> navigate('new-product')}>
+          <Button style="primary" onClick={()=> navigate('new-customer')}>
            Add Customer
           </Button>
             </div>

@@ -29,6 +29,9 @@ import Products from "../Dashboard/Pages/Products";
 import Chat from "../Dashboard/Pages/Chat";
 import NewProduct from "../Dashboard/Pages/NewProduct";
 import Customer from "../Dashboard/Pages/Customer";
+import NewCustomer from "../Dashboard/Pages/NewCustomer";
+import CustomerDetails from "../Dashboard/Pages/CustomerDetails";
+import Staff from "../Dashboard/Pages/Staff";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -188,6 +191,30 @@ export const router = createBrowserRouter([
         element: (
           <Secure>
             <Customer />
+          </Secure>
+        ),
+      },
+      {
+        path: "customers/new-customer",
+        element: (
+          <Secure>
+            <NewCustomer />
+          </Secure>
+        ),
+      },
+      {
+        path: "customers/:customerId",
+        element: (
+          <Secure>
+            <CustomerDetails />
+          </Secure>
+        ),
+      },
+      {
+        path: "staff",
+        element: (
+          <Secure>
+            <Staff />
           </Secure>
         ),
       },

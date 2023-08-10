@@ -3,6 +3,7 @@ const Button = ({ style, children, onClick }) => {
   const styles = {
     primary: "bg-primary text-secondary",
     secondary: "bg-white hover:bg-primary",
+    green: 'bg-[#3E949A] text-white',
     outline: "text-[#475569] border border-[#0000001c] hover:bg-primary",
     delete: "text-[#475569] hover:bg-primary",
   };

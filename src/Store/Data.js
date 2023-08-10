@@ -1439,3 +1439,54 @@ export const customerDetails = [
     status: "completed",
   },
 ];
+export const discountData = [
+  {
+    code: '#1234',
+    type: 'Fixed cart discount',
+    amount: 10,
+    description: '10৳ off',
+    usage: '0 / ∞',
+    expiry: 'Dec 7, 2019'
+  },
+  {
+    code: '#2345',
+    type: 'Fixed cart discount',
+    amount: 10,
+    description: '10৳ off',
+    usage: '0 / ∞',
+    expiry: 'Dec 7, 2019'
+  },
+  {
+    code: '#4564',
+    type: 'Fixed cart discount',
+    amount: 10,
+    description: '10৳ off',
+    usage: '0 / ∞',
+    expiry: 'Dec 7, 2019'
+  },
+  {
+    code: '#2473',
+    type: 'Fixed cart discount',
+    amount: 10,
+    description: '10৳ off',
+    usage: '0 / ∞',
+    expiry: 'Dec 7, 2019'
+  },
+  {
+    code: '#9097',
+    type: 'Fixed cart discount',
+    amount: 10,
+    description: '10৳ off',
+    usage: '0 / ∞',
+    expiry: 'Dec 7, 2019'
+  },
+  {
+    code: '#43545',
+    type: 'Fixed cart discount',
+    amount: 10,
+    description: '10৳ off',
+    usage: '0 / ∞',
+    expiry: 'Dec 7, 2019'
+  },
+
+]

@@ -32,6 +32,8 @@ import Customer from "../Dashboard/Pages/Customer";
 import NewCustomer from "../Dashboard/Pages/NewCustomer";
 import CustomerDetails from "../Dashboard/Pages/CustomerDetails";
 import Staff from "../Dashboard/Pages/Staff";
+import Discount from "../Dashboard/Pages/Discount";
+import NewDiscount from "../Dashboard/Pages/NewDiscount";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -175,6 +177,22 @@ export const router = createBrowserRouter([
         element: (
           <Secure>
             <NewProduct />
+          </Secure>
+        ),
+      },
+      {
+        path: "discount",
+        element: (
+          <Secure>
+            <Discount />
+          </Secure>
+        ),
+      },
+      {
+        path: "discount/new-discount",
+        element: (
+          <Secure>
+            <NewDiscount />
           </Secure>
         ),
       },

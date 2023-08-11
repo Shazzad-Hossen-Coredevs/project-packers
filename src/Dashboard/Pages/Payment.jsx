@@ -21,7 +21,7 @@ const Payment = () => {
     };
     return (
       <div className="h-full px-5 ">
-        <Heading title="Item Request">
+        <Heading title="Payment List">
           <Button style="delete" onClick={deleteHandler}>
             delete
           </Button>

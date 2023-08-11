@@ -13,6 +13,7 @@ import { useState } from "react";
 import Dropdown from "../UiElements/Dropdown/Dropdown";
 import ScrollTop from "../../Util/ScrollTop";
 import {  useSelector } from "react-redux";
+import { Toaster } from "react-hot-toast";
 
 
 const DUMMY_NOTIFICATION = [
@@ -67,7 +68,6 @@ const DUMMY_CART = [
 ];
 const Header = ({ sideBar, state }) => {
   const { user } = useSelector((state) => state.userInfo);
-  
   const [cartState, setCartState] = useState(false);
   const [notifyState, setNotifyState] = useState(false);
   const navigate = useNavigate();
@@ -78,6 +78,7 @@ const Header = ({ sideBar, state }) => {
 
   return (
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50">
+      <Toaster />
       <div className="container hidden  sm:flex mx-auto navbar gap-4 py-[10px] items-center justify-between">
         <Link
           to="/"

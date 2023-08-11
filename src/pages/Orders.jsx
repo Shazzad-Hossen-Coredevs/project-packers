@@ -9,9 +9,16 @@ import Badge from "../Components/UiElements/Badge/Badge";
 import Button from "../Components/UiElements/Buttons/Button";
 import { useDispatch } from "react-redux";
 import { userSignout } from "../Store/userSlice";
+import { useNavigate } from "react-router-dom";
 const Orders = () => {
   const [active, setActive] = useState("orders");
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const logoutHandler = () => {
+    dispatch(userSignout());
+    navigate('/')
+    
+  }
   return (
     <>
       <Breadcrumb />
@@ -39,7 +46,7 @@ const Orders = () => {
                   <span className="hidden sm:block">User Account</span>
                 </button>
                 <button
-                  onClick={() => dispatch(userSignout())}
+                  onClick={logoutHandler}
                   className={`py-3 px-8 flex  gap-[10px] w-full rounded-full hover:bg-primary bg-white border`}
                 >
                   <img src={logout} />

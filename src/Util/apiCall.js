@@ -4,30 +4,27 @@ export const BASE_URL = "http://localhost:4000";
 const config = {
   headers: {
     "Content-Type": "application/json",
-
   },
-  withCredentials: true
+  withCredentials: true,
 };
+
 export const postApi = async (endpoint, body) => {
   try {
-    const response = await axios.post(
+    const res = await axios.post(
       `${BASE_URL + "/api" + endpoint}`,
       body,
       config
     );
-    return response;
-  } catch (err) {
-    return {
-      status: err.response.status,
-      message: err.message,
-    };
+    return res;
+  } catch (error) {
+    return error.response;
   }
 };
+
 export const getApi = async (endpoint) => {
   try {
     const response = await axios.get(
       `${BASE_URL + "/api" + endpoint}`,
-
       config
     );
     return response.data;

@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import Input from "../UiElements/Input/Input";
 import { emailSchema } from "../../Util/ValidationSchema";
 import Button from "../UiElements/Buttons/Button";
+import { Link } from "react-router-dom";
 
 
 const Account = () => {
@@ -17,6 +18,8 @@ const Account = () => {
         },
       });
     return (
+      <>
+
         <div className="max-w-[30vw] flex flex-col gap-12">
           <div className="">
             <p className="text-white text-[52px] font-sora font-extrabold">
@@ -48,6 +51,26 @@ const Account = () => {
             </Button>
           </form>
         </div>
+        <div className="flex flex-col  w-full h-full justify-center items-center">
+          <div className="w-full sm:max-w-[490px]">
+            <p className="text-[24px] font-sans font-medium text-white mb-5">
+              Log in to access your Project Packers Platform for order your
+              products from any USA website.
+            </p>
+            <div className="">
+              <span className="text-[#ffffffb3] font-sans text-base font-normal">
+                Don’t have an account yet?
+                <Link className="text-primary underline" to="/signup">
+                  Sign Up
+                </Link>
+              </span>
+            </div>
+          </div>
+          {/* <img src={otpIcon} alt="" /> */}
+          {/* <img src={passIcon} alt="" /> */}
+
+        </div>
+      </>
     );
 };
 

@@ -2,7 +2,7 @@ import Input from "../Components/UiElements/Input/Input";
 import { useFormik } from "formik";
 import { loginSchema } from "../Util/ValidationSchema";
 import { Link, useNavigate } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from "react-hot-toast";
 import Button from "../Components/UiElements/Buttons/Button";
 import google from "../assets/icons/google-icon.svg";
 import facebook from "../assets/icons/facebook.svg";
@@ -12,8 +12,8 @@ import { useDispatch } from "react-redux";
 import { userSignin } from "../Store/userSlice";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const loginForm = useFormik({
     initialValues: {
       email: "",
@@ -22,22 +22,46 @@ const Login = () => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      postApi("/user/login", values).then(res => {
-        if(res.status === 200){
-          console.log(res.data)
-          dispatch(userSignin(res.data))
+      postApi("/user/login", values).then((res) => {
+        if (res.status === 200) {
+          console.log(res.data);
+          dispatch(userSignin(res.data));
           loginForm.resetForm();
-          navigate('/')
-        } else{
-        
-          toast('Here is your toast.');
+          toast.success("Login Successful", {
+            style: {
+              // border: "1px solid #0D3D4B",
+              padding: "16px",
+              color: "#0D3D4B",
+              backgroundColor: "#F2C852",
+            },
+            iconTheme: {
+              primary: "#198754",
+              secondary: "#FFFAEE",
+            },
+          });
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        } else {
+          toast.error(res.data, {
+            style: {
+              // border: "1px solid #0D3D4B",
+              padding: "16px",
+              color: "#0D3D4B",
+              backgroundColor: "#F2C852",
+            },
+            iconTheme: {
+              primary: "#FF0000",
+              secondary: "#FFFAEE",
+            },
+          });
         }
-      })
-
+      });
     },
   });
   return (
     <div className="bg-secondary pt-[10vh] pb-[15vh] min-h-[calc(100vh-241px)]">
+      {/* <Toaster /> */}
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap">
         <div className="w-full sm:max-w-[30vw]">
           <p className="text-white text-[52px] font-sora font-extrabold">
@@ -79,7 +103,7 @@ const Login = () => {
                 label="Password"
               />
             </div>
-            <Toaster />
+
             <div className="flex justify-between mt-[10px]">
               <div className="font-sans text-base ">
                 <input
@@ -105,7 +129,12 @@ const Login = () => {
               <span className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
                 <img src={apple} alt="" />
               </span>
-              <Button full className="w-full" type="primary" buttonType="submit">
+              <Button
+                full
+                className="w-full"
+                type="primary"
+                buttonType="submit"
+              >
                 Login
               </Button>
             </div>

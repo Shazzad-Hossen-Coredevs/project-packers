@@ -3,22 +3,31 @@ import Icon from "../Icon/Icon";
 import cart from "../../../assets/icons/user-1.svg";
 import minor from "../../../assets/icons/cd-select_minor.svg";
 import { Link } from "react-router-dom";
-import {  useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const Dropdown = ({ isOpen, onClick, type, title, data }) => {
-  const dropdownRef = useRef(null);
-  
+  const ref = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClick && onClick();
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside, true);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [onClick]);
 
   const clickHandler = (v) => {
     console.log(v);
   };
 
-
-
-
   if (type === "notification") {
     return (
-      <>
+      <div ref={ref}>
         {isOpen && (
           <div className="bg-white p-5 rounded-xl w-[340px] absolute top-[70px] right-0">
             <div className="flex justify-between pb-3">
@@ -61,12 +70,12 @@ const Dropdown = ({ isOpen, onClick, type, title, data }) => {
             </div>
           </div>
         )}
-      </>
+  </div>
     );
   }
   if (type === "cart") {
     return (
-      <>
+      <div ref={ref}>
         {isOpen && (
           <div className="bg-white p-5 rounded-xl w-[350px] absolute top-[70px] right-0">
             <div className="flex justify-between pb-3">
@@ -116,18 +125,10 @@ const Dropdown = ({ isOpen, onClick, type, title, data }) => {
             </div>
           </div>
         )}
-      </>
+      </div>
     );
   }
-  if (type === "logout") {
-    <>
-      {isOpen && (
-        <div className="bg-white p-5 rounded-xl w-[350px] absolute top-[70px] right-0" ref={dropdownRef}>
-          <div className="overflow-y-auto scrollbar max-h-[352px]">here</div>
-        </div>
-      )}
-    </>;
-  }
+ 
 };
 
 export default Dropdown;

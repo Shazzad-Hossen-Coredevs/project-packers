@@ -12,7 +12,8 @@ const Otp = () => {
       
     },
     onSubmit: (values) => {
-      console.log(values);
+      const data = values.field1 + values.field2 + values.field3 + values.field4
+      console.log(data);
     }
   })
 

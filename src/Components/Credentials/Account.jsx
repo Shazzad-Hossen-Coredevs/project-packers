@@ -21,9 +21,7 @@ const Account = ({getResponse}) => {
         onSubmit: (values) => {
           postApi('/user/otp',{ ...values})
           .then(res=> {
-           
               getResponse({component: 'otp', ...res})
-
           })
           emailForm.resetForm();
         },
@@ -57,7 +55,7 @@ const Account = ({getResponse}) => {
                 type="email"
               />
             </div>
-            <Button full className="w-full" type="primary">
+            <Button full className="w-full" type="primary" buttonType="submit">
               Reset Password
             </Button>
           </form>

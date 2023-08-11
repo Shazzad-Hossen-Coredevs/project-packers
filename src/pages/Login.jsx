@@ -29,7 +29,6 @@ const Login = () => {
           loginForm.resetForm();
           toast.success("Login Successful", {
             style: {
-              // border: "1px solid #0D3D4B",
               padding: "16px",
               color: "#0D3D4B",
               backgroundColor: "#F2C852",
@@ -45,7 +44,6 @@ const Login = () => {
         } else {
           toast.error(res.data, {
             style: {
-              // border: "1px solid #0D3D4B",
               padding: "16px",
               color: "#0D3D4B",
               backgroundColor: "#F2C852",
@@ -61,7 +59,6 @@ const Login = () => {
   });
   return (
     <div className="bg-secondary pt-[10vh] pb-[15vh] min-h-[calc(100vh-241px)]">
-      {/* <Toaster /> */}
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap">
         <div className="w-full sm:max-w-[30vw]">
           <p className="text-white text-[52px] font-sora font-extrabold">
@@ -88,20 +85,22 @@ const Login = () => {
               />
             </div>
             <div className="relative">
-              <Input
-                name="password"
-                change={loginForm.handleChange}
-                blur={loginForm.handleBlur}
-                value={loginForm.values.password}
-                error={
-                  loginForm.errors.password && loginForm.touched.password
-                    ? loginForm.errors.password
-                    : null
-                }
-                type="password"
-                placeholder="Enter your Password"
-                label="Password"
-              />
+              <div className="absolute h-[42px] bottom-0 left-0 right-0 rounded-full bg-red-600"></div>
+                <Input
+                  name="password"
+                  change={loginForm.handleChange}
+                  blur={loginForm.handleBlur}
+                  value={loginForm.values.password}
+                  error={
+                    loginForm.errors.password && loginForm.touched.password
+                      ? loginForm.errors.password
+                      : null
+                  }
+                  type="password"
+                  placeholder="Enter your Password"
+                  label="Password"
+                />
+
             </div>
 
             <div className="flex justify-between mt-[10px]">

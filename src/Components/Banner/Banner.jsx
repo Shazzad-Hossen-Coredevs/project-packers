@@ -1,3 +1,11 @@
+/**
+ * Banner section have 2 state 
+ * isOpen for modal show and hide
+ * modalState for changing elements in modal
+ *
+ * @returns JSX Element
+ */
+
 import { useState } from "react";
 import Input from "../UiElements/Input/Input";
 import Button from "../UiElements/Buttons/Button";
@@ -9,7 +17,7 @@ import RequestModal from "./RequestModal";
 import SuccessModal from "./SuccessModal";
 const Banner = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [modalState, setModalState] = useState('request')
+  const [modalState, setModalState] = useState("request");
   const submitHandler = (e) => {
     e.preventDefault();
     const url = e.target[0].value;
@@ -18,12 +26,11 @@ const Banner = () => {
   };
   const handleOnClose = () => {
     setIsOpen(false);
-    setModalState('request')
+    setModalState("request");
   };
-  const modalSbmitHandler = (value) =>{
-    
-    setModalState(value)
-  }
+  const modalSbmitHandler = (value) => {
+    setModalState(value);
+  };
   return (
     <div className="bg-secondary pb-[13rem] overflow-hidden ">
       <div className="relative z-10 right-[-48rem] bottom-[-75rem] flex justify-center items-center">
@@ -82,8 +89,12 @@ const Banner = () => {
         </div>
       </div>
       <Modal show={isOpen} onClose={handleOnClose}>
-        {modalState === "request" && <RequestModal confirmSubmit={modalSbmitHandler} />}
-      { modalState === "success" &&  <SuccessModal confirmSubmit={modalSbmitHandler}  />}
+        {modalState === "request" && (
+          <RequestModal confirmSubmit={modalSbmitHandler} />
+        )}
+        {modalState === "success" && (
+          <SuccessModal confirmSubmit={modalSbmitHandler} />
+        )}
       </Modal>
     </div>
   );

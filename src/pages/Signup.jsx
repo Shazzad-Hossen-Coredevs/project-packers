@@ -8,6 +8,8 @@ import apple from "../assets/icons/apple.svg";
 import facebook from "../assets/icons/facebook.svg";
 import CountryCodeSelector from "../Components/UiElements/CountryCodeSelectior/CountryCodeSelector";
 import { useState } from "react";
+import { BASE_URL, postApi } from "../Util/apiCall";
+import toast  from 'react-hot-toast';
 const Signup = () => {
     const [conutryCode, setCountryCode] = useState(null)
     const codeGetter = (v) =>{
@@ -24,13 +26,63 @@ const Signup = () => {
     },
     validationSchema: signupSchema,
     onSubmit: (values) => {
-        const data = {...values, phone: conutryCode + values.phone}
-      console.log(data);
+        const data = {...values, phone: conutryCode + values.phone};
+        
+        delete data.terms;
+        delete data.remember;
+        console.log(data)
+        postApi('/user',data)
+        .then(res=> {
+          
+          if(res?.status===200){
+            toast.success('Sign Up successfull. Now you can login .',{
+              style: {
+                border: '1px solid #0D3D4B',
+                padding: '16px',
+                color: '#0D3D4B',
+                backgroundColor: '#F2C852'
+              },
+              iconTheme: {
+                primary: '#198754',
+                secondary: '#FFFAEE',
+              },
+            });
+
+          }
+          else if(res.status===400) {
+           
+            signupForm.setFieldError('email',res.data)
+            
+          }
+          else {
+            toast.error(res.data,{
+              style: {
+                border: '1px solid #0D3D4B',
+                padding: '16px',
+                color: '#0D3D4B',
+                backgroundColor: '#F2C852'
+              },
+              iconTheme: {
+                primary: '#FF0000',
+                secondary: '#FFFAEE',
+              },
+            });
+
+          }
+
+          
+        })
+     
       signupForm.resetForm();
     },
   });
+
+ 
+
+
   return (
     <div className="bg-secondary pt-[5vh]  min-h-[calc(100vh-241px)]">
+       
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap ">
         <div className="flex justify-start items-center">
           <div className="max-w-[490px]">
@@ -140,17 +192,17 @@ const Signup = () => {
                 </div>
               </div>
               <div className="flex  gap-2 mt-12">
-                <span className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
+                <Link to={`${BASE_URL}/api/user/google`} className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
                   <img src={google} alt="" />
-                </span>
-                <span className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
+                </Link>
+                <Link to={`${BASE_URL}/api/user/facebook`} className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
                   <img src={facebook} alt="" />
-                </span>
+                </Link>
                 <span className="p-[11px] cursor-pointer bg-white rounded-full shrink-0">
                   <img src={apple} alt="" />
                 </span>
                 <Button buttonType="submit" full className="w-full" type="primary">
-                  Login
+                  Sign Up
                 </Button>
               </div>
             </form>

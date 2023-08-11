@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 /**
  * @params status => open || close || pending
  * @params type =>  account || payment || refund || order
@@ -11,10 +13,12 @@ const styles = {
   close: "bg-red-400",
   pending: "bg-yellow-400",
 };
-const ChatCard = ({ onClick, active, status, type, id, message }) => {
+const ChatCard = ({ onClick, status, type, id, message , order }) => {
+  const { activeChat } = useSelector((state) => state.support);
+  
   return (
     <div className="relative">
-    <div className={`border-l-2     ${active === id  ? 'border-primary' : 'border-white'}   absolute h-full left-0`}></div>
+    <div className={`border-l-2     ${activeChat.id === id  ? 'border-primary' : 'border-white'}   absolute h-full left-0`}></div>
       <div
         onClick={() => onClick(id)}
         className={`p-3 border-[#0000001c] border-b cursor-pointer hover:bg-[#3b3b3b10]`}
@@ -25,7 +29,7 @@ const ChatCard = ({ onClick, active, status, type, id, message }) => {
             {type || "No Data"}
           </p>
         </div>
-        <p className="font-medium   ">Order Id #{id}</p>
+        <p className="font-medium   ">Order Id {order}</p>
         <p className="text-[#475569] line-clamp-2">{message}</p>
       </div>
     </div>

@@ -1,6 +1,21 @@
 import Input from "../UiElements/Input/Input";
 import Button from "../UiElements/Buttons/Button";
+import { useFormik } from "formik";
 const Otp = () => {
+
+  const otpForm = useFormik({
+    initialValues: {
+      field1: "",
+      field2: "",
+      field3: "",
+      field4: "",
+      
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    }
+  })
+
   return (
     <div className="max-w-[30vw] flex flex-col gap-12">
       <div className="">
@@ -12,47 +27,48 @@ const Otp = () => {
           to your account {"r••••••••@coredevs.ltd"}. Standard rates apply.
         </p>
       </div>
-      <form className="flex flex-col gap-9" onSubmit={""}>
+      <form className="flex flex-col gap-9" onSubmit={otpForm.handleSubmit}>
         <div className="relative flex gap-2">
           <Input
-            name="email"
+            name="field1"
             placeholder="*"
-            change={""}
-            blur={""}
+            change={otpForm.handleChange}
+            blur={otpForm.handleBlur}
             max={1}
-            // value={""}
+            value={otpForm.values.field1}
             type="text"
           />
-            <Input
-            name="email"
+          <Input
+            name="field2"
             placeholder="*"
-            change={""}
-            blur={""}
+            change={otpForm.handleChange}
+            blur={otpForm.handleBlur}
             max={1}
-            // value={""}
+            value={otpForm.values.field2}
             type="text"
           />
-            <Input
-            name="email"
+          <Input
+            name="field3"
             placeholder="*"
-            change={""}
-            blur={""}
+            change={otpForm.handleChange}
+            blur={otpForm.handleBlur}
             max={1}
-            // value={""}
+            value={otpForm.values.field3}
             type="text"
           />
-            <Input
-            name="email"
+          <Input
+            name="field4"
             placeholder="*"
-            change={""}
-            blur={""}
+            change={otpForm.handleChange}
+            blur={otpForm.handleBlur}
             max={1}
-            // value={""}
+            value={otpForm.values.field4}
             type="text"
           />
+            
           
         </div>
-        <Button full className="w-full" type="primary">
+        <Button full className="w-full" type="primary" buttonType="submit">
          Verify Account
         </Button>
       </form>

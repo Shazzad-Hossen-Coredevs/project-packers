@@ -17,7 +17,6 @@ const Orders = () => {
   const logoutHandler = () => {
     dispatch(userSignout());
     navigate('/')
-    
   }
   return (
     <>

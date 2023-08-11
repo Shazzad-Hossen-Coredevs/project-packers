@@ -100,7 +100,6 @@ const Login = () => {
                   placeholder="Enter your Password"
                   label="Password"
                 />
-
             </div>
 
             <div className="flex justify-between mt-[10px]">

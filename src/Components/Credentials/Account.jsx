@@ -1,4 +1,8 @@
-
+/**
+ * Email Validation form for Password recovery page
+ * 
+ * @returns JSX Element
+ */
 import { useFormik } from "formik";
 import Input from "../UiElements/Input/Input";
 import { emailSchema } from "../../Util/ValidationSchema";

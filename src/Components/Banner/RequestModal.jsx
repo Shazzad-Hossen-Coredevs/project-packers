@@ -1,3 +1,12 @@
+/**
+ * Modal View Component for request item modal
+ * active state for navigate view
+ * quantity state for keep quantity of product
+ * onSubmit function for form submission
+ * 
+ * @returns JSX Modal Element
+ */
+
 import Button from "../UiElements/Buttons/Button";
 import Input from "../UiElements/Input/Input";
 import globe from "../../assets/icons/cd-internet.svg";

@@ -591,7 +591,18 @@ export const products = [
     ],
   },
 ];
+export const brand = [
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
 
+];
 export const posts = [
   {
     id: 1,

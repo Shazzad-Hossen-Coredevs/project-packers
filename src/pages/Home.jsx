@@ -4,7 +4,7 @@ import Showcase from "../Components/Showcase/Showcase";
 import About from "../Components/About/About";
 import Carousel from "../Components/UiElements/Carousel/Carousel";
 import Faq from "../Components/Faq/Faq";
-import { products, carousel } from "../Store/Data";
+import { products, carousel, brand } from "../Store/Data";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <div className="-mt-[13rem]">
         <Carousel data={carousel} />
       </div>
-      <Brands />
+      <Brands data={brand} />
       <Showcase
         type="trend"
         title="Trending products on  Project Packers"

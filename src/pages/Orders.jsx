@@ -83,7 +83,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="Completed" styles="success" />
+                            <Badge text="completed"  />
                           </td>
                           <td className="px-6 py-4">
                             <img
@@ -102,7 +102,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="paid" styles="light" />
+                            <Badge text="paid"  />
                           </td>
                           <td className="px-6 py-4">
                             <img
@@ -121,7 +121,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="Processing" styles="warning" />
+                            <Badge text="processing"  />
                           </td>
                           <td className="px-6 py-4">
                             <img
@@ -140,7 +140,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="Shipping" styles="warning" />
+                            <Badge text="shipping" />
                           </td>
                           <td className="px-6 py-4">
                             <img
@@ -159,7 +159,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="Cancel" styles="danger" />
+                            <Badge text="cancelled" />
                           </td>
                           <td className="px-6 py-4">
                             <img

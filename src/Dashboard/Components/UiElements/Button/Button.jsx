@@ -1,5 +1,5 @@
 import trash from "../../../../assets/icons/cd-delete.svg";
-const Button = ({ style, children, onClick }) => {
+const Button = ({ style, children, onClick, type= 'button' }) => {
   const styles = {
     primary: "bg-primary text-secondary",
     secondary: "bg-white hover:bg-primary",
@@ -12,6 +12,7 @@ const Button = ({ style, children, onClick }) => {
     return (
       <button
         onClick={onClick}
+        type={type}
         className={`${styles['delete']} h-full w-fit px-4 py-2 rounded text-sm font-medium`}
       >
         <div className="flex gap-1 items-center justify-center">{children}</div>
@@ -22,6 +23,7 @@ const Button = ({ style, children, onClick }) => {
     return (
       <button
         onClick={onClick}
+        type={type}
         className={`${styles[style]} h-full w-fit px-4 py-2 rounded text-sm font-medium`}
       >
         <div className="flex gap-1 items-center justify-center">
@@ -34,6 +36,7 @@ const Button = ({ style, children, onClick }) => {
   return (
     <button
       onClick={onClick}
+      type={type}
       className={`${styles[style]} h-full w-fit px-4 py-2 rounded text-sm font-medium`}
     >
       {children}

@@ -27,7 +27,9 @@ const head = {
   products: ["", "Product", "Inventory", "Price", "Category", "Publish Date"],
   customer: ['Customer Name', 'Phone Number', 'Location', 'Orders', 'Amount spent'],
   customerDetails: ["", "Products", "Status", "Price"],
-  discount: ['Code', 'Coupon type', 'Coupon dmount', 'Description', 'Usage/Limit', 'Expiry Date']
+  discount: ['Code', 'Coupon type', 'Coupon dmount', 'Description', 'Usage/Limit', 'Expiry Date'],
+  category: ['Name', 'Slug', 'Post'],
+  payment: ['payment ID', 'Customer Name', 'Payment Date', 'Amount', 'Payment Status']
 };
 const Table = ({ type, data = [] }) => {
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ const Table = ({ type, data = [] }) => {
   const selectHandler = (id) => {
     if (type === "order") {
       console.log(id, " order");
-      navigate(`${id}`);
+      navigate(`/admin/orders/${id}`);
     } else if (type === "request") {
       navigate(`${id}`);
       console.log(id, " request");
@@ -514,6 +516,156 @@ const Table = ({ type, data = [] }) => {
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
                         {item.expiry}
+                      </td>
+                    </tr>
+                  );
+                })}
+          </tbody>
+        </table>
+        <div className="flex justify-between items-center py-6 px-4">
+          <p className="text-[#475569] text-sm">
+            Showing {10} of {100} results
+          </p>
+          <div className="flex">
+            <button
+              onClick={() => paginateHandler("decrement")}
+              className="border p-2"
+            >
+              <img src={arrowLeft} alt="" />
+            </button>
+            <button
+              onClick={() => paginateHandler("increment")}
+              className="border p-2"
+            >
+              <img src={arrowRight} alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (type === "category") {
+    return (
+      <div className="relative overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="bg-[#F8FAFC] border-y border-[#0000001c]">
+              <th className="text-left py-[10px] pl-4 w-[10px]">
+                <input type="checkbox" className="accent-yellow-300" />
+              </th>
+              {head[type].map((item, index) => (
+                <th
+                  key={index}
+                  className="text-sm text-[#475569] font-medium text-left py-[10px] px-4"
+                >
+                  {item}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.length < 1
+              ? "Loading"
+              : data.slice(0, 9).map((item, index) => {
+                  return (
+                    <tr
+                      key={index}
+                      className="border-y border-[#0000001c] hover:bg-[#FEF9DC]"
+                    >
+                      <td className="text-left py-[10px] pl-4 w-[10px]">
+                        <input type="checkbox" className="accent-yellow-300" />
+                      </td>
+                      
+                      <td
+                        onClick={() => selectHandler(item.id)}
+                        className="px-4 py-[18px] text-black text-sm cursor-pointer line-clamp-2"
+                      >
+                        {item.name}
+                      </td>
+                      <td className="px-4 py-[18px] text-black text-sm ">
+                        {item.slug}
+                      </td>
+                      <td className="px-4 py-[18px] text-black text-sm ">
+                        ${item.post}
+                      </td>
+                 
+                    </tr>
+                  );
+                })}
+          </tbody>
+        </table>
+        <div className="flex justify-between items-center py-6 px-4">
+          <p className="text-[#475569] text-sm">
+            Showing {10} of {100} results
+          </p>
+          <div className="flex">
+            <button
+              onClick={() => paginateHandler("decrement")}
+              className="border p-2"
+            >
+              <img src={arrowLeft} alt="" />
+            </button>
+            <button
+              onClick={() => paginateHandler("increment")}
+              className="border p-2"
+            >
+              <img src={arrowRight} alt="" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (type === "payment") {
+    return (
+      <div className="relative overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="bg-[#F8FAFC] border-y border-[#0000001c]">
+              <th className="text-left py-[10px] pl-4 w-[10px]">
+                <input type="checkbox" className="accent-yellow-300" />
+              </th>
+              {head[type].map((item, index) => (
+                <th
+                  key={index}
+                  className="text-sm text-[#475569] font-medium text-left py-[10px] px-4"
+                >
+                  {item}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.length < 1
+              ? "Loading"
+              : data.slice(0, 9).map((item, index) => {
+                console.log(item)
+                  return (
+                    <tr
+                      key={index}
+                      className="border-y border-[#0000001c] hover:bg-[#FEF9DC]"
+                    >
+                      <td className="text-left py-[10px] pl-4 w-[10px]">
+                        <input type="checkbox" className="accent-yellow-300" />
+                      </td>
+                      
+                      <td
+                        onClick={() => selectHandler(item.id)}
+                        className="px-4 py-[18px] text-black text-sm cursor-pointer line-clamp-2"
+                      >
+                        {item.id}
+                      </td>
+                      <td className="px-4 py-[18px] text-black text-sm ">
+                        {item.customer}
+                      </td>
+                      <td className="px-4 py-[18px] text-black text-sm ">
+                        {item.date}
+                      </td>
+                      <td className="px-4 py-[18px] text-black text-sm ">
+                        ${item?.amount.toFixed(2)}
+                      </td>
+                      <td className="px-4 py-[18px] text-black text-sm ">
+                        <Badge text={item.status} styles="" />{" "}
                       </td>
                     </tr>
                   );

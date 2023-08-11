@@ -1,4 +1,3 @@
-import ImageUploader from "../../Components/UiElements/ImageUploader/ImageUploader";
 import Button from "../Components/UiElements/Button/Button";
 import Heading from "../Components/UiElements/Heading/Heading";
 import Input from "../Components/UiElements/Input/Input";
@@ -9,8 +8,8 @@ const NewDiscount = () => {
   };
   return (
     <div className="px-5 h-full">
-      <Heading type="navigate" title={`New Customer`} />
-      <form action="">
+      <Heading type="navigate" title={`Add New Discount`} />
+      <form action="" onSubmit={submitHandler}>
         <div className="grid grid-cols-1 items-start sm:grid-cols-2 gap-3 border-t border-[#0000001c] py-5">
           <div className="grid gap-3">
             <h2 className="text-base text-secondary font-semibold">
@@ -52,8 +51,8 @@ const NewDiscount = () => {
               <Input styles="basic" label="Tags" placeholder="Tags" />
             </div>
             <div className="flex justify-between">
-                <Button style='outline'>Discard</Button>
-                <Button style='green'>Save</Button>
+                <Button type="reset" style='outline'>Discard</Button>
+                <Button type="submit" style='green'>Save</Button>
             </div>
           </div>
         </div>

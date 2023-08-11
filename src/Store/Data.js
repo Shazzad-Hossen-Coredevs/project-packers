@@ -1441,52 +1441,122 @@ export const customerDetails = [
 ];
 export const discountData = [
   {
-    code: '#1234',
-    type: 'Fixed cart discount',
+    code: "#1234",
+    type: "Fixed cart discount",
     amount: 10,
-    description: '10৳ off',
-    usage: '0 / ∞',
-    expiry: 'Dec 7, 2019'
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
   },
   {
-    code: '#2345',
-    type: 'Fixed cart discount',
+    code: "#2345",
+    type: "Fixed cart discount",
     amount: 10,
-    description: '10৳ off',
-    usage: '0 / ∞',
-    expiry: 'Dec 7, 2019'
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
   },
   {
-    code: '#4564',
-    type: 'Fixed cart discount',
+    code: "#4564",
+    type: "Fixed cart discount",
     amount: 10,
-    description: '10৳ off',
-    usage: '0 / ∞',
-    expiry: 'Dec 7, 2019'
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
   },
   {
-    code: '#2473',
-    type: 'Fixed cart discount',
+    code: "#2473",
+    type: "Fixed cart discount",
     amount: 10,
-    description: '10৳ off',
-    usage: '0 / ∞',
-    expiry: 'Dec 7, 2019'
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
   },
   {
-    code: '#9097',
-    type: 'Fixed cart discount',
+    code: "#9097",
+    type: "Fixed cart discount",
     amount: 10,
-    description: '10৳ off',
-    usage: '0 / ∞',
-    expiry: 'Dec 7, 2019'
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
   },
   {
-    code: '#43545',
-    type: 'Fixed cart discount',
+    code: "#43545",
+    type: "Fixed cart discount",
     amount: 10,
-    description: '10৳ off',
-    usage: '0 / ∞',
-    expiry: 'Dec 7, 2019'
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
   },
+];
 
-]
+export const categoryData = [
+  {
+    id: 1,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 2,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 3,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 4,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 5,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+];
+
+export const paymentList = [
+  {
+    id: 1231,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "pending",
+  },
+  {
+    id: 1232,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "cancelled",
+  },
+  {
+    id: 1233,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "paid",
+  },
+  {
+    id: 1234,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "completed",
+  },
+  {
+    id: 1235,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "pending",
+  },
+];

@@ -34,6 +34,8 @@ import CustomerDetails from "../Dashboard/Pages/CustomerDetails";
 import Staff from "../Dashboard/Pages/Staff";
 import Discount from "../Dashboard/Pages/Discount";
 import NewDiscount from "../Dashboard/Pages/NewDiscount";
+import Category from "../Dashboard/Pages/Category";
+import Payment from "../Dashboard/Pages/Payment";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -197,6 +199,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "category",
+        element: (
+          <Secure>
+            <Category />
+          </Secure>
+        ),
+      },
+      {
         path: "chat",
         element: (
           <Secure>
@@ -233,6 +243,14 @@ export const router = createBrowserRouter([
         element: (
           <Secure>
             <Staff />
+          </Secure>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <Secure>
+            <Payment />
           </Secure>
         ),
       },

@@ -1,18 +1,41 @@
-import { Link } from "react-router-dom";
 import Account from "../Components/Credentials/Account";
 import Otp from "../Components/Credentials/Otp";
 import NewPassword from "../Components/Credentials/NewPassword";
 
-// import otpIcon from '../assets/icons/otp.svg'
-import passIcon from '../assets/icons/password.svg'
-const Recovery = () => {
+
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+const Recovery = () => { 
+  const [component, setComponent]= useState('account');
+  const [data,setData]= useState({});
+  const getResponse = (res) =>{
+   if(res.status===200){
+    setComponent(res.component);
+    setData(res);
+   }
+   else {
+    toast.error(res.data,{
+      style: {
+        border: '1px solid #0D3D4B',
+        padding: '16px',
+        color: '#0D3D4B',
+        backgroundColor: '#F2C852'
+      },
+      iconTheme: {
+        primary: '#FF0000',
+        secondary: '#FFFAEE',
+      },
+    });
+   }
+
+  }
 
   return (
     <div className="bg-secondary min-h-[calc(100vh-241px)] flex items-center">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap">
-        <Account />
-        {/* <Otp /> */}
-        {/* <NewPassword /> */}
+       {component==='account' && <Account getResponse={getResponse} /> } 
+       {component==='otp' && <Otp data={data} getResponse={getResponse}  />} 
+       {component==='newPass' && <NewPassword getResponse={getResponse} /> } 
       
       </div>
     </div>

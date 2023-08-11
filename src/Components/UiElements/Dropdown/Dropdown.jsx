@@ -3,11 +3,19 @@ import Icon from "../Icon/Icon";
 import cart from "../../../assets/icons/user-1.svg";
 import minor from "../../../assets/icons/cd-select_minor.svg";
 import { Link } from "react-router-dom";
+import {  useRef } from "react";
 
-const Dropdown = ({ isOpen, type, title, data }) => {
+const Dropdown = ({ isOpen, onClick, type, title, data }) => {
+  const dropdownRef = useRef(null);
+  
+
   const clickHandler = (v) => {
     console.log(v);
   };
+
+
+
+
   if (type === "notification") {
     return (
       <>
@@ -114,7 +122,7 @@ const Dropdown = ({ isOpen, type, title, data }) => {
   if (type === "logout") {
     <>
       {isOpen && (
-        <div className="bg-white p-5 rounded-xl w-[350px] absolute top-[70px] right-0">
+        <div className="bg-white p-5 rounded-xl w-[350px] absolute top-[70px] right-0" ref={dropdownRef}>
           <div className="overflow-y-auto scrollbar max-h-[352px]">here</div>
         </div>
       )}

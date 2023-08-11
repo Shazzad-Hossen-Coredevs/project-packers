@@ -3,21 +3,28 @@
  * 
  * @returns JSX Element
  */
+
 import { useFormik } from "formik";
 import Input from "../UiElements/Input/Input";
 import { emailSchema } from "../../Util/ValidationSchema";
 import Button from "../UiElements/Buttons/Button";
 import { Link } from "react-router-dom";
+import { postApi } from "../../Util/apiCall";
 
 
-const Account = () => {
+const Account = ({getResponse}) => {
     const emailForm = useFormik({
         initialValues: {
           email: "",
         },
         validationSchema: emailSchema,
         onSubmit: (values) => {
-          console.log(values);
+          postApi('/user/otp',{ ...values})
+          .then(res=> {
+           
+              getResponse({component: 'otp', ...res})
+
+          })
           emailForm.resetForm();
         },
       });
@@ -70,8 +77,7 @@ const Account = () => {
               </span>
             </div>
           </div>
-          {/* <img src={otpIcon} alt="" /> */}
-          {/* <img src={passIcon} alt="" /> */}
+         
 
         </div>
       </>

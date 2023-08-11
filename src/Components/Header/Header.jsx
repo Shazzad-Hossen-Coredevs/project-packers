@@ -76,6 +76,8 @@ const Header = ({ sideBar, state }) => {
     sideBar();
   };
 
+
+
   return (
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50">
       <Toaster />
@@ -122,6 +124,7 @@ const Header = ({ sideBar, state }) => {
                 <Dropdown
                   type="notification"
                   isOpen={notifyState}
+                  onClick={()=> setNotifyState(false)}
                   title="Notification"
                   data={DUMMY_NOTIFICATION}
                 />
@@ -138,6 +141,7 @@ const Header = ({ sideBar, state }) => {
                 <Dropdown
                   type="cart"
                   isOpen={cartState}
+                  onClick={()=> setCartState(false)}
                   title="Shopping Bag"
                   data={DUMMY_CART}
                 />
@@ -153,7 +157,7 @@ const Header = ({ sideBar, state }) => {
                   </p>
                 </Link>
               </div>
-              <Dropdown type="logout" isOpen={true} />
+            
             </div>
           ) : (
             <div className="flex gap-2 items-center">

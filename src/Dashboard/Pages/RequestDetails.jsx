@@ -3,7 +3,7 @@ import Heading from "../Components/UiElements/Heading/Heading";
 import Button from "../Components/UiElements/Button/Button";
 import Input from "../Components/UiElements/Input/Input";
 import globe from "../../assets/icons/cd-internet.svg";
-import ImageUploader from "../../Components/UiElements/ImageUploader./ImageUploader";
+import ImageUploader from "../../Components/UiElements/ImageUploader/ImageUploader";
 import SideCard from "../Components/UiElements/SideCard/SideCard";
 const RequestDetails = () => {
   const { requestId } = useParams();

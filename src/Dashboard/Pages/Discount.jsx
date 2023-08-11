@@ -1,18 +1,17 @@
-import { useState } from "react";
-import { products } from "../../Store/Data";
 import { useNavigate } from "react-router-dom";
-import Heading from "../Components/UiElements/Heading/Heading";
+import { useState } from "react";
 import Button from "../Components/UiElements/Button/Button";
+import Heading from "../Components/UiElements/Heading/Heading";
 import Input from "../Components/UiElements/Input/Input";
 import Table from "../Components/UiElements/Table/Table";
 import filter from "../../assets/icons/cd-filter.svg";
 import sort from "../../assets/icons/cd-arrow-data-transfer-vertical-round.svg";
 import search from "../../assets/icons/cd-search2.svg";
+import { discountData } from "../../Store/Data";
 
-const Products = () => {
-
+const Discount = () => {
     const [active, setActive] = useState("all");
-    const [tableData] = useState(products);
+    const [tableData] = useState(discountData);
   
     const navigate = useNavigate()
     const tableButtonHandler = (value) => {
@@ -22,9 +21,9 @@ const Products = () => {
     
     return (
       <div className="h-full px-5 ">
-        <Heading title="Products">
-          <Button style="primary" onClick={()=> navigate('new-product')}>
-           Add New Product
+        <Heading title="Discount">
+          <Button style="primary" onClick={()=> navigate('new-discount')}>
+           Add Coupon
           </Button>
         </Heading>
         <div className="grid grid-cols-3 gap-5 py-5">
@@ -84,8 +83,7 @@ const Products = () => {
                   </button>
                 </div>
               </div>
-  
-              <Table type="products" data={tableData} />
+              <Table type="discount" data={tableData} />
             </div>
           </div>
         </div>
@@ -93,4 +91,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Discount;

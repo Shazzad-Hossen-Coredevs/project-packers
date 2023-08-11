@@ -1,6 +1,7 @@
 const style = {
   primary: "bg-[#F8FAFC] py-3",
   secondary: "bg-white border border-[#0000001e] py-2",
+  basic: "",
   quantity: "border border-[#0000001c]",
 };
 
@@ -16,9 +17,11 @@ const Input = ({
   children,
   min,
   max,
+  rows,
   styles = "primary",
   required,
   disabled,
+  option = [],
 }) => {
   const clickHandler = (value) => {
     console.log(value);
@@ -59,9 +62,88 @@ const Input = ({
       </div>
     );
   }
+  if (styles === "basic") {
+    return (
+      <div className={`flex flex-col gap-1 rounded w-full h-full`}>
+        {label && (
+          <label htmlFor={name} className="text-[#475569] text-sm">
+            {label}
+          </label>
+        )}
+        <input
+          className="border border-[#0000001c] w-full outline-none px-3 py-2 rounded-lg"
+          type={type}
+          id={name}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={change}
+          onBlur={blur}
+          disabled={disabled}
+          minLength={min}
+          maxLength={max}
+        />
+      </div>
+    );
+  }
+  if (styles === "area") {
+    return (
+      <div className={`flex flex-col gap-1 rounded h-full`}>
+        {label && (
+          <label htmlFor={name} className="text-[#475569] text-sm">
+            {label}
+          </label>
+        )}
+        <textarea
+          className="border border-[#0000001c] outline-none px-3 py-2 rounded-lg"
+          type={type}
+          id={name}
+          rows={rows}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={change}
+          onBlur={blur}
+          disabled={disabled}
+          minLength={min}
+          maxLength={max}
+        />
+      </div>
+    );
+  }
+  if (styles === "select") {
+    return (
+      <div className={`flex flex-col gap-1 rounded h-full`}>
+        {label && (
+          <label htmlFor={name} className="text-[#475569] text-sm">
+            {label}
+          </label>
+        )}
+        <select
+          className="border border-[#0000001c] outline-none px-3 py-2 rounded-lg bg-white appearance"
+          id={name}
+          name={name}
+          value={value}
+          onChange={change}
+          onBlur={blur}
+          disabled={disabled}
+        >
+          {option?.map((item, index) => (
+            <option key={index} value={item.value}>
+              {item.name}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  }
   return (
     <div className={`rounded h-full`}>
-      {label && <label htmlFor={name}>{label}</label>}
+      {label && (
+        <label htmlFor={name} className="text-[#475569] text-sm">
+          {label}
+        </label>
+      )}
 
       <div
         className={`flex items-center rounded gap-2 ${style[styles]} px-2 h-full`}

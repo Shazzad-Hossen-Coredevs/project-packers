@@ -8,9 +8,9 @@ const NavItem = ({
   url,
   children,
 }) => {
-  const [collapse, setCollapse] = useState(false);
+  const [collapse] = useState(true);
   const collapseHandler = () => {
-    setCollapse(!collapse);
+    // setCollapse(!collapse);
   };
 
   if (type === "collapse") {

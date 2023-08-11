@@ -1,7 +1,7 @@
 import { useState } from "react";
 import camera from "../../../assets/icons/cd-camera.svg";
 import cancel from "../../../assets/icons/cd-cancel.svg";
-const ImageUploader = () => {
+const ImageUploader = ({title}) => {
   const [previewImage, setPreviewImage] = useState([]);
 
   const imageInputHandler = (element) => {
@@ -17,7 +17,7 @@ const ImageUploader = () => {
   };
   return (
     <>
-      <p className="text-secondary font-semibold">Product Image</p>
+ {title && <p className="text-secondary font-semibold">{title}</p>}
       <div className="flex gap-2">
         <label htmlFor="file">
           <div className="flex h-full  flex-col gap-4 items-center p-4 border  border-[#00000023] rounded-md cursor-pointer">

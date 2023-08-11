@@ -1,18 +1,16 @@
-import { useState } from "react";
-import { products } from "../../Store/Data";
 import { useNavigate } from "react-router-dom";
-import Heading from "../Components/UiElements/Heading/Heading";
+import { useState } from "react";
 import Button from "../Components/UiElements/Button/Button";
+import Heading from "../Components/UiElements/Heading/Heading";
 import Input from "../Components/UiElements/Input/Input";
 import Table from "../Components/UiElements/Table/Table";
 import filter from "../../assets/icons/cd-filter.svg";
 import sort from "../../assets/icons/cd-arrow-data-transfer-vertical-round.svg";
 import search from "../../assets/icons/cd-search2.svg";
-
-const Products = () => {
-
+import { customer } from "../../Store/Data";
+const Customer = () => {
     const [active, setActive] = useState("all");
-    const [tableData] = useState(products);
+    const [tableData] = useState(customer);
   
     const navigate = useNavigate()
     const tableButtonHandler = (value) => {
@@ -22,10 +20,16 @@ const Products = () => {
     
     return (
       <div className="h-full px-5 ">
-        <Heading title="Products">
-          <Button style="primary" onClick={()=> navigate('new-product')}>
-           Add New Product
+        <Heading title="Customers">
+            <div className="space-x-2">
+
+          <Button style="secondary" onClick={()=> navigate('')}>
+           Export
           </Button>
+          <Button style="primary" onClick={()=> navigate('new-customer')}>
+           Add Customer
+          </Button>
+            </div>
         </Heading>
         <div className="grid grid-cols-3 gap-5 py-5">
           <div className="col-span-3 sm:col-span-3">
@@ -41,34 +45,34 @@ const Products = () => {
                     All
                   </button>
                   <button
-                    onClick={() => tableButtonHandler("active")}
+                    onClick={() => tableButtonHandler("new")}
                     className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                      active === "active"
+                      active === "new"
                         ? "bg-[#CFF6EF] rounded"
                         : "bg-transparent"
                     }`}
                   >
-                    Active
+                    New
                   </button>
                   <button
-                    onClick={() => tableButtonHandler("draft")}
+                    onClick={() => tableButtonHandler("returning")}
                     className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                      active === "draft"
+                      active === "returning"
                         ? "bg-[#CFF6EF] rounded"
                         : "bg-transparent"
                     }`}
                   >
-                    Draft
+                    Returning
                   </button>
                   <button
-                    onClick={() => tableButtonHandler("archived")}
+                    onClick={() => tableButtonHandler("abandoned")}
                     className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                      active === "archived"
+                      active === "abandoned"
                         ? "bg-[#CFF6EF] rounded"
                         : "bg-transparent"
                     }`}
                   >
-                    Archived
+                    Abandoned Checkouts
                   </button>
          
                 </div>
@@ -85,7 +89,7 @@ const Products = () => {
                 </div>
               </div>
   
-              <Table type="products" data={tableData} />
+              <Table type="customer" data={tableData} />
             </div>
           </div>
         </div>
@@ -93,4 +97,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Customer;

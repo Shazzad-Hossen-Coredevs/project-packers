@@ -1359,3 +1359,204 @@ export const chatCardData = [
   },
 ];
 
+export const customer = [
+  {
+    id: 1,
+    name: "David Miller",
+    phone: "+1643634234",
+    location: "West St, California, USA",
+    orders: 22,
+    spent: 2009,
+  },
+  {
+    id: 2,
+    name: "Sofia Willam",
+    phone: "+1643634234",
+    location: "West St, California, USA",
+    orders: 2,
+    spent: 209,
+  },
+  {
+    id: 3,
+    name: "Jhon Doe",
+    phone: "+1643634234",
+    location: "West St, California, USA",
+    orders: 22,
+    spent: 2009,
+  },
+  {
+    id: 4,
+    name: "Sara Luke",
+    phone: "+1643634234",
+    location: "West St, California, USA",
+    orders: 22,
+    spent: 2009,
+  },
+  {
+    id: 5,
+    name: "Diana Dacancy",
+    phone: "+1643634234",
+    location: "West St, California, USA",
+    orders: 22,
+    spent: 2009,
+  },
+];
+
+export const customerDetails = [
+  {
+    id: 1,
+    title: "iPhone 9",
+    price: 549,
+    status: "pending",
+    image: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+  },
+  {
+    id: 2,
+    title: "iPhone X",
+    price: 533,
+    status: "paid",
+    image: "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+  },
+  {
+    id: 3,
+    title: "Samsung Universe 9",
+    price: 422,
+    status: "cancelled",
+    image: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+  },
+  {
+    id: 4,
+    title: "OPPOF19",
+    price: 280,
+    status: "shipping",
+    image: "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+  },
+  {
+    id: 5,
+    title: "Huawei P30",
+    price: 499,
+    image: "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+    status: "completed",
+  },
+];
+export const discountData = [
+  {
+    code: "#1234",
+    type: "Fixed cart discount",
+    amount: 10,
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
+  },
+  {
+    code: "#2345",
+    type: "Fixed cart discount",
+    amount: 10,
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
+  },
+  {
+    code: "#4564",
+    type: "Fixed cart discount",
+    amount: 10,
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
+  },
+  {
+    code: "#2473",
+    type: "Fixed cart discount",
+    amount: 10,
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
+  },
+  {
+    code: "#9097",
+    type: "Fixed cart discount",
+    amount: 10,
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
+  },
+  {
+    code: "#43545",
+    type: "Fixed cart discount",
+    amount: 10,
+    description: "10৳ off",
+    usage: "0 / ∞",
+    expiry: "Dec 7, 2019",
+  },
+];
+
+export const categoryData = [
+  {
+    id: 1,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 2,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 3,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 4,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+  {
+    id: 5,
+    name: "Electronics",
+    slug: "electric",
+    post: 10,
+  },
+];
+
+export const paymentList = [
+  {
+    id: 1231,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "pending",
+  },
+  {
+    id: 1232,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "cancelled",
+  },
+  {
+    id: 1233,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "paid",
+  },
+  {
+    id: 1234,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "completed",
+  },
+  {
+    id: 1235,
+    customer: "Guy Hawkins",
+    date: "Today at 6:55am",
+    amount: 12341,
+    status: "pending",
+  },
+];

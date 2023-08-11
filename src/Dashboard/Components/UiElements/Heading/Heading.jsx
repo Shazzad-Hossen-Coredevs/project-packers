@@ -1,6 +1,6 @@
 import arrow from "../../../../assets/icons/cd-arrow-left.svg";
 import { useNavigate } from "react-router-dom";
-const Heading = ({ type, title, children }) => {
+const Heading = ({ type, title, children, back }) => {
   const navigate = useNavigate();
   const navigateHandler = () => {
     navigate(-1);
@@ -17,7 +17,7 @@ const Heading = ({ type, title, children }) => {
             />
           </button>
           <div className="">
-            <p className="text-sm text-[#475569]">Go Back</p>
+            <p className="text-sm text-[#475569]">Back to {back}</p>
             <p className="text-xl text-secondary font-semibold">{title}</p>
           </div>
         </div>

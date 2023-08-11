@@ -27,6 +27,15 @@ import RequestDetails from "../Dashboard/Pages/RequestDetails";
 import OrderDetails from "../Dashboard/Pages/OrderDetails";
 import Products from "../Dashboard/Pages/Products";
 import Chat from "../Dashboard/Pages/Chat";
+import NewProduct from "../Dashboard/Pages/NewProduct";
+import Customer from "../Dashboard/Pages/Customer";
+import NewCustomer from "../Dashboard/Pages/NewCustomer";
+import CustomerDetails from "../Dashboard/Pages/CustomerDetails";
+import Staff from "../Dashboard/Pages/Staff";
+import Discount from "../Dashboard/Pages/Discount";
+import NewDiscount from "../Dashboard/Pages/NewDiscount";
+import Category from "../Dashboard/Pages/Category";
+import Payment from "../Dashboard/Pages/Payment";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -155,12 +164,93 @@ export const router = createBrowserRouter([
             <Products />
           </Secure>
         ),
+        
+      },
+      {
+        path: "products/new-product",
+        element: (
+          <Secure>
+            <NewProduct />
+          </Secure>
+        ),
+      },
+      {
+        path: "products/:productId",
+        element: (
+          <Secure>
+            <NewProduct />
+          </Secure>
+        ),
+      },
+      {
+        path: "discount",
+        element: (
+          <Secure>
+            <Discount />
+          </Secure>
+        ),
+      },
+      {
+        path: "discount/new-discount",
+        element: (
+          <Secure>
+            <NewDiscount />
+          </Secure>
+        ),
+      },
+      {
+        path: "category",
+        element: (
+          <Secure>
+            <Category />
+          </Secure>
+        ),
       },
       {
         path: "chat",
         element: (
           <Secure>
             <Chat />
+          </Secure>
+        ),
+      },
+      {
+        path: "customers",
+        element: (
+          <Secure>
+            <Customer />
+          </Secure>
+        ),
+      },
+      {
+        path: "customers/new-customer",
+        element: (
+          <Secure>
+            <NewCustomer />
+          </Secure>
+        ),
+      },
+      {
+        path: "customers/:customerId",
+        element: (
+          <Secure>
+            <CustomerDetails />
+          </Secure>
+        ),
+      },
+      {
+        path: "staff",
+        element: (
+          <Secure>
+            <Staff />
+          </Secure>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <Secure>
+            <Payment />
           </Secure>
         ),
       },

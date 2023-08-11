@@ -10,7 +10,6 @@ import SocketProviders from "./Providers/SocketProviders";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 
-    
     <Provider store={store}>
     <SocketProviders>
     <PersistGate loading={null} persistor={persistor}>
@@ -18,6 +17,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </PersistGate>
     </SocketProviders>
     </Provider>
-    
- 
+
 );

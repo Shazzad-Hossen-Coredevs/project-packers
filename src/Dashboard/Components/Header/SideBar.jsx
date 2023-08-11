@@ -16,6 +16,7 @@ const SideBar = () => {
       <NavItem type="collapse" title="Products" icon={products}>
         <NavItem type="navlink" title="All Products" url="products" />
         <NavItem type="navlink" title="Discount" url="discount" />
+        <NavItem type="navlink" title="Category" url="category" />
       </NavItem>
       <NavItem
         type="navlink"

@@ -1,30 +1,29 @@
-import { useState } from "react";
-import { products } from "../../Store/Data";
-import { useNavigate } from "react-router-dom";
-import Heading from "../Components/UiElements/Heading/Heading";
-import Button from "../Components/UiElements/Button/Button";
-import Input from "../Components/UiElements/Input/Input";
-import Table from "../Components/UiElements/Table/Table";
+import  { useState } from 'react';
+import { paymentList } from '../../Store/Data';
+import Heading from '../Components/UiElements/Heading/Heading';
+import Button from '../Components/UiElements/Button/Button';
+import Table from '../Components/UiElements/Table/Table';
 import filter from "../../assets/icons/cd-filter.svg";
 import sort from "../../assets/icons/cd-arrow-data-transfer-vertical-round.svg";
 import search from "../../assets/icons/cd-search2.svg";
+import Input from '../Components/UiElements/Input/Input';
 
-const Products = () => {
-
+const Payment = () => {
     const [active, setActive] = useState("all");
-    const [tableData] = useState(products);
+    const [tableData] = useState(paymentList);
   
-    const navigate = useNavigate()
     const tableButtonHandler = (value) => {
       setActive(value);
       console.log(value);
     };
-    
+    const deleteHandler = () => {
+      console.log("deleted");
+    };
     return (
       <div className="h-full px-5 ">
-        <Heading title="Products">
-          <Button style="primary" onClick={()=> navigate('new-product')}>
-           Add New Product
+        <Heading title="Item Request">
+          <Button style="delete" onClick={deleteHandler}>
+            delete
           </Button>
         </Heading>
         <div className="grid grid-cols-3 gap-5 py-5">
@@ -41,36 +40,45 @@ const Products = () => {
                     All
                   </button>
                   <button
-                    onClick={() => tableButtonHandler("active")}
+                    onClick={() => tableButtonHandler("pending")}
                     className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                      active === "active"
+                      active === "pending"
                         ? "bg-[#CFF6EF] rounded"
                         : "bg-transparent"
                     }`}
                   >
-                    Active
+                    Pending
                   </button>
                   <button
-                    onClick={() => tableButtonHandler("draft")}
+                    onClick={() => tableButtonHandler("closed")}
                     className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                      active === "draft"
+                      active === "closed"
                         ? "bg-[#CFF6EF] rounded"
                         : "bg-transparent"
                     }`}
                   >
-                    Draft
+                    Closed
                   </button>
                   <button
-                    onClick={() => tableButtonHandler("archived")}
+                    onClick={() => tableButtonHandler("closed")}
                     className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
-                      active === "archived"
+                      active === "closed"
                         ? "bg-[#CFF6EF] rounded"
                         : "bg-transparent"
                     }`}
                   >
-                    Archived
+                    Closed
                   </button>
-         
+                  <button
+                    onClick={() => tableButtonHandler("abandoned")}
+                    className={`py-2 px-3 text-[#475569] text-xs font-semibold ${
+                      active === "abandoned"
+                        ? "bg-[#CFF6EF] rounded"
+                        : "bg-transparent"
+                    }`}
+                  >
+                    Abandoned
+                  </button>
                 </div>
                 <div className="py-2 flex gap-1">
                   <Input type="text" placeholder="Search" styles="secondary">
@@ -85,7 +93,7 @@ const Products = () => {
                 </div>
               </div>
   
-              <Table type="products" data={tableData} />
+              <Table type="payment" data={tableData} />
             </div>
           </div>
         </div>
@@ -93,4 +101,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Payment;

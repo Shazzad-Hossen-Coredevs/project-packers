@@ -58,7 +58,7 @@ const Login = () => {
     },
   });
   return (
-    <div className="bg-secondary pt-[10vh] pb-[15vh] min-h-[calc(100vh-241px)]">
+    <div className="bg-secondary pt-[10vh] pb-[15vh] min-h-[calc(100vh-225px)]">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap">
         <div className="w-full sm:max-w-[30vw]">
           <p className="text-white text-[52px] font-sora font-extrabold">

@@ -51,7 +51,7 @@ const Recovery = () => {
   }
 
   return (
-    <div className="bg-secondary min-h-[calc(100vh-241px)] flex items-center">
+    <div className="bg-secondary min-h-[calc(100vh-225px)] flex items-center">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap">
        {component==='account' && <Account getResponse={getResponse} /> } 
        {component==='otp' && <Otp data={data} getResponse={getResponse}  />} 

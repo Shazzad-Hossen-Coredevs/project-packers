@@ -63,7 +63,10 @@ const Header = ({ sideBar, state }) => {
   return (
     <>
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50">
-      <Toaster />
+      <div className=" z-[100]">
+      <Toaster  />
+      </div>
+        
       <div className="container hidden  sm:flex mx-auto navbar gap-4 py-[10px] items-center justify-between">
         <Link
           to="/"

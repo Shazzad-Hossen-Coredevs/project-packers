@@ -49,8 +49,8 @@ const Input = ({
         <input
           className={`px-5 py-2 ${
             children ? "rounded-e-full" : "rounded-full"
-          } w-full outline-none placeholder-secondary text-secondary border border-white ${
-            error && " border-red-600"
+          } w-full outline-none placeholder-secondary text-secondary border ${
+            error ? " border-red-600" : "border-white"
           }`}
           value={value}
           name={name}
@@ -65,7 +65,7 @@ const Input = ({
         />
       </div>
       {error && (
-        <div className="flex absolute right-0 mt-1 gap-2 bg-red-600  py-1 px-2 rounded-full w-fit">
+        <div className=" absolute right-0 mt-1 gap-2 bg-red-600  py-1 px-2 rounded-full w-fit hidden sm:flex">
           <svg
             width="20"
             height="20"

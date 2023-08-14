@@ -9,7 +9,7 @@ arrow: arrow left will appear
 [if primary or secondary is not passed there will be apply a default style ]
                
 */
-const Button = ({ arrow, children,full, type, onClick, onBlur, buttonType }) => {
+const Button = ({ arrow, children,full, type, onClick, onBlur, buttonType, disabled }) => {
   const styles = {
     text: "",
     primary: "bg-primary text-secondary py-[12px] px-[20px]",
@@ -24,6 +24,7 @@ const Button = ({ arrow, children,full, type, onClick, onBlur, buttonType }) => 
       onClick={onClick}
       onBlur={onBlur}
       type={buttonType}
+      disabled={disabled}
       className={`${
         type
           ? styles[type]

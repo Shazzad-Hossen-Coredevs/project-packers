@@ -5,11 +5,31 @@ import NewPassword from "../Components/Credentials/NewPassword";
 
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const Recovery = () => { 
   const [component, setComponent]= useState('account');
   const [data,setData]= useState({});
+  const navigate =  useNavigate();
   const getResponse = (res) =>{
    if(res.status===200){
+    {
+      
+      if(res.component==='done'){
+        toast.success("Password Reset Successful", {
+          style: {
+            padding: "16px",
+            color: "#0D3D4B",
+            backgroundColor: "#F2C852",
+          },
+          iconTheme: {
+            primary: "#198754",
+            secondary: "#FFFAEE",
+          },
+        });
+        navigate('/login');
+
+      }
+    }
     setComponent(res.component);
     setData(res);
    }
@@ -35,7 +55,7 @@ const Recovery = () => {
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 relative z-20 justify-center divide-x divide-[#ffffff1a] flex-wrap">
        {component==='account' && <Account getResponse={getResponse} /> } 
        {component==='otp' && <Otp data={data} getResponse={getResponse}  />} 
-       {component==='newPass' && <NewPassword getResponse={getResponse} /> } 
+       {component==='newPass' && <NewPassword data={data} getResponse={getResponse} /> } 
       
       </div>
     </div>

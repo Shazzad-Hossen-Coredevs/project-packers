@@ -187,7 +187,7 @@ const Header = ({ sideBar, state }) => {
           {user ? (
             <Icon icon={cart} />
           ) : (
-            <Button type="secondary">Login</Button>
+            <Link to="login" className="text-white bg-secondary rounded-full px-4 py-2">Login</Link>
           )}
         </div>
       </div>

@@ -2,7 +2,13 @@ import { useFormik } from "formik";
 import Input from "../UiElements/Input/Input";
 import { changePassword } from "../../Util/ValidationSchema";
 import Button from "../UiElements/Buttons/Button";
-const NewPassword = () => {
+import image from '../../assets/icons/otp.svg'
+import { postApi } from "../../Util/apiCall";
+import { useState } from "react";
+const NewPassword = ({data, getResponse}) => {
+
+  const [isSubmit, setIsSubmit] = useState(false);
+
   const resetForm = useFormik({
     initialValues: {
       password: "",
@@ -10,11 +16,19 @@ const NewPassword = () => {
     },
     validationSchema: changePassword,
     onSubmit: (values) => {
-      console.log(values);
+      setIsSubmit(true);
       resetForm.resetForm();
+      postApi('/user/resetpass',{otp: data.otp, email: data.email, token: data.data.token, password: values.password})
+      .then(res=> {
+        getResponse({...res, component:'done'})
+      }).finally(()=>{
+        resetForm.resetForm();
+        setIsSubmit(false);
+      })
     },
   });
   return (
+    <>
     <div className="max-w-[30vw] flex flex-col gap-12">
       <div className="">
         <p className="text-white text-[52px] font-sora font-extrabold">
@@ -57,12 +71,16 @@ const NewPassword = () => {
           />
         </div>
         <div className="mt-5">
-          <Button full className="w-full" type="primary">
-            Reset Password
+          <Button full className="w-full" type="primary" buttonType="submit">
+          {isSubmit ? "Submitting..." : "Reset Password"}
           </Button>
         </div>
       </form>
     </div>
+    <div className="flex flex-col  w-full h-full justify-center items-center">
+        <img src={image} />
+      </div>
+    </>
   );
 };
 

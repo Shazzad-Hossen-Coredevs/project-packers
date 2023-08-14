@@ -1,6 +1,6 @@
 import icon from "../../../assets/icons/cd-arrow-right.svg";
-import Icon from "../Icon/Icon";
-import cart from "../../../assets/icons/user-1.svg";
+import acc from "../../../assets/icons/Avatar.svg";
+import prod from '../../../assets/icons/cd-products.svg'
 import minor from "../../../assets/icons/cd-select_minor.svg";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
@@ -39,20 +39,21 @@ const Dropdown = ({ isOpen, onClick, type, title, data }) => {
             </div>
             <div className="overflow-y-auto scrollbar max-h-[352px]">
               {data ? (
-                data.map((item) => {
+                data.map((item,i) => {
                   return (
                     <div
                       onClick={() => clickHandler(item.id)}
-                      key={item.id}
+                      key={i}
                       className="cursor-pointer flex gap-3 py-2 border-t border-[#0000001A]"
                     >
                       <div className="h-12 w-12">
-                        <Icon icon={cart} />
+                        {item.type==='gen'? <img src={acc}/>: <img className="bg-[#CFF6EF] p-1 rounded-md" src={prod}/>}
+                       
                       </div>
 
                       <div className="">
                         <p className="font-sans font-medium text-sm overflow-hidden">
-                          {item.title}
+                          {item.msg}
                         </p>
                         <p className="font-sans font-medium text-sm overflow-hidden">
                           {item.description}
@@ -88,11 +89,11 @@ const Dropdown = ({ isOpen, onClick, type, title, data }) => {
             </div>
             <div className="overflow-y-auto scrollbar max-h-[352px]">
               {data ? (
-                data.map((item) => {
+                data.map((item,i) => {
                   return (
                     <div
                       onClick={() => clickHandler(item.id)}
-                      key={item.id}
+                      key={i}
                       className="cursor-pointer flex gap-4 py-2 border-t border-[#0000001A]"
                     >
                       <div className="h-16 w-16">

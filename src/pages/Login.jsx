@@ -24,7 +24,7 @@ const Login = () => {
     onSubmit: (values) => {
       postApi("/user/login", values).then((res) => {
         if (res.status === 200) {
-          console.log(res.data);
+         
           dispatch(userSignin(res.data));
           loginForm.resetForm();
           toast.success("Login Successful", {

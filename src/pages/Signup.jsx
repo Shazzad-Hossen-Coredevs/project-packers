@@ -28,7 +28,6 @@ const Signup = () => {
     validationSchema: signupSchema,
     onSubmit: (values) => {
       const data = { ...values, phone: conutryCode + values.phone };
-
       delete data.terms;
       delete data.remember;
       postApi("/user", data).then((res) => {

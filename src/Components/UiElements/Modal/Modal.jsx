@@ -1,4 +1,5 @@
 // ? props => show: true | false, children: wrapped elements, onClose: closing function
+
 import cancel from '../../../assets/icons/cd-cancel.svg'
 
 const Modal = ({ show, children, onClose }) => {

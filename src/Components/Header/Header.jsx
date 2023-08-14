@@ -12,36 +12,12 @@ import search from "../../assets/icons/cd-search.svg";
 import { useState } from "react";
 import Dropdown from "../UiElements/Dropdown/Dropdown";
 import ScrollTop from "../../Util/ScrollTop";
-import {  useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Toaster } from "react-hot-toast";
+import LoginModal from "../MobileModal/LoginModal";
+import { readNotification } from "../../Store/userSlice";
 
 
-const DUMMY_NOTIFICATION = [
-  {
-    id: 1,
-    title: "We've reviewed item #3163652",
-    description: "(Fitbit Versa...). You can now take it to checkout!",
-    time: "9 minutes ago",
-  },
-  {
-    id: 2,
-    title: "We've reviewed item #3163652",
-    description: "(Fitbit Versa...). You can now take it to checkout!",
-    time: "9 minutes ago",
-  },
-  {
-    id: 3,
-    title: "We've reviewed item #3163652",
-    description: "(Fitbit Versa...). You can now take it to checkout!",
-    time: "9 minutes ago",
-  },
-  {
-    id: 4,
-    title: "We've reviewed item #3163652",
-    description: "(Fitbit Versa...). You can now take it to checkout!",
-    time: "9 minutes ago",
-  },
-];
 const DUMMY_CART = [
   {
     id: 1,
@@ -67,18 +43,25 @@ const DUMMY_CART = [
   },
 ];
 const Header = ({ sideBar, state }) => {
-  const { user } = useSelector((state) => state.userInfo);
+  const { user, notifications } = useSelector((state) => state.userInfo);
   const [cartState, setCartState] = useState(false);
   const [notifyState, setNotifyState] = useState(false);
+  const [loginModal, setLoginModal] = useState(false)
   const navigate = useNavigate();
+  // const { socket } = useContext(SocketContext);
+  const dispatch = useDispatch();
   ScrollTop();
   const clickHandler = () => {
     sideBar();
   };
+  const readNotifHandler = () =>{
+    setNotifyState(!notifyState);
+    dispatch(readNotification())
 
-
+  }
 
   return (
+    <>
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50">
       <Toaster />
       <div className="container hidden  sm:flex mx-auto navbar gap-4 py-[10px] items-center justify-between">
@@ -115,18 +98,16 @@ const Header = ({ sideBar, state }) => {
               <div className="relative">
                 <span
                   className="hover:cursor-pointer"
-                  onClick={() => {
-                    setNotifyState(!notifyState);
-                  }}
+                  onClick={readNotifHandler}
                 >
-                  <Icon unread={true} icon={notification} />
+                  <Icon unread={notifications?.isNew===true? true: false} icon={notification} />
                 </span>
                 <Dropdown
                   type="notification"
                   isOpen={notifyState}
                   onClick={()=> setNotifyState(false)}
                   title="Notification"
-                  data={DUMMY_NOTIFICATION}
+                  data={notifications?.data}
                 />
               </div>
               <div className="relative">
@@ -141,14 +122,14 @@ const Header = ({ sideBar, state }) => {
                 <Dropdown
                   type="cart"
                   isOpen={cartState}
-                  onClick={()=> setCartState(false)}
+                  onClick={() => setCartState(false)}
                   title="Shopping Bag"
                   data={DUMMY_CART}
                 />
               </div>
               <div className="relative">
                 <Link
-                  to='/account/orders'
+                  to="/account/orders"
                   className="flex gap-2 items-center cursor-pointer"
                 >
                   <Icon type="active" unread={false} icon={profile} />
@@ -157,7 +138,6 @@ const Header = ({ sideBar, state }) => {
                   </p>
                 </Link>
               </div>
-            
             </div>
           ) : (
             <div className="flex gap-2 items-center">
@@ -178,7 +158,7 @@ const Header = ({ sideBar, state }) => {
           {user && (
             <img onClick={clickHandler} src={state ? cross : menu} alt="" />
           )}
-          <img className="max-h-[33px]" src={Logo} alt="" />
+          <img onClick={()=> navigate('/')} className="max-h-[33px]" src={Logo} alt="" />
         </div>
         <div className="flex gap-2 items-center ">
           <Input border placeholder="Paste URL here...">
@@ -187,11 +167,18 @@ const Header = ({ sideBar, state }) => {
           {user ? (
             <Icon icon={cart} />
           ) : (
-            <Link to="login" className="text-white bg-secondary rounded-full px-4 py-2">Login</Link>
+            <button
+              onClick={()=> setLoginModal(true)}
+              className="text-white bg-secondary rounded-full px-4 py-2"
+            >
+              Login
+            </button>
           )}
         </div>
       </div>
     </div>
+    <LoginModal show={loginModal} onClose={()=> setLoginModal(false)} />
+    </>
   );
 };
 

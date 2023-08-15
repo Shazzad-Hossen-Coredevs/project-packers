@@ -21,7 +21,7 @@ const cartItems = [
     quantity: 4,
   },
   {
-    id: 2,
+    id: 3,
     title: "OTTERBOX COMMUTER SERIES Case for iPhone 12 & iPhone 12 Pro",
     image: product,
     price: 699,

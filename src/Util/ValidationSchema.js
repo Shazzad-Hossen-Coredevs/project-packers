@@ -16,7 +16,20 @@ export const changePassword = object({
 export const signupSchema = object({
   name: string().required(),
   email: string().email().required("Please Enter Your Email Address."),
-  phone: string().min(10,"Invalid Phone Number").max(12).required(),
+  phone: string().min(10, "Invalid Phone Number").max(12).required(),
   password: string().min(6).required("Password Can not be Empty"),
   terms: boolean().required(),
+});
+
+export const profileSchema = object({
+  firstName: string().required(),
+  lastName: string().required(),
+  email: string().email().required("Please Enter Your Email Address."),
+  phone: string().min(10, "Invalid Phone Number").max(17).required(),
+  currentPassword: string().min(6),
+  newPassword: string().min(6),
+  confirmPassword: string().oneOf(
+    [ref("newPassword"), null],
+    "Passwords must match"
+  ),
 });

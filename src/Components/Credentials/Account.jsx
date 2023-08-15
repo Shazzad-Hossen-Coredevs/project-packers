@@ -1,6 +1,8 @@
 /**
+ * Account() returns JSX Element
  * Email Validation form for Password recovery page
- *
+ * @param {function} getResponse initialized fetching data from server
+ * 
  * @returns JSX Element
  */
 
@@ -13,22 +15,22 @@ import { postApi } from "../../Util/apiCall";
 import { useState } from "react";
 
 const Account = ({ getResponse }) => {
-  const [isSubmit, setIsSubmit] = useState(false)
+  const [isSubmit, setIsSubmit] = useState(false);
   const emailForm = useFormik({
     initialValues: {
       email: "",
     },
     validationSchema: emailSchema,
     onSubmit: (values) => {
-      setIsSubmit(true)
-      postApi("/user/otp", { ...values }).then((res) => {
-        getResponse({ component: "otp", ...res, ...values });
-        emailForm.resetForm();
-      }).finally(()=>{
-
-        setIsSubmit(false)
-        
-      });
+      setIsSubmit(true);
+      postApi("/user/otp", { ...values })
+        .then((res) => {
+          getResponse({ component: "otp", ...res, ...values });
+          emailForm.resetForm();
+        })
+        .finally(() => {
+          setIsSubmit(false);
+        });
     },
   });
   return (
@@ -60,7 +62,13 @@ const Account = ({ getResponse }) => {
               type="email"
             />
           </div>
-          <Button full className="w-full" type="primary" buttonType="submit" disabled={isSubmit}>
+          <Button
+            full
+            className="w-full"
+            type="primary"
+            buttonType="submit"
+            disabled={isSubmit}
+          >
             {isSubmit ? "Submitting..." : "Reset Password"}
           </Button>
         </form>

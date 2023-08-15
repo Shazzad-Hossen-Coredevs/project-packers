@@ -1,34 +1,43 @@
+/**
+ * SideBar() return JSX Element
+ * mobile view side navbar
+ * 
+ * @param {boolean} state  used to change the visibility of sidebar.
+ * @param {function} onChange callback function.
+ * 
+ * @returns JSX Elements. 
+ */
+
 import logo from "../../assets/logo.svg";
-import Button from "../UiElements/Buttons/Button";
 import Icon from "../UiElements/Icon/Icon";
 import profile from "../../assets/icons/Avatar.svg";
 import notification from "../../assets/icons/cd-notification.svg";
 import support from "../../assets/icons/cd-customer-support.svg";
 import logout from "../../assets/icons/logout-01.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { userSignout } from "../../Store/userSlice";
-const Sidebar = ({state}) => {
+const Sidebar = ({state, onChange}) => {
 
-  const  {user} = useSelector(state => state.userInfo);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const logoutHandler = () =>{
     dispatch(userSignout());
-    navigate('/')
+    navigate('/');
+    onChange();
   }
   if (state) {
     return (
       <div className=" absolute sm:hidden top-0 bottom-0 right-20 left-0 bg-white z-[101] p-5">
         <div className="flex gap-2 py-5 my-5 border-b border-[#124E581A]">
           <img src={logo} alt="" />
-          <Button type="secondary">Log in or Sign Up</Button>
+          {/* <Button type="secondary">Log in or Sign Up</Button> */}
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex gap-3 items-center">
             <Icon type="active" icon={profile} />
-            <Link
+            <Link onClick={()=> onChange()}
               to="account/orders"
               className="font-sans text-base font-normal text-secondary"
             >
@@ -37,8 +46,8 @@ const Sidebar = ({state}) => {
           </div>
           <div className="flex gap-3 items-center">
             <Icon type="actual" icon={notification} />
-            <Link
-              to="/"
+            <Link onClick={()=> onChange()}
+              to="/notification"
               className="font-sans text-base font-normal text-secondary"
             >
               Notification
@@ -46,7 +55,7 @@ const Sidebar = ({state}) => {
           </div>
           <div className="flex gap-3 items-center">
             <Icon type="actual" icon={support} />
-            <Link
+            <Link onClick={()=> onChange()}
               to="/"
               className="font-sans text-base font-normal text-secondary"
             >

@@ -1,4 +1,9 @@
-// ? props => show: true | false, children: wrapped elements, onClose: closing function
+/**
+ * Modal() returns JSX Element
+ * @param {boolean} show hide and visible
+ * @param {object} children JSX Element
+ * @param {function} onClose callback function
+ */
 
 import cancel from '../../../assets/icons/cd-cancel.svg'
 
@@ -23,5 +28,4 @@ const Modal = ({ show, children, onClose }) => {
     return null;
   }
 };
-
 export default Modal;

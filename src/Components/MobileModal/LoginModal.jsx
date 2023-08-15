@@ -17,6 +17,7 @@ import ResetPasswordModal from "../MobileCredentials/ResetPasswordModal";
 const LoginModal = ({ show, onClose }) => {
   const [activeScreen, setActiveScreen] = useState("account");
   const [data,setData]= useState({});
+  
   const getResponse = (res) =>{
     if(res.status===200){
      {
@@ -66,10 +67,12 @@ const LoginModal = ({ show, onClose }) => {
     onClose();
   };
 
-  if (show) {
+  
     return (
-      <div className=" fixed bottom-0 top-0 left-0 right-0 bg-[#03182ACC] z-[50] ">
-        <div className="absolute bottom-0 left-0 right-0 bg-secondary rounded-t-xl py-5 px-[30px]">
+      <>
+      <div className={`${show ? "block" : " hidden"}    fixed bottom-0 top-0 left-0 right-0 bg-[#03182ACC] z-[50] `}>
+       </div>
+        <div className={`fixed ${show?'bottom-0 ':'-bottom-[1000px] '}  duration-500 left-0 right-0 bg-secondary rounded-t-xl py-5 px-[30px] z-[60]`}>
           <div className="grid gap-8">
             {activeScreen === "account" && (
               <AccountModal stateHandler={stateHandler} onClose={closeHandler} />
@@ -95,10 +98,9 @@ const LoginModal = ({ show, onClose }) => {
               <ResetPasswordModal data={data} getResponse={getResponse} stateHandler={stateHandler} onClose={closeHandler} />
             )}
           </div>
-        </div>
-      </div>
+        </div></>
+      
     );
   }
-};
 
 export default LoginModal;

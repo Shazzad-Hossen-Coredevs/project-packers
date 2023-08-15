@@ -1,3 +1,13 @@
+/**
+ * Header() returns JSX Element
+ * Two different header section. 1 for small screen and another for the rest
+ * 
+ * @param {function} sideBar This function only work for small screen to open side nav menu
+ * @param {boolean} state  used to change button icon for small header.
+ * 
+ * @returns JSX Element
+ */
+
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 import menu from "../../assets/icons/menu-01.svg";
@@ -156,6 +166,9 @@ const Header = ({ sideBar, state }) => {
           )}
         </div>
       </div>
+
+      {/* For Small Screen */}
+
       <div className="flex bg-[#CFF6EF] gap-2 flex-shrink-0 justify-between sm:hidden px-5 py-[10px]">
         <div className="flex flex-shrink-0 items-center gap-2 ">
           {user && (
@@ -168,7 +181,9 @@ const Header = ({ sideBar, state }) => {
             <img src={search} alt="" />
           </Input>
           {user ? (
+            <Link to="/cart">
             <Icon icon={cart} />
+            </Link>
           ) : (
             <button
               onClick={()=> setLoginModal(true)}

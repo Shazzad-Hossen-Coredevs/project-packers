@@ -1,23 +1,78 @@
 import Breadcrumb from "../Components/UiElements/Breadcrumb/Breadcrumb";
 import Input from "../Components/UiElements/Input/Input";
 import order from "../assets/icons/cd-order.svg";
-import user from "../assets/icons/user-1.svg";
+import profile from "../assets/icons/user-1.svg";
 import logout from "../assets/icons/logout-01.svg";
 import eye from "../assets/icons/eye.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Badge from "../Components/UiElements/Badge/Badge";
 import Button from "../Components/UiElements/Buttons/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userSignout } from "../Store/userSlice";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import { profileSchema } from "../Util/ValidationSchema";
+import CountryCodeSelector from "../Components/UiElements/CountryCodeSelectior/CountryCodeSelector";
+
+const USER_DATA = {
+  firstName: "Arrafi",
+  lastName: "Mahin",
+  phone: "+8801743986617",
+  email: "arrafi.mahin@gmail.com",
+};
+
 const Orders = () => {
   const [active, setActive] = useState("orders");
+  const [conutryCode, setCountryCode] = useState(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.userInfo);
+  useEffect(() => {
+    const name = user?.name.split(" ");
+    console.log(name);
+    profileForm.setValues({
+      firstName: name[0],
+      lastName: name[1],
+      phone: user?.phone,
+      email: user?.email,
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    });
+  }, [user]);
+  const profileForm = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      currentPassword: "",
+      newPassword: "",
+      confirmPassword: "",
+    },
+    validationSchema: profileSchema,
+    onSubmit: (values) => {
+      if (values.currentPassword !== "" && values.newPassword === "") {
+        profileForm.setFieldError("newPassword", "New Password Required");
+        profileForm.setFieldError(
+          "confirmPassword",
+          "Password Have to be matched"
+        );
+      }else if(values.newPassword !== values.confirmPassword){
+        profileForm.setFieldError(
+          "confirmPassword",
+          "Password Have to be matched"
+        );
+      } else {
+        console.log(values);
+      }
+    },
+  });
+
   const logoutHandler = () => {
     dispatch(userSignout());
-    navigate('/')
-  }
+    navigate("/");
+  };
   return (
     <>
       <Breadcrumb />
@@ -41,7 +96,7 @@ const Orders = () => {
                     active === "account" ? "bg-primary" : "bg-white border"
                   }`}
                 >
-                  <img src={user} />
+                  <img src={profile} />
                   <span className="hidden sm:block">User Account</span>
                 </button>
                 <button
@@ -89,7 +144,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="completed"  />
+                            <Badge text="completed" />
                           </td>
                           <td className="px-6 py-4">
                             <img
@@ -108,7 +163,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="paid"  />
+                            <Badge text="paid" />
                           </td>
                           <td className="px-6 py-4">
                             <img
@@ -127,7 +182,7 @@ const Orders = () => {
                           <td className="px-6 py-4">1 item</td>
                           <td className="px-6 py-4">$396.84</td>
                           <td className="px-6 py-4">
-                            <Badge text="processing"  />
+                            <Badge text="processing" />
                           </td>
                           <td className="px-6 py-4">
                             <img
@@ -182,12 +237,24 @@ const Orders = () => {
                 </div>
               ) : (
                 <div className="max-w-[700px]">
-                  <form className="grid gap-4">
+                  <form
+                    onSubmit={profileForm.handleSubmit}
+                    className="grid gap-4"
+                  >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <Input
                         styles="primary"
                         type="text"
                         name="firstName"
+                        change={profileForm.handleChange}
+                        blur={profileForm.handleBlur}
+                        value={profileForm.values.firstName}
+                        error={
+                          profileForm.touched.firstName &&
+                          profileForm.errors.firstName
+                            ? profileForm.errors.firstName
+                            : null
+                        }
                         label="First Name"
                         placeholder="Enter your First Name"
                         border
@@ -196,6 +263,15 @@ const Orders = () => {
                         styles="primary"
                         type="text"
                         name="lastName"
+                        change={profileForm.handleChange}
+                        blur={profileForm.handleBlur}
+                        value={profileForm.values.lastName}
+                        error={
+                          profileForm.touched.lastName &&
+                          profileForm.errors.lastName
+                            ? profileForm.errors.lastName
+                            : null
+                        }
                         label="Last Name"
                         placeholder="Enter your Last Name"
                         border
@@ -205,6 +281,14 @@ const Orders = () => {
                       styles="primary"
                       type="email"
                       name="email"
+                      change={profileForm.handleChange}
+                      blur={profileForm.handleBlur}
+                      value={profileForm.values.email}
+                      error={
+                        profileForm.touched.email && profileForm.errors.email
+                          ? profileForm.errors.email
+                          : null
+                      }
                       label="Email Address"
                       placeholder="Enter your Email id"
                       border
@@ -213,11 +297,19 @@ const Orders = () => {
                       styles="primary"
                       type="phone"
                       name="phone"
+                      change={profileForm.handleChange}
+                      blur={profileForm.handleBlur}
+                      value={profileForm.values.phone}
+                      error={
+                        profileForm.touched.phone && profileForm.errors.phone
+                          ? profileForm.errors.phone
+                          : profileForm.errors.phone
+                      }
                       label="Phone Number"
                       placeholder="Enter your Phone Number"
                       border
                       required
-                    />
+                    ></Input>
                     <p className="text-secondary text-lg font-medium">
                       Password Change
                     </p>
@@ -225,6 +317,15 @@ const Orders = () => {
                       styles="primary"
                       type="password"
                       name="currentPassword"
+                      change={profileForm.handleChange}
+                      blur={profileForm.handleBlur}
+                      value={profileForm.values.currentPassword}
+                      error={
+                        profileForm.touched.currentPassword &&
+                        profileForm.errors.currentPassword
+                          ? profileForm.errors.currentPassword
+                          : profileForm.errors.currentPassword
+                      }
                       label="Current Password"
                       placeholder="Enter your current password"
                       border
@@ -233,6 +334,15 @@ const Orders = () => {
                       styles="primary"
                       type="password"
                       name="newPassword"
+                      change={profileForm.handleChange}
+                      blur={profileForm.handleBlur}
+                      value={profileForm.values.newPassword}
+                      error={
+                        profileForm.touched.newPassword &&
+                        profileForm.errors.newPassword
+                          ? profileForm.errors.newPassword
+                          : profileForm.errors.newPassword
+                      }
                       label="New Password"
                       placeholder="Enter New password"
                       border
@@ -241,6 +351,15 @@ const Orders = () => {
                       styles="primary"
                       type="password"
                       name="confirmPassword"
+                      change={profileForm.handleChange}
+                      blur={profileForm.handleBlur}
+                      value={profileForm.values.confirmPassword}
+                      error={
+                        profileForm.touched.confirmPassword &&
+                        profileForm.errors.confirmPassword
+                          ? profileForm.errors.confirmPassword
+                          : profileForm.errors.confirmPassword
+                      }
                       label="Confirm Password"
                       placeholder="Confirm new password"
                       border

@@ -30,7 +30,6 @@ const SignInModal = ({ stateHandler, onClose }) => {
     },
     validationSchema: loginSchema,
     onSubmit: (values) => {
-      console.log(values);
       postApi("/user/login", values).then((res) => {
         if (res.status === 200) {
           dispatch(userSignin(res.data));

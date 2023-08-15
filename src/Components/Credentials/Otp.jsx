@@ -1,3 +1,14 @@
+/**
+ * Otp() returns JSX Element
+ * OTP Validation from email
+ * 
+ * @param {object} data elements for post method
+ * @param {function} getResponse callback function
+ * 
+ * @return JSX Element
+ */
+
+
 import Input from "../UiElements/Input/Input";
 import Button from "../UiElements/Buttons/Button";
 import image from '../../assets/icons/otp.svg'

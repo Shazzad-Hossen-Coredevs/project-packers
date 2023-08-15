@@ -1,3 +1,12 @@
+/**
+ * Icon() returns JSX Element
+ * @param {string} type  style will be applied based on type
+ * @param {any} icon icons
+ * @param {boolean} unread indicator will flash based on this
+ * 
+ * @returns JSX Element
+ */
+
 const Icon = ({ type, icon, unread }) => {
   const styles = {
     active: "bg-[#FBE697]",
@@ -7,7 +16,7 @@ const Icon = ({ type, icon, unread }) => {
     <div
       className={
         (type ? styles[type] : styles.actual) +
-        ` relative w-fit flex items-center justify-center h-fit rounded-full p-[6px] `
+        ` relative  flex items-center justify-center rounded-full h-9 w-9 p-[6px] `
       }
     >
       {unread && (
@@ -18,7 +27,7 @@ const Icon = ({ type, icon, unread }) => {
           </span>
         </>
       )}
-      <img src={icon} alt="" />
+      <img className="h-full w-full shrink-0" src={icon} alt="" />
     </div>
   );
 };

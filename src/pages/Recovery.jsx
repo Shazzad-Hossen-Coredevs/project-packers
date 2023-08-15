@@ -1,11 +1,9 @@
-import Account from "../Components/Credentials/Account";
-import Otp from "../Components/Credentials/Otp";
-import NewPassword from "../Components/Credentials/NewPassword";
-
-
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Account from "../Components/Credentials/Account";
+import Otp from "../Components/Credentials/Otp";
+import NewPassword from "../Components/Credentials/NewPassword";
 const Recovery = () => { 
   const [component, setComponent]= useState('account');
   const [data,setData]= useState({});

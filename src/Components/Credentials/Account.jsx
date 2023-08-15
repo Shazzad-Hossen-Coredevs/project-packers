@@ -23,10 +23,11 @@ const Account = ({ getResponse }) => {
       setIsSubmit(true)
       postApi("/user/otp", { ...values }).then((res) => {
         getResponse({ component: "otp", ...res, ...values });
+        emailForm.resetForm();
       }).finally(()=>{
 
         setIsSubmit(false)
-        emailForm.resetForm();
+        
       });
     },
   });

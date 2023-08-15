@@ -41,7 +41,7 @@ const Otp = ({ data, getResponse }) => {
           </p>
           <p className="font-sans text-lg font-medium text-[#ffffffb3]">
             To get a verification code, first confirm the phone number you added
-            to your account {"r••••••••@coredevs.ltd"}. Standard rates apply.
+            to your account <span className="text-primary">{data?.email}</span>. Standard rates apply.
           </p>
         </div>
         <form className="flex flex-col gap-9" onSubmit={otpForm.handleSubmit}>

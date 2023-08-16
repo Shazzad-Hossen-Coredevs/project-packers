@@ -8,22 +8,16 @@ import { useEffect, useState } from "react";
 import Badge from "../Components/UiElements/Badge/Badge";
 import Button from "../Components/UiElements/Buttons/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { userSignout } from "../Store/userSlice";
+import { userSignin, userSignout } from "../Store/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { profileSchema } from "../Util/ValidationSchema";
-import CountryCodeSelector from "../Components/UiElements/CountryCodeSelectior/CountryCodeSelector";
-
-const USER_DATA = {
-  firstName: "Arrafi",
-  lastName: "Mahin",
-  phone: "+8801743986617",
-  email: "arrafi.mahin@gmail.com",
-};
+import { patchApi } from "../Util/apiCall";
+import { errorToast, successToast } from "../Util/toaster";
 
 const Orders = () => {
   const [active, setActive] = useState("orders");
-  const [conutryCode, setCountryCode] = useState(null);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.userInfo);
@@ -58,13 +52,30 @@ const Orders = () => {
           "confirmPassword",
           "Password Have to be matched"
         );
-      }else if(values.newPassword !== values.confirmPassword){
+      } else if (values.newPassword !== values.confirmPassword) {
         profileForm.setFieldError(
           "confirmPassword",
           "Password Have to be matched"
         );
       } else {
-        console.log(values);
+        const data = {
+          email: values.email,
+          phone: values.phone,
+          name: values.firstName + " " + values.lastName,
+        };
+        if (values.newPassword !== "")
+          data.password = {
+            new: values.newPassword,
+            old: values.currentPassword,
+          };
+        patchApi("/user/me", data).then((res) => {
+          if (res.status === 200) {
+            dispatch(userSignin(res.data));
+            successToast("Profile successfully updated");
+          } else {
+            errorToast(res.response.data);
+          }
+        });
       }
     },
   });

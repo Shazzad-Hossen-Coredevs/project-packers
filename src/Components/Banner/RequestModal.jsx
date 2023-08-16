@@ -1,8 +1,8 @@
 /**
- * Modal View Component for request item modal
- * active state for navigate view
- * quantity state for keep quantity of product
- * onSubmit function for form submission
+ * RequestModal() returns JSX Element
+ * Component for request item modal
+ * 
+ * @param {string} confirmSubmit callback function. 
  * 
  * @returns JSX Modal Element
  */

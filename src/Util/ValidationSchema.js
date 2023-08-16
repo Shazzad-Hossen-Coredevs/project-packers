@@ -33,3 +33,14 @@ export const profileSchema = object({
     "Passwords must match"
   ),
 });
+
+export const categorySchema = object({
+  name: string().required(),
+  slug:string().matches(/^[A-Za-z]+$/, 'Avoid space.').required()
+})
+
+export const subCategorySchema = object({
+  category: string().required(),
+  name: string().required(),
+  slug:string().matches(/^[A-Za-z]+$/, 'Avoid space.').required()
+})

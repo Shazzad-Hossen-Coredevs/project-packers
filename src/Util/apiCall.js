@@ -32,3 +32,26 @@ export const getApi = async (endpoint) => {
     return err;
   }
 };
+
+
+export const patchApi = async (endpoint,data) => {
+
+  try {
+
+    const response = await axios.patch(
+
+      `${BASE_URL + "/api" + endpoint}`, data,
+
+      config
+
+    );
+
+    return response;
+
+  } catch (err) {
+
+    return err;
+
+  }
+
+};

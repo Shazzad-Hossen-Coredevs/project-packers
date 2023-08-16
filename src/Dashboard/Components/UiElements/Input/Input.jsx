@@ -26,7 +26,6 @@ const Input = ({
   const clickHandler = (value) => {
     console.log(value);
   };
-
   if (styles === "quantity") {
     return (
       <div className={`rounded h-full w-fit`}>
@@ -71,7 +70,7 @@ const Input = ({
           </label>
         )}
         <input
-          className="border border-[#0000001c] w-full outline-none px-3 py-2 rounded-lg"
+          className={`border ${error  ? "border-red-600" : "border-[#0000001c]"}  w-full outline-none px-3 py-2 rounded-lg`}
           type={type}
           id={name}
           name={name}

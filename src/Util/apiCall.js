@@ -23,35 +23,24 @@ export const postApi = async (endpoint, body) => {
 
 export const getApi = async (endpoint) => {
   try {
-    const response = await axios.get(
-      `${BASE_URL + "/api" + endpoint}`,
-      config
-    );
-    return response.data;
+    const response = await axios.get(`${BASE_URL + "/api" + endpoint}`, config);
+    return response;
   } catch (err) {
     return err;
   }
 };
 
-
-export const patchApi = async (endpoint,data) => {
-
+export const patchApi = async (endpoint, data) => {
   try {
-
     const response = await axios.patch(
-
-      `${BASE_URL + "/api" + endpoint}`, data,
+      `${BASE_URL + "/api" + endpoint}`,
+      data,
 
       config
-
     );
 
     return response;
-
   } catch (err) {
-
     return err;
-
   }
-
 };

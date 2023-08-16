@@ -81,6 +81,7 @@ const Input = ({
           disabled={disabled}
           minLength={min}
           maxLength={max}
+          required={required}
         />
       </div>
     );
@@ -94,7 +95,7 @@ const Input = ({
           </label>
         )}
         <textarea
-          className="border border-[#0000001c] outline-none px-3 py-2 rounded-lg"
+          className={`border ${error ? 'border-red-600' : 'border-[#0000001c]'}  outline-none px-3 py-2 rounded-lg`}
           type={type}
           id={name}
           rows={rows}
@@ -119,7 +120,7 @@ const Input = ({
           </label>
         )}
         <select
-          className="border border-[#0000001c] outline-none px-3 py-2 rounded-lg bg-white appearance"
+          className={`border ${error ? "border-red-600" : "border-[#0000001c]"} outline-none px-3 py-2 rounded-lg bg-white appearance`}
           id={name}
           name={name}
           value={value}

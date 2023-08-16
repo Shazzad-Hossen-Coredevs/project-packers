@@ -44,3 +44,22 @@ export const subCategorySchema = object({
   name: string().required(),
   slug:string().matches(/^[A-Za-z]+$/, 'Avoid space.').required()
 })
+
+export const productSchema = object({
+  name:string().required(),
+  description: string().required(),
+  price: string().required(),
+  tax:string().required(),
+  fee:string().required(),
+  stock:string().required(),
+  from:string().required(),
+  link:string().required(),
+  category:string().required(),
+  subCategory: string().required(),
+  tags: string().required(),
+  deliveryTime:object({
+    min: string().required(),
+    max:string().required(),
+  })
+
+})

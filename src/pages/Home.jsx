@@ -4,9 +4,21 @@ import Showcase from "../Components/Showcase/Showcase";
 import About from "../Components/About/About";
 import Carousel from "../Components/UiElements/Carousel/Carousel";
 import Faq from "../Components/Faq/Faq";
-import { products, carousel, brand } from "../Store/Data";
+import { carousel, brand } from "../Store/Data";
+import { useEffect, useState } from "react";
+import { getApi } from "../Util/apiCall";
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    getApi("/product?limit=8&paginate=true").then((res) => {
+      if (res.status === 200) {
+        setProducts(res?.data?.docs);
+      } else {
+        console.log(res?.response?.data);
+      }
+    });
+  }, []);
   return (
     <>
       <Banner />

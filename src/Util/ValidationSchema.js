@@ -47,7 +47,7 @@ export const subCategorySchema = object({
 
 export const productSchema = object({
   name:string().required(),
-  description: string().required(),
+  desc: string().required(),
   price: string().required(),
   tax:string().required(),
   fee:string().required(),

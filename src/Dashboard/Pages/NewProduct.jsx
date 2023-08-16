@@ -14,13 +14,15 @@ import ImageUploader from "../../Components/UiElements/ImageUploader/ImageUpload
 import Button from "../Components/UiElements/Button/Button";
 import { useFormik } from "formik";
 import { productSchema } from "../../Util/ValidationSchema";
+import { useState } from "react";
+import { postApi } from "../../Util/apiCall";
 const NewProduct = () => {
   const { productId } = useParams();
-
+  const [imageData, setImageData] = useState([]);
   const productForm = useFormik({
     initialValues: {
       name: "",
-      description: "",
+      desc: "",
       price: "",
       tax: "",
       fee: "",
@@ -37,10 +39,25 @@ const NewProduct = () => {
     },
     validationSchema: productSchema,
     onSubmit: (values) => {
-      console.log(values);
+      const data = JSON.stringify(values)
+      const formData = new FormData()
+      formData.append('data', data )
+      for (const image of imageData) {
+        formData.append('thumbnails', image)
+        console.log(image)
+        
+      } 
+      postApi('/product',formData).then(res => console.log(res)).catch(error => console.log(error))
     },
   });
-  console.log(productForm.errors)
+
+  const imageSetter = (value) => {
+    setImageData(prev => [value, ...prev,])
+  }
+
+  const handleRemove = (values) =>{
+    setImageData(values)
+  }
   return (
     <div className="h-full px-5">
       <Heading type="navigate" title="Add New Product" back="Products" />
@@ -68,14 +85,14 @@ const NewProduct = () => {
               <Input
                 styles="area"
                 label="Description"
-                name="description"
+                name="desc"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
-                value={productForm.values.description}
+                value={productForm.values.desc}
                 error={
-                  productForm.touched.description &&
-                  productForm.errors.description
-                    ? productForm.errors.description
+                  productForm.touched.desc &&
+                  productForm.errors.desc
+                    ? productForm.errors.desc
                     : null
                 }
                 placeholder="Write here..."
@@ -142,7 +159,7 @@ const NewProduct = () => {
               Product Images
             </h2>
             <div className="border border-[#0000001c] rounded-lg p-3">
-              <ImageUploader />
+              <ImageUploader data={imageData} onChange={imageSetter} onRemove={handleRemove} />
             </div>
             <h2 className="text-base text-secondary font-semibold">Pricing</h2>
             <div className="border border-[#0000001c] grid grid-cols-2 gap-3 rounded-lg p-3">

@@ -1,23 +1,37 @@
-import { useState } from "react";
+/**
+ * imageUploader() return JSX Component
+ * Image uploader component
+ * @param {string} title for set header title
+ * @param {function} getData callback function for retrive data
+ * 
+ * @returns JSX element 
+ */
+
+
 import camera from "../../../assets/icons/cd-camera.svg";
 import cancel from "../../../assets/icons/cd-cancel.svg";
-const ImageUploader = ({title}) => {
-  const [previewImage, setPreviewImage] = useState([]);
+const ImageUploader = ({ title, data, onChange, onRemove }) => {
+
+
 
   const imageInputHandler = (element) => {
-    const url = URL.createObjectURL(element.target.files[0]);
-    setPreviewImage((prev) => [...prev, url]);
+    console.log(element.target.files[0])
+    const url = element.target.files[0]
+    // const url = URL.createObjectURL(element.target.files[0]);
+    // setPreviewImage((prev) => [...prev, url]);
+    onChange(url);
   };
 
   const imageRemoveHandler = (removeIndex) => {
-    const updateArray = previewImage.filter(
+    const updateArray = data?.filter(
       (item, index) => index !== removeIndex
     );
-    setPreviewImage(updateArray);
+    onRemove(updateArray);  
+    
   };
   return (
     <>
- {title && <p className="text-secondary font-semibold">{title}</p>}
+      {title && <p className="text-secondary font-semibold">{title}</p>}
       <div className="flex gap-2">
         <label htmlFor="file">
           <div className="flex h-full  flex-col gap-4 items-center p-4 border  border-[#00000023] rounded-md cursor-pointer">
@@ -32,7 +46,7 @@ const ImageUploader = ({title}) => {
           id="file"
           onChange={imageInputHandler}
         />
-        {previewImage.reverse().map((image, index) => {
+        {data?.reverse().map((image, index) => {
           return (
             <div
               key={index}
@@ -44,7 +58,7 @@ const ImageUploader = ({title}) => {
                 src={cancel}
                 alt=""
               />
-              <img className="w-[80px] h-[80px]" src={image} alt="" />
+              <img className="w-[80px] h-[80px]" src={URL.createObjectURL(image)} alt="" />
             </div>
           );
         })}

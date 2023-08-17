@@ -1,5 +1,11 @@
 /**
- * @prams type || data
+ * Table() returns table
+ * dynamic table for all pages.
+ * table will generate table head based on type.
+ * data will map inside tbody
+ * 
+ * @param {string} type types of table
+ * @param {array} data 
  * type => order || request || products || customer || customerDetails || Discount
  *
  * @returns table JSX Element.

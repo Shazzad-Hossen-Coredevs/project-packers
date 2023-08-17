@@ -27,6 +27,7 @@ const Banner = () => {
 
       setUrl(e.target[0].value);
       setIsOpen(true);
+      e.target[0].value= "";
     }else{
       errorToast("Please Provide product link")
     }

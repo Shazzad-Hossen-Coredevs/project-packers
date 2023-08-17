@@ -3,7 +3,7 @@ export const BASE_URL = "http://localhost:4000";
 
 const config = {
   headers: {
-    "Content-Type": "application/json",
+    // "Content-Type": "application/json",
   },
   withCredentials: true,
 };

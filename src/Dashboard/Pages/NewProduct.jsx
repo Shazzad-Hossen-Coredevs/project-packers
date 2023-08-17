@@ -16,6 +16,7 @@ import { useFormik } from "formik";
 import { productSchema } from "../../Util/ValidationSchema";
 import { useState } from "react";
 import { postApi } from "../../Util/apiCall";
+import { errorToast, successToast } from "../../Util/toaster";
 const NewProduct = () => {
   const { productId } = useParams();
   const [imageData, setImageData] = useState([]);
@@ -43,16 +44,22 @@ const NewProduct = () => {
       const formData = new FormData()
       formData.append('data', data )
       for (const image of imageData) {
-        formData.append('thumbnails', image)
-        console.log(image)
-        
+        formData.append('thumbnails', image, image.name)
+        console.log(image, image.name)
       } 
-      postApi('/product',formData).then(res => console.log(res)).catch(error => console.log(error))
+
+      postApi('/product',formData).then(res => {
+        if(res.status === 200){
+          successToast('Product Uploaded Successfully')
+        }else{
+          errorToast("Something went wrong")
+        }
+      }).catch(error => errorToast(error))
     },
   });
 
   const imageSetter = (value) => {
-    setImageData(prev => [value, ...prev,])
+    setImageData(prev => [...prev, value])
   }
 
   const handleRemove = (values) =>{
@@ -71,6 +78,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Product name"
+                type="text"
                 name="name"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -85,6 +93,7 @@ const NewProduct = () => {
               <Input
                 styles="area"
                 label="Description"
+                type="text"
                 name="desc"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -114,7 +123,7 @@ const NewProduct = () => {
                     : null
                 }
                 option={[
-                  { name: "Electronics", value: "electronics" },
+                  { name: "Electronics", value: "64dca6d4568637905e60f1ba" },
                   { name: "Fashion", value: "fashion" },
                   { name: "Travel", value: "travel" },
                 ]}
@@ -133,7 +142,7 @@ const NewProduct = () => {
                     : null
                 }
                 option={[
-                  { name: "Beauty", value: "beauty" },
+                  { name: "Mouse", value: "Mouse" },
                   { name: "Fashion", value: "fashion" },
                   { name: "Travel", value: "travel" },
                 ]}
@@ -141,6 +150,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Tags"
+                type="text"
                 name="tags"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -166,6 +176,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Price"
+                type="number"
                 name="price"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -180,6 +191,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Tax"
+                type="number"
                 name="tax"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -194,6 +206,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Fee"
+                type="number"
                 name="fee"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -208,6 +221,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Stock"
+                type="number"
                 name="stock"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -244,7 +258,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Approx Delivery (min)"
-                type="text"
+                type="number"
                 name="deliveryTime.min"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -255,7 +269,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Approx Delivery (max)"
-                type="text"
+                type="number"
                 name="deliveryTime.max"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -271,6 +285,7 @@ const NewProduct = () => {
               <Input
                 styles="basic"
                 label="Product URL"
+                type="text"
                 name="link"
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
@@ -280,7 +295,7 @@ const NewProduct = () => {
                     ? productForm.errors.link
                     : null
                 }
-                placeholder="Url here.."
+                placeholder="https://example.com/product-link"
               />
             </div>
            

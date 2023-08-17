@@ -129,7 +129,7 @@ const Input = ({
           disabled={disabled}
         >
           {option?.map((item, index) => (
-            <option key={index} value={item.value}>
+            <option defaultValue={index === 0 ? true : false} key={index} value={item.value}>
               {item.name}
             </option>
           ))}

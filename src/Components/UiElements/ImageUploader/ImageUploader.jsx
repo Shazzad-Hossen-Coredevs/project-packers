@@ -3,31 +3,30 @@
  * Image uploader component
  * @param {string} title for set header title
  * @param {function} getData callback function for retrive data
- * 
- * @returns JSX element 
+ *
+ * @returns JSX element
  */
-
 
 import camera from "../../../assets/icons/cd-camera.svg";
 import cancel from "../../../assets/icons/cd-cancel.svg";
 const ImageUploader = ({ title, data, onChange, onRemove }) => {
-
-
-
   const imageInputHandler = (element) => {
-    console.log(element.target.files[0])
-    const url = element.target.files[0]
+    // CHAT GPT
+    const files = element.target.files[0];
+    console.log(files)
+    const newImageData = Array.from(files);
+
+    // console.log(element.target.value)
+    // const url = element.target.files[0]
     // const url = URL.createObjectURL(element.target.files[0]);
     // setPreviewImage((prev) => [...prev, url]);
-    onChange(url);
+    onChange(files);
   };
 
   const imageRemoveHandler = (removeIndex) => {
-    const updateArray = data?.filter(
-      (item, index) => index !== removeIndex
-    );
-    onRemove(updateArray);  
-    
+    const updateArray = data?.filter((item, index) => index !== removeIndex);
+
+    onRemove(updateArray);
   };
   return (
     <>
@@ -44,6 +43,7 @@ const ImageUploader = ({ title, data, onChange, onRemove }) => {
           type="file"
           name="file"
           id="file"
+        
           onChange={imageInputHandler}
         />
         {data?.reverse().map((image, index) => {
@@ -58,7 +58,11 @@ const ImageUploader = ({ title, data, onChange, onRemove }) => {
                 src={cancel}
                 alt=""
               />
-              <img className="w-[80px] h-[80px]" src={URL.createObjectURL(image)} alt="" />
+              <img
+                className="w-[80px] h-[80px]"
+                src={URL.createObjectURL(image)}
+                alt=""
+              />
             </div>
           );
         })}

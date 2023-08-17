@@ -8,6 +8,7 @@ import search from "../../../assets/icons/search3.svg";
 import logo from "../../../assets/logo.svg";
 import notification from "../../../assets/icons/cd-notification.svg";
 import profile from "../../../assets/icons/user-1.svg";
+import { ToastBar, Toaster } from "react-hot-toast";
 const DUMMY_NOTIFICATION = [
   {
     id: 1,
@@ -40,6 +41,7 @@ const Header = () => {
   const { user } = useSelector((state) => state.userInfo);
   return (
     <div className="sticky top-0 mt-0 pt-0  bg-white z-50 shadow-sm ">
+      <Toaster />
       <div className="mx-6 hidden  sm:flex navbar gap-4 py-[10px] items-center justify-between">
         <Link
           to="/admin"

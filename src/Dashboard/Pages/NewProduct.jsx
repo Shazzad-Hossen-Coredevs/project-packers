@@ -4,7 +4,7 @@
  * edit product id coming from url
  * @returns JSX Element product add form
  *
- *  TODO image upload
+ *  TODO add fetch method in useEffect
  */
 
 import Heading from "../Components/UiElements/Heading/Heading";
@@ -14,12 +14,17 @@ import ImageUploader from "../../Components/UiElements/ImageUploader/ImageUpload
 import Button from "../Components/UiElements/Button/Button";
 import { useFormik } from "formik";
 import { productSchema } from "../../Util/ValidationSchema";
-import { useState } from "react";
-import { postApi } from "../../Util/apiCall";
+import { useEffect, useState } from "react";
+import {  postApi } from "../../Util/apiCall";
 import { errorToast, successToast } from "../../Util/toaster";
 const NewProduct = () => {
   const { productId } = useParams();
   const [imageData, setImageData] = useState([]);
+
+  useEffect(()=>{
+    // getApi()
+    console.log(productId);
+  },[productId])
   const productForm = useFormik({
     initialValues: {
       name: "",

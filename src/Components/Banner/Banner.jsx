@@ -15,14 +15,21 @@ import search from "../../assets/icons/cd-search2.svg";
 import Modal from "../UiElements/Modal/Modal";
 import RequestModal from "./RequestModal";
 import SuccessModal from "./SuccessModal";
+import { errorToast } from "../../Util/toaster";
 const Banner = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalState, setModalState] = useState("request");
+  const [url, setUrl] = useState('');
+
   const submitHandler = (e) => {
     e.preventDefault();
-    const url = e.target[0].value;
-    console.log(url);
-    setIsOpen(true);
+    if(e.target[0].value != ''){
+
+      setUrl(e.target[0].value);
+      setIsOpen(true);
+    }else{
+      errorToast("Please Provide product link")
+    }
   };
   const handleOnClose = () => {
     setIsOpen(false);
@@ -90,7 +97,7 @@ const Banner = () => {
       </div>
       <Modal show={isOpen} onClose={handleOnClose}>
         {modalState === "request" && (
-          <RequestModal confirmSubmit={modalSbmitHandler} />
+          <RequestModal url={url} confirmSubmit={modalSbmitHandler} />
         )}
         {modalState === "success" && (
           <SuccessModal confirmSubmit={modalSbmitHandler} />

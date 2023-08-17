@@ -8,7 +8,7 @@ import search from "../../../assets/icons/search3.svg";
 import logo from "../../../assets/logo.svg";
 import notification from "../../../assets/icons/cd-notification.svg";
 import profile from "../../../assets/icons/user-1.svg";
-import { ToastBar, Toaster } from "react-hot-toast";
+import {  Toaster } from "react-hot-toast";
 const DUMMY_NOTIFICATION = [
   {
     id: 1,

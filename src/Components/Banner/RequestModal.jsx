@@ -13,11 +13,20 @@ import globe from "../../assets/icons/cd-internet.svg";
 import reload from "../../assets/icons/cd-reload.svg";
 import { useState } from "react";
 import ImageUploader from "../UiElements/ImageUploader/ImageUploader";
+import { useFormik } from "formik";
 
-const RequestModal = ({ confirmSubmit }) => {
+const RequestModal = ({ url, confirmSubmit }) => {
   const [active, setActive] = useState("link");
   const [quantity, setQuantity] = useState(1);
 
+  const itemRequestForm = useFormik({
+    initialValues:{
+      link: url,
+      title:'',
+      quantity: 0,
+      note: ''
+    }
+  })
   const onSubmit = () => {
     confirmSubmit("success");
   };

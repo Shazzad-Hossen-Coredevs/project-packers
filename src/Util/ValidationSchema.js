@@ -36,30 +36,31 @@ export const profileSchema = object({
 
 export const categorySchema = object({
   name: string().required(),
-  slug:string().matches(/^[A-Za-z]+$/, 'Avoid space.').required()
-})
+  slug: string()
+    .matches(/^[A-Za-z]+$/, "Avoid space.")
+    .required(),
+});
 
 export const subCategorySchema = object({
   category: string().required(),
   name: string().required(),
-  slug:string().matches(/^[A-Za-z]+$/, 'Avoid space.').required()
-})
+  slug: string()
+    .matches(/^[A-Za-z]+$/, "Avoid space.")
+    .required(),
+});
 
 export const productSchema = object({
-  name:string().required(),
+  name: string().required(),
   desc: string().required(),
   price: string().required(),
-  tax:string().required(),
-  fee:string().required(),
-  stock:string().required(),
-  from:string().required(),
-  link:string().required(),
-  category:string().required(),
-  subCategory: string().required(),
+  tax: string().required(),
+  fee: string().required(),
+  stock: string().required(),
+  from: string().required(),
+  link: string().required(),
   tags: string().required(),
-  deliveryTime:object({
+  deliveryTime: object({
     min: string().required(),
-    max:string().required(),
-  })
-
-})
+    max: string().required(),
+  }),
+});

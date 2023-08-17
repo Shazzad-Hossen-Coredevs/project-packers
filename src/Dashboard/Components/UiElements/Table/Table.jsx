@@ -1,11 +1,5 @@
 /**
- * Table() returns table
- * dynamic table for all pages.
- * table will generate table head based on type.
- * data will map inside tbody
- * 
- * @param {string} type types of table
- * @param {array} data 
+ * @prams type || data
  * type => order || request || products || customer || customerDetails || Discount
  *
  * @returns table JSX Element.
@@ -18,6 +12,7 @@ import dlt from "../../../../assets/icons/cd-delete.svg";
 import arrowLeft from "../../../../assets/icons/cd-arrow-left-1.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { BASE_URL } from "../../../../Util/apiCall";
 
 const head = {
   order: [
@@ -278,9 +273,9 @@ const Table = ({ type, data = [], reFatch, pageItem }) => {
             </tr>
           </thead>
           <tbody>
-            {data.length < 1
+            {data?.docs?.length < 1
               ? "Loading"
-              : data.slice(0, 9).map((item, index) => {
+              : data?.docs?.map((item, index) => {
                   return (
                     <tr
                       key={index}
@@ -292,27 +287,27 @@ const Table = ({ type, data = [], reFatch, pageItem }) => {
                       <td className="px-4 py-[18px] text-black text-sm ">
                         <img
                           className="w-10 h-10 rounded border border-[#0000001c]"
-                          src={item.thumbnail}
+                          src={BASE_URL + "/api/" + item?.thumbnails[0]}
                           alt=""
                         />
                       </td>
                       <td
-                        onClick={() => selectHandler(item.id)}
+                        // onClick={() => selectHandler(item.id)}
                         className="px-4 py-[18px] text-black text-sm cursor-pointer line-clamp-2"
                       >
-                        {item.title}
+                        {item?.name}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.stock} in Stock
+                        {item?.stock} in Stock
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        ${item.price}
+                        ${item?.price}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.category}
+                        {item?.category?.name}
                       </td>
                       <td className="px-4 py-[18px] text-black text-sm ">
-                        {item.publishDate}
+                        {item?.publishDate || "Not available"}
                       </td>
                     </tr>
                   );
@@ -697,7 +692,8 @@ const Table = ({ type, data = [], reFatch, pageItem }) => {
         </table>
         <div className="flex justify-between items-center py-6 px-4">
           <p className="text-[#475569] text-sm">
-            Showing {data?.slice(startIndex, endIndex)?.length} of {data.length} results
+            Showing {data?.slice(startIndex, endIndex)?.length} of {data.length}{" "}
+            results
           </p>
           <div className="flex">
             <button

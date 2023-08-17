@@ -15,16 +15,39 @@ import Button from "../Components/UiElements/Button/Button";
 import { useFormik } from "formik";
 import { productSchema } from "../../Util/ValidationSchema";
 import { useEffect, useState } from "react";
-import {  postApi } from "../../Util/apiCall";
+import { getApi, postApi } from "../../Util/apiCall";
 import { errorToast, successToast } from "../../Util/toaster";
 const NewProduct = () => {
   const { productId } = useParams();
   const [imageData, setImageData] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [subCategories, setSubcategories] = useState([]);
+  const [selectedCategeory, setSelectedcategory] = useState("default");
+  const [selectedSubcategeory, setSelectedsubcategory] = useState("default");
+  const [categoryError, setCategoryerror] = useState({
+    category: false,
+    subCategory: false,
+  });
 
-  useEffect(()=>{
+  useEffect(() => {
+    if (selectedCategeory !== "default") {
+      categoryError.category = false;
+    }
+    if (selectedSubcategeory !== "default") {
+      categoryError.subCategory = false;
+    }
+    setCategoryerror({ ...categoryError });
+  }, [selectedCategeory, selectedSubcategeory]);
+  useEffect(() => {
+    getApi("/category").then((res) => {
+      if (res.status === 200) {
+        setCategories(res?.data);
+      }
+      console.log(res);
+    });
     // getApi()
     console.log(productId);
-  },[productId])
+  }, [productId]);
   const productForm = useFormik({
     initialValues: {
       name: "",
@@ -45,31 +68,62 @@ const NewProduct = () => {
     },
     validationSchema: productSchema,
     onSubmit: (values) => {
-      const data = JSON.stringify(values)
-      const formData = new FormData()
-      formData.append('data', data )
+      if (
+        categoryError.category === true ||
+        categoryError.subCategory === true
+      ) {
+        return;
+      }
+      values.category = selectedCategeory.id;
+      values.subCategory = selectedSubcategeory;
+      const data = JSON.stringify(values);
+      const formData = new FormData();
+      formData.append("data", data);
       for (const image of imageData) {
-        formData.append('thumbnails', image, image.name)
-        console.log(image, image.name)
-      } 
+        formData.append("thumbnails", image, image.name);
+        console.log(image, image.name);
+      }
 
-      postApi('/product',formData).then(res => {
-        if(res.status === 200){
-          successToast('Product Uploaded Successfully')
-        }else{
-          errorToast("Something went wrong")
-        }
-      }).catch(error => errorToast(error))
+      postApi("/product", formData)
+        .then((res) => {
+          if (res.status === 200) {
+            successToast("Product Uploaded Successfully");
+          } else {
+            errorToast("Something went wrong");
+          }
+        })
+        .catch((error) => errorToast(error));
     },
   });
 
   const imageSetter = (value) => {
-    setImageData(prev => [...prev, value])
-  }
+    setImageData((prev) => [...prev, value]);
+  };
 
-  const handleRemove = (values) =>{
-    setImageData(values)
-  }
+  const handleRemove = (values) => {
+    setImageData(values);
+  };
+  const categoryHandler = (value) => {
+    const _category = categories.find((item) => item.id === value);
+
+    setSelectedcategory(_category);
+    setSubcategories(_category.subCategory);
+  };
+
+  const handleCheck = () => {
+    if (selectedCategeory === "default") {
+      setCategoryerror({
+        category: true,
+        subCategory: true,
+      });
+    } else if (selectedSubcategeory === "default") {
+      setCategoryerror({
+        category: false,
+        subCategory: true,
+      });
+    }
+  };
+
   return (
     <div className="h-full px-5">
       <Heading type="navigate" title="Add New Product" back="Products" />
@@ -104,8 +158,7 @@ const NewProduct = () => {
                 blur={productForm.handleBlur}
                 value={productForm.values.desc}
                 error={
-                  productForm.touched.desc &&
-                  productForm.errors.desc
+                  productForm.touched.desc && productForm.errors.desc
                     ? productForm.errors.desc
                     : null
                 }
@@ -115,43 +168,43 @@ const NewProduct = () => {
 
             <h2 className="text-base text-secondary font-semibold">Category</h2>
             <div className="border border-[#0000001c] rounded-lg p-3 grid gap-3">
-              <Input
-                styles="select"
-                label="Product Category"
-                name="category"
-                change={productForm.handleChange}
-                blur={productForm.handleBlur}
-                value={productForm.values.category}
-                error={
-                  productForm.touched.category && productForm.errors.category
-                    ? productForm.errors.category
-                    : null
-                }
-                option={[
-                  { name: "Electronics", value: "64dca6d4568637905e60f1ba" },
-                  { name: "Fashion", value: "fashion" },
-                  { name: "Travel", value: "travel" },
-                ]}
-              />
-              <Input
-                styles="select"
-                label="Sub Category"
-                name="subCategory"
-                change={productForm.handleChange}
-                blur={productForm.handleBlur}
-                value={productForm.values.subCategory}
-                error={
-                  productForm.touched.subCategory &&
-                  productForm.errors.subCategory
-                    ? productForm.errors.subCategory
-                    : null
-                }
-                option={[
-                  { name: "Mouse", value: "Mouse" },
-                  { name: "Fashion", value: "fashion" },
-                  { name: "Travel", value: "travel" },
-                ]}
-              />
+              <label className="text-[#475569] text-sm">Parent Category</label>
+              <select
+                className={`bg-transparent border-[1px] w-full outline-none px-3 py-2 rounded-lg ${
+                  categoryError.category ? "border-[red]" : ""
+                } `}
+                name="id"
+                onChange={(e) => categoryHandler(e.target.value)}
+                defaultValue={"default"}
+              >
+                <option disabled value="default">
+                  Select
+                </option>
+                {categories.map((chat, i) => (
+                  <option key={i} value={chat.id}>
+                    {chat.name}
+                  </option>
+                ))}
+              </select>
+              <label className="text-[#475569] text-sm">Sub Category</label>
+              <select
+                className={`bg-transparent border-[1px] w-full outline-none px-3 py-2 rounded-lg ${
+                  categoryError.subCategory ? "border-[red]" : ""
+                } `}
+                name="id"
+                onChange={(e) => setSelectedsubcategory(e.target.value)}
+                defaultValue={"default"}
+              >
+                <option disabled value="default">
+                  Select
+                </option>
+                {subCategories.map((sub, i) => (
+                  <option key={i} value={sub.name}>
+                    {sub.name}
+                  </option>
+                ))}
+              </select>
+
               <Input
                 styles="basic"
                 label="Tags"
@@ -174,7 +227,11 @@ const NewProduct = () => {
               Product Images
             </h2>
             <div className="border border-[#0000001c] rounded-lg p-3">
-              <ImageUploader data={imageData} onChange={imageSetter} onRemove={handleRemove} />
+              <ImageUploader
+                data={imageData}
+                onChange={imageSetter}
+                onRemove={handleRemove}
+              />
             </div>
             <h2 className="text-base text-secondary font-semibold">Pricing</h2>
             <div className="border border-[#0000001c] grid grid-cols-2 gap-3 rounded-lg p-3">
@@ -268,7 +325,12 @@ const NewProduct = () => {
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
                 value={productForm.values.deliveryTime.min}
-                error={productForm.errors.deliveryTime && productForm.touched.deliveryTime ? productForm.errors.deliveryTime : null}
+                error={
+                  productForm.errors.deliveryTime &&
+                  productForm.touched.deliveryTime
+                    ? productForm.errors.deliveryTime
+                    : null
+                }
                 placeholder="1 week"
               />
               <Input
@@ -279,7 +341,12 @@ const NewProduct = () => {
                 change={productForm.handleChange}
                 blur={productForm.handleBlur}
                 value={productForm.values.deliveryTime.max}
-                error={productForm.errors.deliveryTime && productForm.touched.deliveryTime ? productForm.errors.deliveryTime : null}
+                error={
+                  productForm.errors.deliveryTime &&
+                  productForm.touched.deliveryTime
+                    ? productForm.errors.deliveryTime
+                    : null
+                }
                 placeholder="2 week"
               />
             </div>
@@ -303,12 +370,20 @@ const NewProduct = () => {
                 placeholder="https://example.com/product-link"
               />
             </div>
-           
+
             <div className="flex justify-between">
-              <Button onClick={()=> productForm.resetForm()} style="outline" type="reset">Discard</Button>
+              <Button
+                onClick={() => productForm.resetForm()}
+                style="outline"
+                type="reset"
+              >
+                Discard
+              </Button>
               <div className="space-x-2">
                 <Button style="outline">Draft</Button>
-                <Button style="primary" type="submit">Publish</Button>
+                <Button onClick={handleCheck} style="primary" type="submit">
+                  Publish
+                </Button>
               </div>
             </div>
           </div>

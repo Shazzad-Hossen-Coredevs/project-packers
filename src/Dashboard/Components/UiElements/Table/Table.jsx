@@ -60,7 +60,7 @@ const Table = ({ type, data = [], reFatch, pageItem }) => {
   const endIndex = startIndex + pageItem;
 
   const paginateHandler = (value) => {
-    //   console.log(value)
+      console.log(value)
     //  return reFatch(value)
   };
   const selectHandler = (id) => {
@@ -316,17 +316,21 @@ const Table = ({ type, data = [], reFatch, pageItem }) => {
         </table>
         <div className="flex justify-between items-center py-6 px-4">
           <p className="text-[#475569] text-sm">
-            Showing {10} of {100} results
+            Showing {data?.docs?.length} of {data?.totalDocs} results
           </p>
           <div className="flex">
             <button
-              onClick={() => paginateHandler("decrement")}
+              onClick={() =>
+                reFatch(data?.prevPage ? data?.prevPage : data?.page)
+              }
               className="border p-2"
             >
               <img src={arrowLeft} alt="" />
             </button>
             <button
-              onClick={() => paginateHandler("increment")}
+              onClick={() =>
+                reFatch(data?.nextPage ? data?.nextPage : data?.page)
+              }
               className="border p-2"
             >
               <img src={arrowRight} alt="" />

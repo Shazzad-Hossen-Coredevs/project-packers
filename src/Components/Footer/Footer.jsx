@@ -83,10 +83,10 @@ const Footer = () => {
             </p>
             <div className="flex flex-col gap-5 text-white text-base font-sans font-normal">
               <Link to="/">Home</Link>
-              <Link to="/">About Us</Link>
-              <Link to="/">My Request</Link>
+              <Link to="/about">About Us</Link>
+              <Link to="account/orders">My Request</Link>
               <Link to="/">Contact Us</Link>
-              <Link to="/">Blog</Link>
+              <Link to="/blog">Blog</Link>
               <Link to="/">Careers</Link>
             </div>
           </div>
@@ -95,11 +95,11 @@ const Footer = () => {
               Help
             </p>
             <div className="flex flex-col gap-5 text-white text-base font-sans font-normal">
-              <Link to="/">Support</Link>
+              <Link to="/support">Support</Link>
               <Link to="/">How Project Packers Works</Link>
               <Link to="/">Shipping & Delivery</Link>
               <Link to="/">Cancellation & Refund</Link>
-              <Link to="/">FAQs</Link>
+              <Link to="/faq">FAQs</Link>
               <Link to="/">Live Chat Support</Link>
             </div>
           </div>

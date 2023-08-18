@@ -42,7 +42,6 @@ export const categorySchema = object({
 });
 
 export const subCategorySchema = object({
-  category: string().required(),
   name: string().required(),
   slug: string()
     .matches(/^[A-Za-z]+$/, "Avoid space.")

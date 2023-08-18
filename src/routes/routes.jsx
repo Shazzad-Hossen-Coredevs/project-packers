@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
         path: "shop/:productId",
         element: <Product />,
         loader: async ({ params }) => {
-          return await getApi(`/product/${params.productId}`);
+          return  getApi(`/product/${params.productId}`).then(res => res);
         },
       },
       {

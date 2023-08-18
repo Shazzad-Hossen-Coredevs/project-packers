@@ -18,12 +18,14 @@ import { useEffect, useState } from "react";
 
 const MainCategory = () => {
   const [categories, setCategories] = useState([]);
+  const [refatch,setRefatch]=useState(false)
 
   useEffect(() => {
     getApi("/category?paginate=true&limit=5&page=1").then((res) => {
       setCategories(res.data);
     });
-  }, []);
+   
+  }, [refatch]);
 
   const reFatch = (page) => {
     getApi(`/category?paginate=true&limit=5&page=${page}`).then((res) => {
@@ -41,7 +43,7 @@ const MainCategory = () => {
       postApi("/category", values).then((res) => {
         if (res.status === 200) {
           successToast("New category successfully created.");
-          setCategories([res.data, ...categories]);
+          setRefatch(!refatch);
         } else {
           errorToast(res.data);
         }

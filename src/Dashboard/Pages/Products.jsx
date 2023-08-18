@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { products } from "../../Store/Data";
 import { useNavigate } from "react-router-dom";
 import Heading from "../Components/UiElements/Heading/Heading";
 import Button from "../Components/UiElements/Button/Button";
@@ -16,11 +15,18 @@ const Products = () => {
   useEffect(() => {
     getApi("/product?limit=10&paginate=true&page=1").then((res) => {
       if (res.status === 200) {
-        console.log(res);
         setTabledata(res.data);
       }
     });
   }, []);
+
+  const reFatch = (page) => {
+    getApi(`/product?limit=10&paginate=true&page=${page}`).then((res) => {
+      if (res.status === 200) {
+        setTabledata(res.data);
+      }
+    });
+  };
 
   const navigate = useNavigate();
   const tableButtonHandler = (value) => {
@@ -92,7 +98,7 @@ const Products = () => {
               </div>
             </div>
 
-            <Table type="products" data={tableData} />
+            <Table type="products" data={tableData} reFatch={reFatch} />
           </div>
         </div>
       </div>

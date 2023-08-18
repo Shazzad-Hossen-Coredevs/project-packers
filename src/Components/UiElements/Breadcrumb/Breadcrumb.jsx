@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useBreadcrumb from "../../Hooks/BreadcrumbHook";
 
-const Breadcrumb = () => {
+const Breadcrumb = ({title}) => {
   const breadcrumb = useBreadcrumb();
   return (
     <div className="bg-secondary w-full py-[14px] font-sans text-sm">
@@ -24,7 +24,7 @@ const Breadcrumb = () => {
                 } capitalize`}
                 to={item.url}
               >
-                {item.label}
+                {title && index === breadcrumb.length - 1 ? title : item.label}
               </Link>
             </div>
           );

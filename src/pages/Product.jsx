@@ -5,12 +5,15 @@ import Breadcrumb from "../Components/UiElements/Breadcrumb/Breadcrumb";
 import GalleryCard from "../Components/UiElements/GalleryCard/GalleryCard";
 import { useEffect, useState } from "react";
 import { getApi, postApi } from "../Util/apiCall";
+import { errorToast, successToast } from "../Util/toaster";
+import { useDispatch } from "react-redux";
+import { userSignin } from "../Store/userSlice";
 // import Slider from "../Components/UiElements/Slider/Slider";
 
 const Product = () => {
   const product = useLoaderData();
   const [relatedProduct, setrelatedProduct] = useState([]);
-  console.log(product);
+  const dispatch = useDispatch();
   //  API FETCHING FOR RELATED PRODUCT
   useEffect(() => {
     if (product.status !== 200) {
@@ -25,13 +28,19 @@ const Product = () => {
       });
     }
   }, []);
-  const requsetItemHandler =  () => {
+  const requsetItemHandler = () => {
     const data = {
       productId: product.data._id,
-      quantity: 1
-    }
-    console.log(product)
-    postApi('/user/cart', data).then(res=>console.log(res.data))
+      quantity: 1,
+    };
+    postApi("/user/cart", data).then((res) => {
+      if (res.status === 200) {
+        successToast("Successfully aded to cart");
+        dispatch(userSignin(res.data));
+      } else {
+        errorToast(res.data);
+      }
+    });
   };
   return (
     <>

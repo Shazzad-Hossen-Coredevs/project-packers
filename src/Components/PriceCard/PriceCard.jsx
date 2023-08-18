@@ -26,7 +26,8 @@ const PriceCard = ({
   fee,
   estimated,
   products,
-  onSubmit
+  onSubmit,
+  disabled,
 }) => {
   return (
     <div className="border text-lg font-medium  font-sans border-[#0003160D] mx-5 sm:mx-0 max-w-[490px] rounded-lg px-5 pt-1 pb-8">
@@ -92,7 +93,9 @@ const PriceCard = ({
                 key={item.id}
                 className="flex text-base text-[#475569] justify-between py-4 border-b border-[#0000000D]"
               >
-                <p className="font-normal line-clamp-1 max-w-[200px] sm:max-w-[350px] ">{item.title}</p>
+                <p className="font-normal line-clamp-1 max-w-[200px] sm:max-w-[350px] ">
+                  {item.title}
+                </p>
                 <p className="font-medium">৳ {item.price?.toFixed(2)}tk</p>
               </div>
             );
@@ -145,7 +148,7 @@ const PriceCard = ({
           </div>
         </>
       )}
-      <Button onClick={onSubmit} full type="primary">
+      <Button disabled={disabled} onClick={onSubmit} full type="primary">
         {type === "cart"
           ? "Checkout"
           : type === "product"

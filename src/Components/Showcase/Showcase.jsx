@@ -9,7 +9,7 @@ const Showcase = ({ type, title, description, data }) => {
   return (
     <div className="container mx-auto flex flex-col items-center my-[34px] sm:my-[74px]">
       <Heading title={title} description={description} />
-      <div className="grid bg-[#124E581A] py-[1px] gap-[1px]   grid-cols-2 sm:grid-cols-4">
+      <div className="grid  py-[1px] gap-[1px]   grid-cols-2 sm:grid-cols-4">
         {data?.slice(0, item).map((item) => {
           return (
             <ProductCard

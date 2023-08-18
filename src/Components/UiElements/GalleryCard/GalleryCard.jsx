@@ -20,7 +20,7 @@ const GalleryCard = ({ data }) => {
   return (
     // to-do: make array for image
     <div className="w-full h-full flex px-5 gap-4">
-      <aside className="w-1/4 h-full flex flex-col gap-4">
+      <aside className="w-1/4 h-full flex flex-col gap-4 overflow-y-auto">
         {data?.map((item) => imgFn(item))}
       </aside>
       <aside className="w-full flex-1">

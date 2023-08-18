@@ -27,7 +27,6 @@ import { Toaster } from "react-hot-toast";
 import LoginModal from "../MobileModal/LoginModal";
 import { readNotification } from "../../Store/userSlice";
 
-
 const DUMMY_CART = [
   {
     id: 1,
@@ -76,7 +75,7 @@ const Header = ({ sideBar, state }) => {
       <div className=" z-[100]">
       <Toaster  />
       </div>
-        
+      
       <div className="container hidden  sm:flex mx-auto navbar gap-4 py-[10px] items-center justify-between">
         <Link
           to="/"

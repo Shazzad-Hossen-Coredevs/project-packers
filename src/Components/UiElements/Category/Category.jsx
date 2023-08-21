@@ -11,7 +11,7 @@ const Category = ({ data }) => {
       <h5 className="text-[#3E949A] text-base font-sans font-semibold">
         All Category
       </h5>
-      {data.map((category) => (
+      {data?.map((category) => (
         <div key={category.id} className="category">
           <div
             className={`text-[#475569] text-base font-normal cursor-pointer flex justify-between category-name ${

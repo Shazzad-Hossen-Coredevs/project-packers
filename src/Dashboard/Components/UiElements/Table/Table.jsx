@@ -96,7 +96,7 @@ const Table = ({ type, data = [], reFatch, pageItem }) => {
             </tr>
           </thead>
           <tbody>
-            {data.length < 1
+            {data.length == 0
               ? "Loading"
               : data.map((item, index) => {
                   return (
